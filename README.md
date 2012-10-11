@@ -1,8 +1,3 @@
-challengeme
-
 Challenge me !
 
-
-
-modification lol
-troll
+Ce Github est celui d'un projet Hétic H3P2015
