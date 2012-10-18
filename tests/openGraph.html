@@ -1,9 +1,55 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:og="http://ogp.me/ns#"
+xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+	<head prefix="og: http://jeanbaptisteminvielle.fr/challengeme/tests/openGraph.html# challengemehetic: http://ogp.me/ns/apps/challengemehetic#">
+
+	<!-- Identifiant de l'application -->
+	<meta property="fb:app_id" content="267328883388489" />
+	<!-- Propriétés de l'objet --> 
+	<meta property="og:type" content="challengemehetic:challenge" /> 
+	<meta property="og:title" content="Challenge" /> 
+	<meta property="og:description" content="The Bobcats are crappy cats working in an enterprise only to piss their coworkers off." /> 
+	<meta property="og:url" content="http://jeanbaptisteminvielle.fr/challengeme/">
+
+	<meta property="fb:admins" content="1156158705"/>
+
+
+</head>
 
 <body>
 <h2>Tests de l'API OpenGraph V2 Facebook</h2>
 
+<div id="fb-root"></div>
 
+
+<!-- Sous forme de boîte avec les utilisateurs -->
+<div class="fb-add-to-timeline" data-mode="button"></div>
+
+<fb:login-button></fb:login-button>
+
+<script>
+  FB.init({ 
+    appId:'267328883388489', cookie:true, 
+    status:true, xfbml:true, oauth:true
+  });
+
+	function proposeChallenge() {
+	  FB.api('/me/challengemehetic:comment?picture=' + window.location, 'post', function(response) {
+	    if (!response || response.error) {
+	      alert('Une erreur est survenue lors de la publication de l\'action.');
+	    } else {
+	      alert('Action publiée ! Identifiant d\'action : ' + response.id);
+	    }
+	  });
+	}
+</script>
+
+<button id="comment-action" onclick="proposeChallenge()">J'ai proposé ce challenge</button>
+
+
+<script src="http://connect.facebook.net/fr_FR/all.js" type="text/javascript"></script>
 
 </body>
 
