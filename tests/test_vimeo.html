@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+ 
+        <head>
+                <meta charset="utf-8">
+                <title>Test vimeo</title>
+ 
+                <!-- meta -->
+                <meta name="description" content="">
+                <meta name="author" content="">
+                <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        </head>
+ 
+ 
+        <body>
+                <script>
+                        var userName = 'dumspiro';
+                        var tag = 'WIP';
+                        $.getJSON("http://vimeo.com/api/v2/"+userName+"/videos.json?callback=?", function(data){
+                                $nb = data.length;
+                                for(i = 0; i < 2; i++){
+                                        document.write('<div class="video'+i+'">Video '+i);
+                                        document.write('<p class="video'+i+'">'+data[i]['title']+'</p>');
+                                        if( data[i]['tags'].indexOf(tag) != -1) {
+                                                document.write('<p class="video'+i+'">'+data[i]['description']+'</p>');
+                                                document.write('<p class="video'+i+'">'+data[i]['url']+'</p>');
+                                                document.write('<p class="video'+i+'">'+data[i]['tags']+'</p>');
+
+                                        } else {
+                                                document.write('<p class="video'+i+'">Nope</p>');
+                                        }
+                                        document.write('</div>');
+                                }
+                        });
+                </script>
+        <!-- <p>Par ici</p>
+        <div id="ici"></div> -->
+        <iframe id="player_1" src="http://player.vimeo.com/video/3718294?api=1&amp;player_id=player_2" width="540" height="304" frameborder="0" webkitallowfullscreen=""></iframe>
+         <iframe 
+                                                src="http://player.vimeo.com/video/51478122" 
+                                                width="540" 
+                                                height="304" 
+                                                frameborder="0" 
+                                                webkitAllowFullScreen mozallowfullscreen allowFullScreen
+                                        ></iframe>
+        </body>
+
+</html>
