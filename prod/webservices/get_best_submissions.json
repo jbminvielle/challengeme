@@ -4,7 +4,7 @@
 		{
 			"title": "gobage de flambys",
 			"author": "Durilou",
-			"permalink": "durilou.html",
+			"permalink": "sub_durilou.html",
 			"coord":
 			{
 				"latitude":"48.8515844",
@@ -20,7 +20,7 @@
 		{
 			"title": "Danser le Gangnam style en public",
 			"author": "Neuski",
-			"permalink": "neuski.html",
+			"permalink": "sub_neuski.html",
 			"coord":
 			{
 				"latitude":"48.861861",
@@ -28,7 +28,7 @@
 			},
 			"videos": [
 				{
-					"id": 1
+					"id": 10
 				}
 			],
 			"challenge": {}
@@ -36,7 +36,7 @@
 		{
 			"title": "réaliser 50 pompes en 10 minutes",
 			"author": "Musclor",
-			"permalink": "musclor.html",
+			"permalink": "sub_musclor.html",
 			"coord":
 			{
 				"latitude":"48,919069",
@@ -44,7 +44,7 @@
 			},
 			"videos": [
 				{
-					"id": 1
+					"id": 20
 				}
 			],
 			"challenge": {}

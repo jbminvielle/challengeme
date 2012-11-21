@@ -1,0 +1,39 @@
+{
+	"title": "gobage de flambys",
+	"name": "Durilou",
+
+	"submissions": [
+		{
+			"title": "gobage de flambys",
+			"permalink": "sub_durilou.html",
+			"coord":
+			{
+				"latitude":"48.8515844",
+				"longitude":"2.42075090000003"
+			},
+			"videos": [
+				{
+					"id": 1
+				}
+			],
+			"challenge": {}
+		},
+		{
+			"title": "Danser le Gangnam style en public",
+			"permalink": "sub_durilou2.html",
+			"coord":
+			{
+				"latitude":"48.8515844",
+				"longitude":"2.42075090000003"
+			},
+			"videos": [
+				{
+					"id": 2
+				}
+			],
+			"challenge": {}
+		},
+
+	]
+
+}
