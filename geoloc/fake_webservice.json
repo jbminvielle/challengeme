@@ -1,0 +1,35 @@
+{
+	"challengers":
+	[
+		{
+			"title": "gobage de flambys",
+			"author": "Durilou",
+			"permalink": "durilou.html",
+			"coord":
+			{
+				"latitude":"48.8515844",
+				"longitude":"2.42075090000003"
+			}
+		},
+		{
+			"title": "Danser le Gangnam style en public",
+			"author": "Neuski",
+			"permalink": "neuski.html",
+			"coord":
+			{
+				"latitude":"48.861861",
+				"longitude":"2.347181"
+			}
+		},
+		{
+			"title": "réaliser 50 pompes en 10 minutes",
+			"author": "Musclor",
+			"permalink": "musclor.html",
+			"coord":
+			{
+				"latitude":"48,919069",
+				"longitude":"2,255700"
+			}
+		}
+	]
+}
