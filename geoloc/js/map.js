@@ -1,6 +1,27 @@
 ﻿	google.maps.event.addDomListener(window, 'load', initialize);//Au chargement de la page on lance la fonction initialize
 	var map;
+	var webservice = function (webservice, args) //AJAX, récupère les données du JSON
+	{
+		var renderObj;
 
+		$.ajax({
+			data: args,
+			url: "webservices/"+webservice+'.json',
+			async: false,
+			success: function(obj) {
+				renderObj= obj;
+			},
+			error: function(obj) {
+				renderObj= obj;
+			}
+		});
+
+		return renderObj;
+	}
+	var res=webservice('get_best_submissions');
+	alert(res[0].coord.latitude);
+	console.log(JSON.stringify(webservice('get_best_submissions')));//Test pour savoir si on accède bien aux données du JSON
+	
     function initialize() 
 	{
         var mapOptions = 
@@ -24,7 +45,7 @@
               map: map,
               position: pos
             });
-			map.setCenter(pos);// on centre la map sur notre position
+			map.setCenter(pos);
 			//alert(pos);
 			oMarker.setDraggable(true);
 			google.maps.event.addListener(oMarker, 'dragend', function(event) 
