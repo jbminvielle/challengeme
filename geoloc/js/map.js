@@ -24,6 +24,16 @@
               map: map,
               position: pos
             });
+			map.setCenter(pos);// on centre la map sur notre position
+			//alert(pos);
+			oMarker.setDraggable(true);
+			google.maps.event.addListener(oMarker, 'dragend', function(event) 
+			{
+				//message d'alerte affichant la nouvelle position du marqueur
+				//alert("La nouvelle coordonnée du marqueur est : "+event.latLng);
+				pos=event.latLng;
+				map.setCenter(pos);
+			});
 			//var content="Défi de Jojo300";
 			var contentString = 
 			[
@@ -43,11 +53,10 @@
 				content:contentString,
 				position:pos
 			});
-			
+
 			google.maps.event.addListener(oMarker,'click',infoClickOpen);//au passage de la souris sur le marqueur, on déclenche une fct
             google.maps.event.addListener(map,'click',infoClickClose);//lorsque la souris part, idem
 			
-			map.setCenter(pos);
 			function infoClickOpen()
 			{
 				infoWindow.open(map,oMarker);//on ouvre une fenêtre sur le marqueur
