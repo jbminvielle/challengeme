@@ -24,36 +24,53 @@
               map: map,
               position: pos
             });
-			var content="Défi de Jojo300";
+			//var content="Défi de Jojo300";
+			var contentString = 
+			[
+			  '<div id="containerTabs">',
+				  '<div id="tabs">',
+					  '<h3>Gobage de Flamby</h3>',
+					  '<div id="tab-1">',
+						'<p>Réalisé par <a id="nom" href="#">Durilou</a></p>',
+					  '</div>',
+					  '<a href="#"><span>Voir la vidéo</span></a><br/>',
+					  '<a href="#"><span>Facebook</span></a>',
+				  '</div>',
+			  '</div>'
+			].join('');
+			
 			var infoWindow=new google.maps.InfoWindow({
-				content:content,
+				content:contentString,
 				position:pos
 			});
-			google.maps.event.addListener(oMarker,'mouseover',infoOver);//au passage de la souris sur le marqueur, on déclenche une fct
-            google.maps.event.addListener(oMarker,'mouseout',infoOut);//lorsque la souris part, idem
+			
+			google.maps.event.addListener(oMarker,'click',infoClickOpen);//au passage de la souris sur le marqueur, on déclenche une fct
+            google.maps.event.addListener(map,'click',infoClickClose);//lorsque la souris part, idem
+			
 			map.setCenter(pos);
-			function infoOver()
+			function infoClickOpen()
 			{
 				infoWindow.open(map,oMarker);//on ouvre une fenêtre sur le marqueur
-				if( !this.flagIcon)
+				if( !oMarker.flagIcon)
 				{
-					this.savIcon = this.getIcon();  // récupération de l'image via la méthode getIcon()
-					this.flagIcon = true;
+					oMarker.savIcon = oMarker.getIcon();  // récupération de l'image via la méthode getIcon()
+					oMarker.flagIcon = true;
 				}
-				this.setIcon('img/MouseOverIcone.png');
+				oMarker.setIcon('img/MouseOverIcone.png');
 			}
-			function infoOut()
+			
+			function infoClickClose()
 			{
 				infoWindow.close(map,oMarker);
 				// restauration sur le mouseout
-				this.setIcon( this.savIcon);
+				oMarker.setIcon( oMarker.savIcon);
 			}
-			console.log(pos);
+			//console.log(pos);
           }, function() 
 		  {
             handleNoGeolocation(true);
           });
-        } 
+		}
 		else 
 		{
           // Si le navigateur n'accepte pas la geoloc

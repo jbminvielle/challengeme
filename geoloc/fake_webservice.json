@@ -10,6 +10,12 @@
 				"latitude":"48.8515844",
 				"longitude":"2.42075090000003"
 			}
+			"videos": 
+			[
+				{
+					"id": 1337
+				}
+			]
 		},
 		{
 			"title": "Danser le Gangnam style en public",
