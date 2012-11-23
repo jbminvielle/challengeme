@@ -8,11 +8,8 @@ $(document).ready(function(){
 	timeout:4000,
 	next:   '#next-slide', 
 	prev:   '#prev-slide'
-	});
-	
+	});	
 });
-
-
 
 // get/set webservices
 // string webserviceName : 	the name of the webservice we want to contact
@@ -29,14 +26,12 @@ webservice = function (webserviceName, args) {
 		url: "webservices/"+webserviceName+'.json',
 		async: false,
 		success: function(obj) {
-			renderObj= obj;
+			renderObj = obj;
 		},
 		error: function(obj) {
-			renderObj= obj;
+			renderObj = obj;
 		}
 	});
 
 	return renderObj;
 }
-
-
