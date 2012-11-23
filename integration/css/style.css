@@ -1,0 +1,110 @@
+/*
+* Challenge Me Stylesheet
+* Copyright 2012, Koune, Laumond, Minvielle, Schmitt, Souville
+* HETIC H3 P2015
+*/
+
+
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline; }
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block; }
+	body {
+		line-height: 1;		}
+	ol, ul {
+		list-style: none; }
+	blockquote, q {
+		quotes: none; }
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none; }
+	table {
+		border-collapse: collapse;
+		border-spacing: 0; }
+	* {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+		
+/* #Clearing */
+    /* Self Clearing Goodness */
+    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns, or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after {content: '\0020';display: block;overflow: hidden;visibility: hidden;width: 0;height: 0; }
+    .clearfix:after {clear: both; }
+    .clearfix {zoom: 1; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0;}
+
+@font-face {
+    font-family: 'Myriad Pro Condensed';
+	src: url('../fonts/MyriadPro-BoldCond.eot');
+	src: local('☺'), url('../fonts/MyriadPro-BoldCond.woff') format('woff'), url('../fonts/MyriadPro-BoldCond.otf') format('opentype'), url('../fonts/MyriadPro-BoldCond.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+	
+/* STYLE DE BASE 
+-------------------------------------------------- */
+body {background:#e2e2e2;font:18px Myriad Pro Condensed;color:#555;}
+a {text-decoration:none;color:#000;}
+#global {}
+#container {width:960px;margin:0 auto;border:2px solid #dadada;border-top:none;
+background: #f3f3f3;
+background: -moz-linear-gradient(top, #f3f3f3 0%, #d6d6d6 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d6d6d6));
+background: -webkit-linear-gradient(top, #f3f3f3 0%,#d6d6d6 100%);
+background: -o-linear-gradient(top, #f3f3f3 0%,#d6d6d6 100%);
+background: -ms-linear-gradient(top, #f3f3f3 0%,#d6d6d6 100%);
+background: linear-gradient(to bottom, #f3f3f3 0%,#d6d6d6 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d6d6d6',GradientType=0 );
+padding:10px 0;position:relative;}
+
+/* EN-TETE
+-------------------------------------------------- */
+header {margin:0 auto;position:relative;z-index:400;}
+#en-tete-fond {background: #7b06a6;
+background: -moz-linear-gradient(left, #7b06a6 50%, #ffb62a 50%);
+background: -webkit-gradient(linear, left top, right top, color-stop(50%,#7b06a6), color-stop(50%,#ffb62a));
+background: -webkit-linear-gradient(left, #7b06a6 50%,#ffb62a 50%);
+background: -o-linear-gradient(left, #7b06a6 50%,#ffb62a 50%);
+background: -ms-linear-gradient(left, #7b06a6 50%,#ffb62a 50%);
+background: linear-gradient(to right, #7b06a6 50%,#ffb62a 50%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b06a6', endColorstr='#ffb62a',GradientType=1 );}
+#en-tete {background:url(../img/head.jpg)no-repeat center;width:100%;height:245px;padding:70px 0;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;margin:0 auto;}
+#en-tete, nav {text-transform:uppercase;}
+#logo {font-size:80px;}
+#facebookConnect {color:#fff;background:#3b5998;font:12px tahoma;font-weight:bold;width:120px;height:25px;display:block;padding:3px 0;border:1px solid #b2b2b2;border-top:none;text-indent:30px;position:absolute;top:0;right:100px;}
+#facebookConnect span {background:url(../img/fb.jpg)no-repeat;width:25px;height:25px;display:block;position:absolute;top:0;left:-1px;border:1px solid #b2b2b2;border-top:none;}
+.separator {background:#7b06a6;height:10px;display:block;width:100%}
+
+/* MENU
+-------------------------------------------------- */
+nav {font-size:34px;line-height:30px;}
+nav li {display:inline;margin:0 60px;}
+nav a {color:#555;}
+nav a:hover {color:#ffb62a;}
+.current a {color:#ffb62a;}
+
+
+
+/* SLIDER ACCUEIL
+-------------------------------------------------- */
+#main-slider {width:956px;position:relative;}
+#main-slider  span {position:absolute;bottom:25px;margin:0 30px;z-index:10;display:block;}
+#main-slider  p {color:#fff;display:inline;}
+#main-slider  a {display:block;}
+.titre-slide {font-size:30px;}
+.sous-titre-slide {font-size:22px;margin-left:40px;}
+#prev-slide, #next-slide {position:absolute;z-index:30;top:110px;}
+#prev-slide {background:url(../img/prev.png) no-repeat;width:35px;height:98px;left:15px;}
+#next-slide {background:url(../img/next.png) no-repeat;width:52px;height:98px;right:15px;}
