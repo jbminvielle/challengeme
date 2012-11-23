@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+ 
+        <head>
+                <meta charset="utf-8">
+                <title>Galerie Vimeo</title>
+ 
+                <!-- meta -->
+                <meta name="description" content="">
+                <meta name="author" content="">
+                <link rel="stylesheet" href="reset.css">
+                <script type="text/javascript">
+                    document.addEventListener("DOMContentLoaded", init, false);
+                    var username = 'brad';
+                    var callback = 'showGallery';
+                    var oEmbedCallback = 'switchVideo';
+                    var oEmbedEndpoint = 'http://vimeo.com/api/oembed.json'
+                    var url = 'http://vimeo.com/api/v2/' + username + '/videos.json?callback=' + callback;
+                    var videos = new Array();
+
+                    function init() {
+                        var js = document.createElement('script');
+                        js.setAttribute('type', 'text/javascript');
+                        js.setAttribute('src', url);
+                        document.getElementsByTagName('head').item(0).appendChild(js);
+                        document.getElementById('date').addEventListener('click', recente, false);
+                        document.getElementById('pop').addEventListener('click', popularite, false);
+                    }
+
+                    function getVideo(url) {
+                        var js = document.createElement('script');
+                        js.setAttribute('type', 'text/javascript');
+                        js.setAttribute('src', oEmbedEndpoint + '?url=' + url + '&width=504&height=280&callback=' + oEmbedCallback);
+                        document.getElementsByTagName('head').item(0).appendChild(js);
+                    }
+
+                    function switchVideo(video) {
+                        var laVideo = document.getElementById('laVideo');
+                        laVideo.innerHTML = '<a id="close" href="#">[Fermer]</a>';
+                        laVideo.innerHTML += unescape(video.html);
+                        document.getElementById('close').addEventListener('click',closeVideo,false);
+                    }
+
+                    function showGallery(video) {
+                        var ul = document.createElement('ul');
+                        var gallery = document.getElementById('gallery');
+                        gallery.innerHTML = ' ';
+                        gallery.appendChild(ul);
+                        videos = video;
+                        var i;
+                        for(i = 0; i < video.length; i++){
+                            var li = document.createElement('li');
+                            ul.appendChild(li);
+
+                            var a = document.createElement('a');
+                            li.appendChild(a);
+                            a.setAttribute('href',video[i].url);
+
+                            var img = document.createElement('img');
+                            a.appendChild(img);
+                            img.setAttribute('src',video[i].thumbnail_medium);
+                            img.setAttribute('title',video[i].thumbnail_medium);
+                            img.setAttribute('alt',video[i].thumbnail_medium);
+
+                            var div = document.createElement('div');
+                            a.appendChild(div);
+                            div.setAttribute('class','info');
+                            var p1 = document.createElement('p');
+                            div.appendChild(p1);
+                            p1.innerHTML = video[i].title;
+                            p1.setAttribute('class','titre');
+                            var p2 = document.createElement('p');
+                            div.appendChild(p2);
+                            p2.innerHTML = video[i].stats_number_of_likes;
+                            p2.setAttribute('class','auteur');
+                            if(a.addEventListener){
+                                a.addEventListener('click',clickVideo,false);
+                            }else{
+                                a.onclick = clickVideo;
+                            }
+                        }
+                    }
+                    function clickVideo(e){
+                        e.preventDefault();
+                        getVideo(this);
+                        var laVideo = document.getElementById('laVideo');
+                        laVideo.style.display = 'inline-block';
+                        laVideo.style.top=(window.innerHeight-laVideo.offsetHeight )/2+'px';
+                        laVideo.style.left=(window.innerWidth-laVideo.offsetWidth )/2+'px';
+                        return false;
+                    }
+
+                    function closeVideo(e){
+                        e.preventDefault();
+                        var laVideo = document.getElementById('laVideo');
+                        laVideo.innerHTML = ' ';
+                        laVideo.style.display='none';
+                        return false;
+                    }
+
+                    function popularite(e){
+                        var pop = document.getElementById('pop');
+                        var date = document.getElementById('date');
+                        pop.className = 'classement active';
+                        date.className = 'classement';
+                        e.preventDefault();
+                        var ul = document.createElement('ul');
+                        var gallery = document.getElementById('gallery');
+                        gallery.innerHTML = ' ';
+                        gallery.appendChild(ul);
+                        var temp;
+                        for(i = 0; i < videos.length-1; i++){
+                            var max = i;
+                            for(j = i+1; j < videos.length; j++){
+                                if(videos[max].stats_number_of_likes < videos[j].stats_number_of_likes){
+                                    max = j;
+                                }
+                            }
+                            temps = videos[i];
+                            videos[i] = videos[max];
+                            videos[max] = temps;
+                        }
+                        for(i = 0; i < videos.length; i++){
+                            var li = document.createElement('li');
+                            ul.appendChild(li);
+
+                            var a = document.createElement('a');
+                            li.appendChild(a);
+                            a.setAttribute('href',videos[i].url);
+
+                            var img = document.createElement('img');
+                            a.appendChild(img);
+                            img.setAttribute('src',videos[i].thumbnail_medium);
+                            img.setAttribute('title',videos[i].thumbnail_medium);
+                            img.setAttribute('alt',videos[i].thumbnail_medium);
+
+                            var div = document.createElement('div');
+                            a.appendChild(div);
+                            div.setAttribute('class','info');
+                            var p1 = document.createElement('p');
+                            div.appendChild(p1);
+                            p1.innerHTML = videos[i].title;
+                            p1.setAttribute('class','titre');
+                            var p2 = document.createElement('p');
+                            div.appendChild(p2);
+                            p2.innerHTML = videos[i].stats_number_of_likes;
+                            p2.setAttribute('class','auteur');
+                            if(a.addEventListener){
+                                a.addEventListener('click',clickVideo,false);
+                            }else{
+                                a.onclick = clickVideo;
+                            }
+                        }
+                        return false;
+                    }
+                    function recente(e){
+                        var pop = document.getElementById('pop');
+                        var date = document.getElementById('date');
+                        pop.className = 'classement';
+                        date.className = 'classement active';
+                        e.preventDefault();
+                        var ul = document.createElement('ul');
+                        var gallery = document.getElementById('gallery');
+                        gallery.innerHTML = ' ';
+                        gallery.appendChild(ul);
+                        var temp;
+                        for(i = 0; i < videos.length-1; i++){
+                            var max = i;
+                            for(j = i+1; j < videos.length; j++){
+                                if(videos[max].upload_date < videos[j].upload_date){
+                                    max = j;
+                                }
+                            }
+                            temps = videos[i];
+                            videos[i] = videos[max];
+                            videos[max] = temps;
+                        }
+                        for(i = 0; i < videos.length; i++){
+                            var li = document.createElement('li');
+                            ul.appendChild(li);
+
+                            var a = document.createElement('a');
+                            li.appendChild(a);
+                            a.setAttribute('href',videos[i].url);
+
+                            var img = document.createElement('img');
+                            a.appendChild(img);
+                            img.setAttribute('src',videos[i].thumbnail_medium);
+                            img.setAttribute('title',videos[i].thumbnail_medium);
+                            img.setAttribute('alt',videos[i].thumbnail_medium);
+
+                            var div = document.createElement('div');
+                            a.appendChild(div);
+                            div.setAttribute('class','info');
+                            var p1 = document.createElement('p');
+                            div.appendChild(p1);
+                            p1.innerHTML = videos[i].title;
+                            p1.setAttribute('class','titre');
+                            var p2 = document.createElement('p');
+                            div.appendChild(p2);
+                            p2.innerHTML = videos[i].stats_number_of_likes;
+                            p2.setAttribute('class','auteur');
+                            if(a.addEventListener){
+                                a.addEventListener('click',clickVideo,false);
+                            }else{
+                                a.onclick = clickVideo;
+                            }
+                        }
+                        return false;
+                    }
+                </script>
+                <style type="text/css">
+                    /* ------------------------------- Général ------------------------------- */
+                    html{
+                        height: 100%;
+                    }
+                    h1{
+                        background-color: #4EBBFF;
+                        text-align: center;
+                        height: 32px;
+                        color: #fff;
+                    }
+                    /* ------------------------------- PopIn ------------------------------- */
+                    #laVideo{
+                        display: none;
+                        opacity: 1;
+                        height: 297px;
+                        width: 504px;
+                        position: absolute;
+                        z-index: 100;
+                        padding: 18px 30px 30px 30px;
+                        background-color: #4EBBFF;
+                    }
+
+                    #close{
+                        text-align: right;
+                        font-size: 0.8em;
+                        margin: -12px 0 2px 0;
+                        display: inline-block;
+                    }
+
+                    /* ------------------------------- Galerie ------------------------------- */
+                    #gallery{
+                        width:660px;
+                        height: 350px;
+                        margin: 0 auto;
+                    }
+                    ul{
+                        padding:0;
+                    }
+                    li{
+                        display: inline-block;
+                        margin: 10px 10px;
+                        width: 200px;
+                        height: 153px;
+                    }
+                    a{
+                        position: relative;
+                        display: inline-block;
+                        z-index: 20;
+                    }
+                    .info{
+                        background-color: #4EBBFF;
+                        opacity:0.7;
+                        width: 200px;
+                        position:absolute;
+                        bottom:3px;
+                    }
+                    li:hover div{
+                        opacity: 1;
+                    }
+
+                    /* ------------------------------- Classement ------------------------------- */
+                    p{
+                        text-align: center;
+                        color:black;
+                    }
+                    .classement{
+                        text-decoration: none;
+                        color:#4EBBFF;
+                    }
+                    .active{
+                        color: #00E;
+                    }
+                </style>
+        </head>
+ 
+ 
+        <body>
+            <h1>Ma galerie Vimeo</h1>
+            <a href="#" id="date" class="classement active">Date</a>
+            <a href="#" id="pop" class="classement">Popularité</a>
+            <div id="laVideo"></div>
+            <div id="gallery">Chargement des videos ...</div>
+               
+        </body>
+<!-- 
+Problèmes Popin
+    - overflow hidden du body remonte en haute de la page
+    - voile noir à la facebook
+ -->
+</html>
