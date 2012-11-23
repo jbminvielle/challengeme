@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
 
 	//slider page d'accueil :
@@ -14,7 +12,7 @@ $(document).ready(function(){
 	
 });
 
-/*
+
 
 // get/set webservices
 // string webserviceName : 	the name of the webservice we want to contact
@@ -24,14 +22,21 @@ $(document).ready(function(){
 //		"get_challenger"
 
 webservice = function (webserviceName, args) {
+	var renderObj;
+
 	$.ajax({
 		data: args,
-		url: "webservices/"+webserviceName+'.js',
-		succes: function(obj) {
-			return obj;
+		url: "webservices/"+webserviceName+'.json',
+		async: false,
+		success: function(obj) {
+			renderObj= obj;
+		},
+		error: function(obj) {
+			renderObj= obj;
 		}
-	})
+	});
+
+	return renderObj;
 }
 
 
-*/
