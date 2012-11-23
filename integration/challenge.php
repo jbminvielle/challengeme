@@ -17,8 +17,8 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 	<meta property="og:type" content="challengemehetic:challenge" /> 
 	<meta property="og:title" content="Gobage de famby !" /> 
 	<meta property="og:description" content="Ce défi consiste à gober un flamby lolilol" /> 
-	<meta property="og:image" content="http://www.transeet.fr/wp-content/uploads/2012/05/radiolondres-pays-bas-hongrie-hollande-vainqueur.gif" /> 
-	<meta property="og:url" content="http://jeanbaptisteminvielle.fr/challengeme/tests/openGraph.html" />
+	<meta property="og:image" content="medias/challenges_images/gobage_flamby.png" /> 
+	<meta property="og:url" content="challenge.php?gobage-famby" />
 
 	<?php include('header.php'); ?>
 	<span class="separator">&nbsp;</span>
