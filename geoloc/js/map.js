@@ -19,14 +19,14 @@
 		return renderObj;
 	}
 	var res=webservice('get_best_submissions');
-	alert(res[0].coord.latitude);
+	console.log(res[0].coord.latitude);
 	console.log(JSON.stringify(webservice('get_best_submissions')));//Test pour savoir si on accède bien aux données du JSON
 	
     function initialize() 
 	{
         var mapOptions = 
 		{
-          zoom: 17,//définit le zoom sur la carte
+          zoom: 11,//définit le zoom sur la carte
           mapTypeId: google.maps.MapTypeId.ROADMAP//affiche la carte avec les routes
         };
         map = new google.maps.Map(document.getElementById('map_canvas'),
@@ -39,63 +39,82 @@
 		  {
             var pos = new google.maps.LatLng(position.coords.latitude,
                                              position.coords.longitude);
-            var oMarker = new google.maps.Marker
-			({
-			  icon:'img/icone.png',
-              map: map,
-              position: pos
-            });
-			map.setCenter(pos);
-			//alert(pos);
-			oMarker.setDraggable(true);
-			google.maps.event.addListener(oMarker, 'dragend', function(event) 
+			map.setCenter(pos);//pour centrer la map sur notre lieu actuel
+			for(i=0;i<res.length;i++)//On va afficher tous les marker représentant les meilleurs soumissions de défis 
 			{
-				//message d'alerte affichant la nouvelle position du marqueur
-				//alert("La nouvelle coordonnée du marqueur est : "+event.latLng);
-				pos=event.latLng;
-				map.setCenter(pos);
-			});
-			//var content="Défi de Jojo300";
-			var contentString = 
-			[
-			  '<div id="containerTabs">',
-				  '<div id="tabs">',
-					  '<h3>Gobage de Flamby</h3>',
-					  '<div id="tab-1">',
-						'<p>Réalisé par <a id="nom" href="#">Durilou</a></p>',
+				var posMark = new google.maps.LatLng(res[i].coord.latitude,
+                                             res[i].coord.longitude);
+				
+				var oMarker = new google.maps.Marker
+				({
+				  icon:'img/icone.png',
+				  map: map,
+				  position: posMark
+				});
+				
+				//oMarker.setDraggable(true);
+				
+				var contentString = 
+				[
+				  '<div id="containerTabs">',
+					  '<div id="tabs">',
+						  '<h3>'+ res[i].title +'</h3>',
+						  '<div id="tab-1">',
+							'<p>Réalisé par <a id="nom" href="'+ res[i].permalink +'">'+ res[i].author +'</a></p>',
+						  '</div>',
+						  '<a href="#"><span>Voir la vidéo</span></a><br/>',
+						  '<a href="#"><span>Facebook</span></a>',
 					  '</div>',
-					  '<a href="#"><span>Voir la vidéo</span></a><br/>',
-					  '<a href="#"><span>Facebook</span></a>',
-				  '</div>',
-			  '</div>'
-			].join('');
-			
-			var infoWindow=new google.maps.InfoWindow({
-				content:contentString,
-				position:pos
-			});
-
-			google.maps.event.addListener(oMarker,'click',infoClickOpen);//au passage de la souris sur le marqueur, on déclenche une fct
-            google.maps.event.addListener(map,'click',infoClickClose);//lorsque la souris part, idem
-			
-			function infoClickOpen()
-			{
-				infoWindow.open(map,oMarker);//on ouvre une fenêtre sur le marqueur
-				if( !oMarker.flagIcon)
+				  '</div>'
+				].join('');
+				
+				var infoWindow=new google.maps.InfoWindow({
+					//content:contentString,
+					position:posMark
+				});
+				setEventMarker( oMarker, infoWindow, contentString);//########################
+				CloseWindow( oMarker, infoWindow);//########################
+				
+				google.maps.event.addListener( oMarker, 'mouseover', function()
 				{
-					oMarker.savIcon = oMarker.getIcon();  // récupération de l'image via la méthode getIcon()
-					oMarker.flagIcon = true;
-				}
-				oMarker.setIcon('img/MouseOverIcone.png');
-			}
-			
-			function infoClickClose()
-			{
-				infoWindow.close(map,oMarker);
+					if( !this.flagIcon)
+					{
+					  this.savIcon = this.getIcon();  // récupération de l'image via la méthode getIcon()
+					  this.flagIcon = true;
+					}
+					this.setIcon( 'img/MouseOverIcone.png');
+				});
 				// restauration sur le mouseout
-				oMarker.setIcon( oMarker.savIcon);
+				google.maps.event.addListener( oMarker, 'mouseout', function()
+				{
+					this.setIcon( this.savIcon);
+				});
 			}
-			//console.log(pos);
+			function setEventMarker( marker, infowindow, texte)//########################
+			{
+			  google.maps.event.addListener( marker, 'click', function() 
+			  {
+				// affectation du texte
+				infowindow.setContent(texte);
+				// affichage InfoWindow
+				infowindow.open( map, marker);
+			  });
+			}
+			function CloseWindow( marker, infoWindow)
+			{
+				google.maps.event.addListener(map,'click',function()
+				{
+					infoWindow.close(map,marker);
+				});
+			}
+			google.maps.event.addListener(oMarker, 'dragend', function(event) 
+				{
+					//message d'alerte affichant la nouvelle position du marqueur
+					//alert("La nouvelle coordonnée du marqueur est : "+event.latLng);
+					pos=event.latLng;
+					map.setCenter(pos);
+				});
+			
           }, function() 
 		  {
             handleNoGeolocation(true);
