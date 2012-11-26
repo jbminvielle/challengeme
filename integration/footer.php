@@ -12,7 +12,7 @@
 
 <!-- JS
 	================================================== -->
-	<script type="text/javascript" src="js/jquery-min.js"></script>
-	<script type="text/javascript" src="js/jcycle.js"></script>
+	<script type="text/javascript" language="javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/jquery.carouFredSel-6.1.0-packed.js"></script>
 	<script type="text/javascript" src="js/functions.js"></script>
 	

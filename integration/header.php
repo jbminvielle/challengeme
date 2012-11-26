@@ -15,8 +15,8 @@
 	<div id="global">
 		<header>
 			<a href="#" id="facebookConnect"><span>&nbsp;</span>Se connecter</a>
-			<div id="en-tete">
-				<a href="#" id="logo">Challenge Me</a>
+			<div id="logo">
+				<a href="#"><strong>Challenge Me !</strong></a>
 			</div>
 		</header>
 		<div id="container">

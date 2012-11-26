@@ -1,10 +1,28 @@
 $(document).ready(function(){
-	$('#main-slider ul').cycle({
-	fx:'scrollLeft',
-	speed:700,
-	timeout:4000,
-	next:   '#next-slide', 
-	prev:   '#prev-slide'
+	$('#list-slider').carouFredSel({
+		circular: false,
+		infinite: false,
+		auto    : false,
+		prev    : {
+			button  : "#prev-slide",
+			key     : "left"
+		},
+		next    : {
+			button  : "#next-slide",
+			key     : "right"
+		},
+		scroll : {
+			items           : 1,
+            duration        : 400,                        
+            pauseOnHover    : true
+		}
+
+		/*responsive: true,
+		width: '100%',
+		items: {
+			width: 400,
+			//	height: '30%',	//	optionally resize item-height
+		}*/
 	});
 	
 });

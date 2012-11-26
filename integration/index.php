@@ -10,10 +10,11 @@
 	<?php require('header.php'); ?>
 	<span class="separator">&nbsp;</span>
 	<div id="main-slider">
-		<a href="#" id="prev-slide">&nbsp;</a>
-		<a href="#" id="next-slide">&nbsp;</a>
-		<ul>
-			<li>
+		<div id="list-slider">
+			<img src="img/slide1.jpg" alt="Principe du site"/>
+			<img src="img/slide1.jpg" alt="Principe du site"/>
+			<img src="img/slide1.jpg" alt="Principe du site"/>
+			<!--<li>
 				<img src="img/slide1.jpg" alt="Principe du site"/>
 				<span><p class="titre-slide">Le principe ?</p>
 				<p class="sous-titre-slide">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet !</p></span>
@@ -27,8 +28,11 @@
 				<img src="img/slide1.jpg" alt="Principe du site"/>
 				<span><p class="titre-slide">Le principe ?</p>
 				<p class="sous-titre-slide">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet !</p></span>
-			</li>
-		</ul>
+			</li>-->
+		</div>
+		<div class="clearfix"></div>
+		<a class="prev-slide" href="#">&nbsp;</a>
+		<a class="next-slide" href="#">&nbsp;</a>
 	</div>
 
 	<div id="bloc-defis" class="clearfix">
