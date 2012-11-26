@@ -8,6 +8,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<?php require('header.php'); ?>
+
+	
 	<span class="separator">&nbsp;</span>
 	<div id="main-slider">
 		<a href="#" id="prev-slide">&nbsp;</a>
