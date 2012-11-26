@@ -55,42 +55,34 @@
 	
 /* STYLE DE BASE 
 -------------------------------------------------- */
-body {background:#e2e2e2;font:18px Myriad Pro Condensed;color:#555;}
-a {text-decoration:none;color:#000;}
+body {background:#e2e2e2;font:18px Myriad Pro Condensed;color:#2a2a2a;}
+a {text-decoration:none;color:#fff;}
 #global {}
 #container {width:960px;margin:0 auto;border:2px solid #dadada;border-top:none;
 background: #f3f3f3;
-background: -moz-linear-gradient(top, #f3f3f3 0%, #d6d6d6 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d6d6d6));
-background: -webkit-linear-gradient(top, #f3f3f3 0%,#d6d6d6 100%);
-background: -o-linear-gradient(top, #f3f3f3 0%,#d6d6d6 100%);
-background: -ms-linear-gradient(top, #f3f3f3 0%,#d6d6d6 100%);
-background: linear-gradient(to bottom, #f3f3f3 0%,#d6d6d6 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d6d6d6',GradientType=0 );
+background: -moz-linear-gradient(top, #fff 0%, #d6d6d6 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#d6d6d6));
+background: -webkit-linear-gradient(top, #fff 0%,#d6d6d6 100%);
+background: -o-linear-gradient(top, #fff 0%,#d6d6d6 100%);
+background: -ms-linear-gradient(top, #fff 0%,#d6d6d6 100%);
+background: linear-gradient(to bottom, #fff 0%,#d6d6d6 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d6d6d6',GradientType=0 );
 padding:10px 0;position:relative;}
 
 /* EN-TETE
 -------------------------------------------------- */
 header {margin:0 auto;position:relative;z-index:400;}
-#en-tete-fond {background: #7b06a6;
-background: -moz-linear-gradient(left, #7b06a6 50%, #ffb62a 50%);
-background: -webkit-gradient(linear, left top, right top, color-stop(50%,#7b06a6), color-stop(50%,#ffb62a));
-background: -webkit-linear-gradient(left, #7b06a6 50%,#ffb62a 50%);
-background: -o-linear-gradient(left, #7b06a6 50%,#ffb62a 50%);
-background: -ms-linear-gradient(left, #7b06a6 50%,#ffb62a 50%);
-background: linear-gradient(to right, #7b06a6 50%,#ffb62a 50%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b06a6', endColorstr='#ffb62a',GradientType=1 );}
-#en-tete {background:url(../img/head.jpg)no-repeat center;width:100%;height:245px;padding:70px 0;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;margin:0 auto;}
+#en-tete {background: #7b06a6 ;width:100%;height:245px;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;margin:0 auto;}
 #en-tete, nav {text-transform:uppercase;}
-#logo {font-size:80px;}
+#logo {font-size:80px;line-height:245px;}
 #facebookConnect {color:#fff;background:#3b5998;font:12px tahoma;font-weight:bold;width:120px;height:25px;display:block;padding:3px 0;border:1px solid #b2b2b2;border-top:none;text-indent:30px;position:absolute;top:0;right:100px;}
-#facebookConnect span {background:url(../img/fb.jpg)no-repeat;width:25px;height:25px;display:block;position:absolute;top:0;left:-1px;border:1px solid #b2b2b2;border-top:none;}
+#facebookConnect span {background:url(../img/sprite.png) no-repeat -489px 0;width:25px;height:25px;display:block;position:absolute;top:0;left:-1px;border:1px solid #b2b2b2;border-top:none;}
 .separator {background:#7b06a6;height:10px;display:block;width:100%}
 
 /* MENU
 -------------------------------------------------- */
-nav {font-size:34px;line-height:30px;}
-nav li {display:inline;margin:0 60px;}
+nav {font-size:34px; line-height:30px;}
+nav li {display:inline; margin:0 60px;}
 nav a {color:#555;}
 nav a:hover {color:#ffb62a;}
 .current a {color:#ffb62a;}
@@ -108,3 +100,36 @@ nav a:hover {color:#ffb62a;}
 #prev-slide, #next-slide {position:absolute;z-index:30;top:110px;}
 #prev-slide {background:url(../img/prev.png) no-repeat;width:35px;height:98px;left:15px;}
 #next-slide {background:url(../img/next.png) no-repeat;width:52px;height:98px;right:15px;}
+
+#bloc-defis {margin:30px 0;}
+
+/* DEFI SEMAINE ACCUEIL
+-------------------------------------------------- */
+#defi-semaine {float:left;border-right:1px solid #7b06a6;padding-right:20px;}
+#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:26px;padding:8px 45px;float:left;}
+#defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:32px;}
+#defi-semaine-participer {background: url(../img/sprite.png) no-repeat -108px -123px;font-size:36px;width:180px;height:85px;padding:8px 18px;float:right;}
+#defi-semaine img {border:5px solid #7b06a6;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #a8a8a8;box-shadow: 2px 2px 18px 0px #a8a8a8;
+-moz-transform: rotate(3deg);-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);-ms-transform: rotate(3deg);transform: rotate(3deg);float:right;}
+#defi-semaine-infos {float:left;clear:both;}
+#defi-semaine-infos span {color:#ffa801;}
+
+/* CLASSEMENT ACCUEIL
+-------------------------------------------------- */
+#classement {float:left;padding-left:20px;}
+#classement p {color:#7b06a6;font-size:24px;}
+#classement ul li {font-size:20px;margin:5px 0;}
+#classement ul li:first-child {color:#ffa801;font-size:24px;}
+#classement ul li span:first-child {color:#7b06a6;}
+#classement ul li span:last-child {width:0;height:0;border-bottom:10px solid transparent;border-left:10px solid #ffa801;border-right:10px solid transparent;border-top:10px solid transparent;position:absolute;margin:5px 20px;}
+#classement ul li:first-child span:last-child{border-left:10px solid #7b06a6;}
+
+#bandeau-participer {background: url(../img/sprite.png) no-repeat 0 -230px;height:90px;}
+#bandeau-participer a {line-height:90px;display:block;font-size:42px;width:50%;}
+#bandeau-participer a:first-child {float:left;padding-left:100px}
+#bandeau-participer a:last-child {float:right;font-size:20px;padding-left:30px}
+
+/* MAP ACCUEIL
+-------------------------------------------------- */
+#map p {color:#7b06a6;font-size:34px;clear:both;margin-left:32px;}
+#map > div {width:890px;height:515px;border:1px solid #5d5d5d;margin:0 auto;}
