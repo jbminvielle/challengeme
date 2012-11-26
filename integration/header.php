@@ -14,6 +14,7 @@
 <body>
 	<div id="global">
 		<header>
+
 			<div id="userplace">
 				<div id="facebookConnect" class="fb-login-button hidden" scope="email,user_checkins, publish_stream">Se connecter</div>
 				<div id="userInfos" class="hidden"></div>
