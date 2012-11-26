@@ -133,3 +133,10 @@ nav a:hover {color:#ffb62a;}
 -------------------------------------------------- */
 #map p {color:#7b06a6;font-size:34px;clear:both;margin-left:32px;}
 #map > div {width:890px;height:515px;border:1px solid #5d5d5d;margin:0 auto;}
+
+
+
+/* UTILITIES
+-------------------------------------------------- */
+
+.hidden {display: none!important;}

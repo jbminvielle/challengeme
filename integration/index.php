@@ -9,8 +9,9 @@
 
 	<?php require('header.php'); ?>
 
-	
+
 	<span class="separator">&nbsp;</span>
+
 	<div id="main-slider">
 		<a href="#" id="prev-slide">&nbsp;</a>
 		<a href="#" id="next-slide">&nbsp;</a>
