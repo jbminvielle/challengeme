@@ -8,8 +8,6 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<?php require('header.php'); ?>
-
-	
 	<span class="separator">&nbsp;</span>
 	<div id="main-slider">
 		<a href="#" id="prev-slide">&nbsp;</a>
@@ -52,11 +50,11 @@
 		<div id="classement">
 			<p>Ils dominent le classement !</p>
 			<ul>
-				<li><span>1er</span> Akajiro <span>&nbsp;</span></li>
-				<li><span>2ème</span> Neuski <span>&nbsp;</span></li>
-				<li><span>3ème</span> Dragirl <span>&nbsp;</span></li>
-				<li><span>4ème</span> Nadium <span>&nbsp;</span></li>
-				<li><span>5ème</span> Scouty <span>&nbsp;</span></li>
+				<li><span>1er</span><a href="#"> Akajiro <span>&nbsp;</span></a></li>
+				<li><span>2ème</span><a href="#"> Neuski <span>&nbsp;</span></a></li>
+				<li><span>3ème</span><a href="#"> Dragirl <span>&nbsp;</span></a></li>
+				<li><span>4ème</span><a href="#"> Nadium <span>&nbsp;</span></a></li>
+				<li><span>5ème</span><a href="#"> Scouty <span>&nbsp;</span></a></li>
 			</ul> <!-- Récupération du classement avec requête JS -->
 		</div>
 	</div>
