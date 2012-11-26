@@ -15,10 +15,8 @@
 	<div id="global">
 		<header>
 			<a href="#" id="facebookConnect" class="fb-login-button"><span>&nbsp;</span>Se connecter</a>
-			<div id="en-tete-fond">
-				<div id="en-tete">
-					<a href="#" id="logo">Challenge Me</a>
-				</div>
+			<div id="en-tete">
+				<a href="#" id="logo">Challenge Me</a>
 			</div>
 		</header>
 		<div id="container">
