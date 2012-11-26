@@ -5,6 +5,10 @@
 	<!-- Favicons
 ================================================== 
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png" />-->
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 	
 </head>
 <body>
