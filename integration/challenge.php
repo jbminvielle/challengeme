@@ -7,8 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<?php require('header.php'); ?>
-
 	<!-- Identifiant de l'application opengraph -->
 	<meta property="fb:app_id" content="267328883388489" />
 	<!-- Propriétés de l'objet --> 

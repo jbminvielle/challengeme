@@ -109,7 +109,7 @@ window.fbAsyncInit = function() {
 
 		if (response.status === 'connected') {
 			console.log(response.authResponse);
-			FBAPI.showProfile(); //to get the connected profile
+			//FBAPI.showProfile(); //to get the connected profile
 		} else if (response.status === 'not_authorized') {
 			console.log(response.status);
 			FBAPI.showFacebookButton(); //to get the facebook button
@@ -128,7 +128,7 @@ window.FBAPI = {
 	},
 
 	showFacebookButton: function() {
-		$('#facebookConnect').addClass('hidden');
-		$('#userInfos').removeClass('hidden');
+		$('#facebookConnect').removeClass('hidden');
+		$('#userInfos').addClass('hidden');
 	}
 }
