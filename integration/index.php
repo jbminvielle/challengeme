@@ -9,6 +9,7 @@
 
 	<?php require('header.php'); ?>
 	<span class="separator">&nbsp;</span>
+
 	<div id="main-slider">
 		<div id="list-slider">
 			<img src="img/slide1.jpg" alt="Principe du site"/>

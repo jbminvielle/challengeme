@@ -14,11 +14,17 @@
 <body>
 	<div id="global">
 		<header>
-			<a href="#" id="facebookConnect"><span>&nbsp;</span>Se connecter</a>
+			<div id="userplace">
+				<div id="facebookConnect" class="fb-login-button hidden" scope="email,user_checkins, publish_stream">Se connecter</div>
+				<div id="userInfos" class="hidden"></div>
+			</div>
+
 			<div id="logo">
 				<a href="#"><strong>Challenge Me !</strong></a>
 			</div>
 		</header>
+
+
 		<div id="container">
 			<nav>
 				<ul>
@@ -28,4 +34,3 @@
 					<li><a href="#">Classement</a></li>
 				</ul>
 			</nav>
-		

@@ -81,14 +81,15 @@ padding:10px 0;position:relative;}
 -------------------------------------------------- */
 header {margin:0 auto;position:relative;z-index:30;background: #7b06a6 ;width:100%;height:200px;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;}
 #logo {background: url(../img/logo.png) no-repeat 35% 50%;height:100%;}
-#logo a {font:68px 'Noteworthy';line-height:160px;text-shadow: 0px 5px 5px #e3a42c;filter: dropshadow(color=#e3a42c, offx=0, offy=5);}
+#logo a {font:68px 'Noteworthy';line-height:160px;text-shadow: 0px 5px 5px #d09523;filter: dropshadow(color=#d09523, offx=0, offy=5);}
 #facebookConnect {color:#fff;background:#3b5998;font:12px tahoma;font-weight:bold;width:120px;height:25px;display:block;padding:3px 0;border:1px solid #b2b2b2;border-top:none;text-indent:30px;position:absolute;top:0;right:100px;}
+#facebookConnect:hover {background:#4b67a1;}
 #facebookConnect span {background:url(../img/sprite.png) no-repeat -489px 0;width:25px;height:25px;display:block;position:absolute;top:0;left:-1px;border:1px solid #b2b2b2;border-top:none;}
 .separator {background:#7b06a6;height:10px;display:block;width:100%}
 
 /* MENU
 -------------------------------------------------- */
-nav {text-transform:uppercase;font-size:36px; line-height:30px;}
+nav {text-transform:uppercase;font-size:36px; line-height:1em;}
 nav li {display:inline; margin:0 56px;}
 nav a {color:#c1c1c1;}
 nav a:hover {color:#ffb62a;}
@@ -147,6 +148,24 @@ a.disabled{opacity: 0; cursor:default;}
 #map p {color:#7b06a6;font-size:34px;clear:both;margin: 20px 0 20px 32px;}
 #map > div {width:890px;height:515px;border:1px solid #5d5d5d;margin:0 auto;}
 
+
+
+
+/* UTILITIES
+-------------------------------------------------- */
+
+.hidden {display: none!important;}
+
 /* FOOTER
 -------------------------------------------------- */
-footer {background:#2a2a2a;margin-top:40px;}
+footer {background:#2a2a2a;color:#fff;margin-top:40px;}
+.foot-colonne {width:33.333%;float:left;}
+#reseaux a {display:block;width:65px;height:65px;}
+#reseaux-facebook, #reseaux-twitter, #reseaux-vimeo {background: url(../img/sprite.png) no-repeat ;}
+#reseaux-facebook {background-position: -520px 0;}
+#reseaux-facebook:hover {background-position: -520px -67px;}
+#reseaux-twitter {background-position: -592px 0;}
+#reseaux-twitter:hover {background-position: -592px -67px;}
+#reseaux-vimeo {background-position: -665px 0;}
+#reseaux-vimeo:hover {background-position: -665px -67px;}
+
