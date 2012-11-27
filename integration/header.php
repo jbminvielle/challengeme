@@ -13,14 +13,13 @@
 <body>
 	<div id="global">
 		<header>
-
 			<div id="userplace">
 				<div id="facebookConnect" class="fb-login-button hidden" scope="email,user_checkins, publish_stream">Se connecter</div>
 				<div id="userInfos" class="hidden">Infos user</div>
 			</div>
 
-			<div id="en-tete">
-				<a href="#" id="logo">Challenge Me</a>
+			<div id="logo">
+				<a href="#"><strong>Challenge Me !</strong></a>
 			</div>
 		</header>
 
