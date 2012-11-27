@@ -1,41 +1,45 @@
-$(document).ready(function(){
-	$('#main-slider ul').cycle({
-	fx:'scrollLeft',
-	speed:700,
-	timeout:4000,
-	next:   '#next-slide', 
-	prev:   '#prev-slide'
-	});
-	
-});
+// $(document).ready(function(){
+// 	$('#main-slider ul').cycle({
+// 	fx:'scrollLeft',
+// 	speed:700,
+// 	timeout:4000,
+// 	next:   '#next-slide', 
+// 	prev:   '#prev-slide'
+// 	});
+// });
 
-window.addEventListener("DOMContentLoaded", init, false);
+window.MAP = {
 
-function init(){
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(geoSuccess, geoError,{enableHighAccuracy:true} );
+	init: function() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(MAP.geoSuccess, MAP.geoError,{enableHighAccuracy:true} );
+		}
+		else {
+			console.log('pas de geolocalisation');
+		}
+	},
+
+	geoSuccess: function (position) {
+		geoLat = position.coords.latitude;
+		geoLng = position.coords.longitude;
+		var mapCanvas=document.getElementById("map");
+		var latlng = new google.maps.LatLng(geoLat, geoLng);
+		var settings = {
+			zoom: 13,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+		geoMap = new google.maps.Map(document.querySelector('#map div'), settings);
+	},
+
+	geoError: function(e) {
+		console.log('fkgrkfkglt');
 	}
-	else {
-		console.log('pas de geolocalisation');
-	}
-};
+}
+window.addEventListener("DOMContentLoaded", window.MAP.init, false);
 
-function geoSuccess(position) {
-	geoLat = position.coords.latitude;
-	geoLng = position.coords.longitude;
-	var mapCanvas=document.getElementById("map");
-	var latlng = new google.maps.LatLng(geoLat, geoLng);
-	var settings = {
-		zoom: 13,
-		center: latlng,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-	geoMap = new google.maps.Map(document.querySelector('#map div'), settings);
-};
 
-function geoError(e) {
-	console.log('fkgrkfkglt');
-};
+window.CHALLENGEME = {};
 
 // get/set webservices
 // string webserviceName : 	the name of the webservice we want to contact
@@ -43,8 +47,7 @@ function geoError(e) {
 // list of webservices :
 // 		"get_best_submissions"
 //		"get_challenger"
-
-webservice = function (webserviceName, args) {
+window.CHALLENGEME.localWebservice = function (webserviceName, args) {
 	var renderObj;
 
 	$.ajax({
@@ -62,39 +65,6 @@ webservice = function (webserviceName, args) {
 	return renderObj;
 }
 
-window.fbAsyncInit = function() {
-	FB.init({
-		appId      : '267328883388489', // App ID
-		channelUrl : '//jeanbaptisteminvielle.fr/challengeme/tests/openGraph.html', // Channel File
-		status     : true, // check login status
-		cookie     : true, // enable cookies to allow the server to access the session
-		xfbml      : true  // parse XFBML
-	});
-	// Additional initialization code here
-
-	FB.getLoginStatus(function(response) {
-
-		if (response.status === 'connected') {
-			showProfile(); //to get the connected profile
-		} else if (response.status === 'not_authorized') {
-			showFacebookButton(); //to get the facebook button
-		} else {
-			//to get the facebook button
-			showFacebookButton(); //to get the facebook button
-		}
-	 });
-};
-
-showProfile = function() {
-	$('#facebookConnect').addClass('hidden');
-	$('#userInfos').removeClass('hidden');
-};
-
-showFacebookButton = function() {
-	$('#facebookConnect').addClass('hidden');
-	$('#userInfos').removeClass('hidden');
-};
-
 // Load the SDK Asynchronously
 (function(d){
 	 var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -104,3 +74,42 @@ showFacebookButton = function() {
 	 ref.parentNode.insertBefore(js, ref);
  }(document));
 
+window.fbAsyncInit = function() {
+	FBAPI.showFacebookButton();
+
+	FB.init({
+		appId      : '267328883388489', // App ID
+		channelUrl : '//jeanbaptisteminvielle.fr/challengeme/tests/openGraph.html', // Channel File
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : true  // parse XFBML
+	});
+
+	// Additional initialization code here
+	FB.getLoginStatus(function(response) {
+
+		if (response.status === 'connected') {
+			console.log(response.authResponse);
+			FBAPI.showProfile(); //to get the connected profile
+		} else if (response.status === 'not_authorized') {
+			console.log(response.status);
+			FBAPI.showFacebookButton(); //to get the facebook button
+		} else {
+			//to get the facebook button
+			console.log(response.status);
+			FBAPI.showFacebookButton(); //to get the facebook button
+		}
+	 });
+};
+
+window.FBAPI = {
+	showProfile: function() {
+		$('#facebookConnect').addClass('hidden');
+		$('#userInfos').removeClass('hidden');
+	},
+
+	showFacebookButton: function() {
+		$('#facebookConnect').addClass('hidden');
+		$('#userInfos').removeClass('hidden');
+	}
+}
