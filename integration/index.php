@@ -71,7 +71,7 @@
 	
 	<div id="map">
 		<p>Le best-of des challenges réalisés autour de vous !</p>
-		<div></div>
+		<div id="map_canvas"></div>
 	</div>
 
 		<?php require('footer.php'); ?>
