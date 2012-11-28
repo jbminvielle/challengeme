@@ -33,3 +33,4 @@
 					<li><a href="#">Classement</a></li>
 				</ul>
 			</nav>
+			<span class="separator">&nbsp;</span>

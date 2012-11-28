@@ -4,11 +4,11 @@ $(document).ready(function(){
 		infinite: false,
 		auto    : false,
 		prev    : {
-			button  : "#prev-slide",
+			button  : ".prev-slide",
 			key     : "left"
 		},
 		next    : {
-			button  : "#next-slide",
+			button  : ".next-slide",
 			key     : "right"
 		},
 		scroll : {

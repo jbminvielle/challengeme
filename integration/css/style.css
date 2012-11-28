@@ -101,10 +101,11 @@ nav a:hover {color:#ffb62a;}
 -------------------------------------------------- */
 #main-slider {width:956px;height:335px;position:relative;overflow:hidden;}
 #main-slider li, #main-slider img {float:left;}
-#main-slider  span {position:absolute;bottom:25px;margin:0 30px;z-index:10;display:block;}
-#main-slider  p {color:#fff;display:inline;}
+#main-slider  p {position:absolute;bottom:25px;margin:0 30px;z-index:10;display:block;}
+#main-slider  span {color:#fff;display:inline;}
+#list-slider {list-style-type:none;}
 .titre-slide {font-size:34px;}
-.sous-titre-slide {font-size:22px;margin-left:40px;}*/
+.sous-titre-slide {font-size:22px;margin-left:40px;}
 .prev-slide, .next-slide {background:url(../img/sprite.png) no-repeat; position:absolute;z-index:30;top:110px;width:35px;height:98px;}
 .prev-slide:hover, .next-slide:hover {top:110px;width:40px;height:98px;}
 .prev-slide {background-position: 2px -113px;left:15px;}
@@ -118,12 +119,12 @@ a.disabled{opacity: 0; cursor:default;}
 
 /* DEFI SEMAINE ACCUEIL
 -------------------------------------------------- */
-#defi-semaine {float:left;border-right:1px solid #7b06a6;padding-right:20px;}
+#defi-semaine {float:left;border-right:1px solid #7b06a6;padding:0 20px 5px 0;}
 #defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:26px;padding:8px 45px;float:left;}
 #defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:34px;}
-#defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:36px;width:180px;height:85px;padding:8px 18px;float:right;}
+#defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:36px;width:180px;height:85px;padding:8px 18px;margin:15px 0 0 0; float:right;}
 #defi-semaine img {border:5px solid #7b06a6;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #a8a8a8;box-shadow: 2px 2px 18px 0px #a8a8a8;
--moz-transform: rotate(3deg);-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);-ms-transform: rotate(3deg);transform: rotate(3deg);float:right;}
+-moz-transform: rotate(3deg);-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);-ms-transform: rotate(3deg);transform: rotate(3deg);float:right;margin:10px 80px 0 0;}
 #defi-semaine-infos {float:left;clear:both;}
 #defi-semaine-infos span {color:#ffa801;}
 
@@ -160,12 +161,17 @@ a.disabled{opacity: 0; cursor:default;}
 -------------------------------------------------- */
 footer {background:#2a2a2a;color:#fff;margin-top:40px;}
 .foot-colonne {width:33.333%;float:left;}
-#reseaux a {display:block;width:65px;height:65px;}
-#reseaux-facebook, #reseaux-twitter, #reseaux-vimeo {background: url(../img/sprite.png) no-repeat ;}
-#reseaux-facebook {background-position: -520px 0;}
-#reseaux-facebook:hover {background-position: -520px -67px;}
-#reseaux-twitter {background-position: -592px 0;}
-#reseaux-twitter:hover {background-position: -592px -67px;}
-#reseaux-vimeo {background-position: -665px 0;}
-#reseaux-vimeo:hover {background-position: -665px -67px;}
+#reseaux a {width:65px;height:65px;}
+#reseaux-facebook, #reseaux-twitter, #reseaux-vimeo {background: url(../img/sprite.png) no-repeat ;display:inline-block;margin:20px 0;}
+#reseaux-facebook {background-position: -525px 0;}
+#reseaux-facebook:hover {background-position: -525px -67px;}
+#reseaux-twitter {background-position: -598px 0;}
+#reseaux-twitter:hover {background-position: -598px -67px;}
+#reseaux-vimeo {background-position: -672px 0;}
+#reseaux-vimeo:hover {background-position: -672px -67px;}
+#reseaux #hetic {background:url(../img/hetic.png) no-repeat;display:block;width:150px;height:50px;display:block;}
+#plan-copyright {clear:both;}
+#plan-copyright a, #plan-copyright p {color:#6a6a6a;}
+#plan-copyright a:hover {color:#acacac;}
+#plan-copyright a:after {content:' -';}
 
