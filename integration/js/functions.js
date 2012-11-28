@@ -35,6 +35,7 @@ window.CHALLENGEME = {
 // 		"get_best_submissions"
 //		"get_challenger"
 	localWebservice: function (webserviceName, args) {
+		alert(webserviceName);
 		var renderObj;
 
 		$.ajax({
@@ -49,6 +50,7 @@ window.CHALLENGEME = {
 			}
 		});
 
+		console.log(renderObj);
 		return renderObj;
 	}
 };
@@ -56,9 +58,9 @@ window.CHALLENGEME = {
 window.MAP = 
 {
 	map: null,
-	res: CHALLENGEME.localWebservice('get_best_submissions'),
+	res: window.CHALLENGEME.localWebservice('get_best_submissions'),
 	initialize : function () 
-	{
+	{	
         var mapOptions = 
 		{
           zoom: 11,//définit le zoom sur la carte
@@ -78,14 +80,14 @@ window.MAP =
     },
 	MouseOver : function ()
 	{
-		if( !MAP.flagIcon)
+		if( !this.flagIcon)
 		{
-		  MAP.savIcon = MAP.getIcon();  // récupération de l'image via la méthode getIcon()
-		  MAP.flagIcon = true;
+		  this.savIcon = this.getIcon();  // récupération de l'image via la méthode getIcon()
+		  this.flagIcon = true;
 		}
-		MAP.setIcon( 'img/MouseOverIcone.png');
+		this.setIcon( 'img/MouseOverIcone.png');
 	},
-	MouseOut : function(){ MAP.setIcon( MAP.savIcon); },
+	MouseOut : function(){ this.setIcon( this.savIcon); },
 	//################################ Fonction de succès
 	NouvPos : function (event) 
 	{
@@ -96,6 +98,7 @@ window.MAP =
 	{
 		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 		MAP.map.setCenter(pos);//pour centrer la map sur notre lieu actuel
+
 		for(i=0;i<MAP.res.length;i++)//On va afficher tous les marker représentant les meilleurs soumissions de défis 
 		{
 			var posMark = new google.maps.LatLng(MAP.res[i].coord.latitude, MAP.res[i].coord.longitude);
