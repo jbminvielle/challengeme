@@ -68,13 +68,13 @@ strong {font-weight:bold;}
 #global {}
 #container {width:960px;margin:0 auto;border:2px solid #dadada;border-top:none;
 background: #f3f3f3;
-background: -moz-linear-gradient(top, #fff 0%, #d6d6d6 100%);
+/*background: -moz-linear-gradient(top, #fff 0%, #d6d6d6 100%);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#d6d6d6));
 background: -webkit-linear-gradient(top, #fff 0%,#d6d6d6 100%);
 background: -o-linear-gradient(top, #fff 0%,#d6d6d6 100%);
 background: -ms-linear-gradient(top, #fff 0%,#d6d6d6 100%);
 background: linear-gradient(to bottom, #fff 0%,#d6d6d6 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d6d6d6',GradientType=0 );
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d6d6d6',GradientType=0 );*/
 padding:10px 0;position:relative;}
 
 /* EN-TETE
@@ -120,7 +120,7 @@ a.disabled{opacity: 0; cursor:default;}
 /* DEFI SEMAINE ACCUEIL
 -------------------------------------------------- */
 #defi-semaine {float:left;border-right:1px solid #7b06a6;padding:0 20px 5px 0;}
-#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:26px;padding:8px 45px;float:left;}
+#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:26px;padding:8px 45px;float:left;box-shadow:none;}
 #defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:34px;}
 #defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:36px;width:180px;height:85px;padding:8px 18px;margin:15px 0 0 0; float:right;}
 #defi-semaine img {border:5px solid #7b06a6;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #a8a8a8;box-shadow: 2px 2px 18px 0px #a8a8a8;
