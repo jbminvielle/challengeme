@@ -35,7 +35,6 @@ window.CHALLENGEME = {
 // 		"get_best_submissions"
 //		"get_challenger"
 	localWebservice: function (webserviceName, args) {
-		alert(webserviceName);
 		var renderObj;
 
 		$.ajax({
