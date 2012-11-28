@@ -18,7 +18,7 @@
 
 	<?php include('header.php'); ?>
 	<span class="separator">&nbsp;</span>
-	<!-- Page pour le déji "gobage de flamby" -->
+	<!-- Page pour le défi "gobage de flamby" -->
 
 	<h1>Gobage de famby</h1>
 

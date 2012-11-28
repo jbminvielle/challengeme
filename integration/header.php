@@ -15,7 +15,7 @@
 		<header>
 			<div id="userplace">
 				<div id="facebookConnect" class="fb-login-button hidden" scope="email,user_checkins, publish_stream">Se connecter</div>
-				<div id="userInfos" class="hidden">Infos user</div>
+				<div id="userInfos" class="hidden"><img src="#" alt="" id="userPicture" /><span id="userName"></span></div>
 			</div>
 
 			<div id="logo">
