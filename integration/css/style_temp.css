@@ -5,9 +5,10 @@
 
 #defi-semaine-head{
 	position: relative;
+	box-shadow: none;
 }
 
-#defi_de_la_semaine h1{
+#defi-semaine-head h1{
 	font-size: 1.9em;
 	margin: 0.19em 0 0 0;
 }
@@ -215,3 +216,100 @@ li{
 	text-align: center;
 }
 
+#autre_defi{
+	position: relative;
+}
+
+#videos{
+	margin: 40px 0 0 0;
+	height: 27em;
+}
+
+#absolute2{
+	position: absolute;
+	top:210px;
+	left:0px;
+	width: 100%;
+}
+
+#recherche_video{
+	background: url(../img/bandeau_uni.png) no-repeat;
+	height: 90px;
+}
+
+#recherche_video label{
+	color:#f5f5f5;
+	font-size: 22px;
+	display: inline-block;
+}
+
+#recherche_video form{
+	display: inline-block;
+	margin: 10px 0 0 144px;
+}
+
+ select{
+ 	width: 140px;
+ 	margin-right: 10px;
+ }
+
+#go{
+ 	width:43px;
+ 	height: 27px;
+ }
+
+ #trier_par{
+ 	font-size: 17px;
+ 	color:#c1c1c1;
+ 	margin-left: 40px;
+ }
+
+ #trier_par .active{
+	color: #2a2a2a;
+}
+
+ #trier_par p{
+ 	display: inline-block;
+ }
+
+ #trier{
+ 	margin:0 30px 0 500px;
+ }
+
+#trier_par p a{
+	color:#c1c1c1;
+}
+
+.video{
+	clear: left;
+}
+
+.video img{
+	float: left;
+	margin: 20px 20px 20px 40px;
+}
+
+.video h3{
+	font-size: 27px;
+	color:#ffb62a;
+	padding:20px 0 0 0;
+}
+
+.video p{
+	display: inline-block;
+	font-size: 17px;
+	color: #2a2a2a;
+}
+
+.auteur a{
+	color: #7b06a6;
+	font-size: 17px;
+}
+
+.video .auteur{
+	display: block;
+}
+
+.description{
+	font-size: 15px;
+}
