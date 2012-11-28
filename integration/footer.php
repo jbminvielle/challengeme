@@ -1,6 +1,6 @@
 	<footer class="clearfix">
 		<div id="reseaux" class="foot-colonne">
-			<p>Retrouvez ChallengeMe</p>
+			<p class="titre-foot">Retrouvez ChallengeMe</p>
 			<a href="#" id="reseaux-facebook">&nbsp;</a>
 			<a href="#" id="reseaux-twitter">&nbsp;</a>
 			<a href="#" id="reseaux-vimeo">&nbsp;</a>
@@ -8,10 +8,10 @@
 			<a href="#" id="hetic">&nbsp;</a>
 		</div>
 		<div id="tweets" class="foot-colonne">
-			<p>Derniers tweets</p>
+			<p class="titre-foot">Derniers tweets</p>
 		</div>
-		<div id="stats" class="foot-colonne">
-			<p>Statistiques Challenge Me</p>
+		<div id="stats" class="foot-colonne last">
+			<p class="titre-foot">Statistiques Challenge Me</p>
 			<p>Défis réalisés au total :</p>
 			<p>Défis réalisés cette semaine :</p>
 			<p>Le défi à succès :</p>

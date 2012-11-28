@@ -42,9 +42,16 @@
 				<a href="#">Participez !</a>
 			</div>
 			<div id="defi-semaine-infos">
-				<p>Temps restant : <span>53h 43min 32sec</span></p>
-				<p>Participants : <span>32</span></p>
-				<p>Votants : <span>145</span></p>
+				<div>
+					<p>Temps restant :</p>
+					<p>Participants :</p>
+					<p>Votants : </p>
+				</div>
+				<div>
+					<p>53h 43min 32sec</p>
+					<p>32</p>
+					<p>145</p>
+				</div>
 			</div>
 			<img src="img/img-defi.jpg" alt="Nom du défi"/>
 		</div>

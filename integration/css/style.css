@@ -46,25 +46,26 @@
     .clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0;}
 
 @font-face {
-    font-family: 'Myriad Pro Condensed';
-	src: url('../fonts/MyriadPro-BoldCond.eot');
-	src: local('☺'), url('../fonts/MyriadPro-BoldCond.woff') format('woff'), url('../fonts/MyriadPro-BoldCond.otf') format('opentype'), url('../fonts/MyriadPro-BoldCond.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
     font-family: 'Noteworthy';
 	src: url('../fonts/noteworthy.eot');
 	src: local('☺'), url('../fonts/noteworthy.woff') format('woff'), url('../fonts/noteworthy.otf') format('opentype'), url('../fonts/noteworthy.svg') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+    font-family: 'Benchnine';
+	src: url('../fonts/benchnine-bold.eot');
+	src: local('☺'), url('../fonts/benchnine-bold.woff') format('woff'), url('../fonts/benchnine-bold.ttf') format('truetype'), url('../fonts/benchnine-bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 	
 /* STYLE DE BASE 
 -------------------------------------------------- */
-body {background:#e2e2e2;font:18px 'Myriad Pro Condensed';color:#2a2a2a;}
+body {background:#e2e2e2;font:18px 'Benchnine';font-weight:bold;color:#2a2a2a;}
 a {text-decoration:none;color:#fff;}
 strong {font-weight:bold;}
+.last {border:none !important;}
 #global {}
 #container {width:960px;margin:0 auto;border:2px solid #dadada;border-top:none;
 background: #f3f3f3;
@@ -90,7 +91,7 @@ padding:10px 0;position:relative;}
 /* MENU
 -------------------------------------------------- */
 nav {text-transform:uppercase;font-size:36px; line-height:1em;}
-nav li {display:inline; margin:0 56px;}
+nav li {display:inline; margin:0 63px;}
 nav a {color:#c1c1c1;}
 nav a:hover {color:#ffb62a;}
 .current a {color:#ffb62a;}
@@ -120,33 +121,34 @@ a.disabled{opacity: 0; cursor:default;}
 /* DEFI SEMAINE ACCUEIL
 -------------------------------------------------- */
 #defi-semaine {float:left;border-right:1px solid #7b06a6;padding:0 20px 5px 0;}
-#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:26px;padding:8px 45px;float:left;box-shadow:none;}
-#defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:34px;}
-#defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:36px;width:180px;height:85px;padding:8px 18px;margin:15px 0 0 0; float:right;}
+#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:28px;padding:5px 45px;float:left;box-shadow:none;}
+#defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:36px;}
+#defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:38px;width:180px;height:85px;padding:8px 18px;margin:15px 0 0 0; float:right;text-align:center;}
 #defi-semaine img {border:5px solid #7b06a6;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #a8a8a8;box-shadow: 2px 2px 18px 0px #a8a8a8;
 -moz-transform: rotate(3deg);-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);-ms-transform: rotate(3deg);transform: rotate(3deg);float:right;margin:10px 80px 0 0;}
-#defi-semaine-infos {float:left;clear:both;}
-#defi-semaine-infos span {color:#ffa801;}
+#defi-semaine-infos {float:left;clear:both;margin:4% 4% 0;}
+#defi-semaine-infos div {display:inline-block;margin:0 5px;}
+#defi-semaine-infos div:last-child {color:#ffa801;}
 
 /* CLASSEMENT ACCUEIL
 -------------------------------------------------- */
 #classement {float:left;padding-left:20px;}
 #classement p {color:#7b06a6;font-size:24px;}
-#classement a {color:#2a2a2a;}
+#classement a {color:#2a2a2a;display:inline-block;min-width:30%;}
 #classement ul li {font-size:20px;margin:5px 0;}
 #classement ul li:first-child a{color:#ffa801;font-size:24px;}
-#classement ul li span:first-child {color:#7b06a6;}
+#classement ul li span:first-child {color:#7b06a6;display:inline-block;min-width:40%;}
 #classement ul li span:last-child {width:0;height:0;border-bottom:10px solid transparent;border-left:10px solid #ffa801;border-right:10px solid transparent;border-top:10px solid transparent;position:absolute;margin:5px 20px;}
 #classement ul li:first-child span:last-child{border-left:10px solid #7b06a6;}
 
 #bandeau-participer {background: url(../img/sprite.png) no-repeat 0 -230px;height:90px;}
 #bandeau-participer a {line-height:90px;display:block;font-size:42px;width:50%;}
-#bandeau-participer a:first-child {float:left;padding-left:100px}
+#bandeau-participer a:first-child {float:left;text-align:center;}
 #bandeau-participer a:last-child {float:right;font-size:20px;padding-left:30px}
 
 /* MAP ACCUEIL
 -------------------------------------------------- */
-#map p {color:#7b06a6;font-size:34px;clear:both;margin: 20px 0 20px 32px;}
+#map p {color:#7b06a6;font-size:36px;clear:both;margin: 20px 0 20px 32px;}
 #map > div {width:890px;height:515px;border:1px solid #5d5d5d;margin:0 auto;}
 
 
@@ -159,19 +161,20 @@ a.disabled{opacity: 0; cursor:default;}
 
 /* FOOTER
 -------------------------------------------------- */
-footer {background:#2a2a2a;color:#fff;margin-top:40px;}
-.foot-colonne {width:33.333%;float:left;}
+footer {background:#2a2a2a;color:#fff;margin-top:40px;font-size:16px;padding:0 10px;}
+.foot-colonne {width:33.333%;float:left;margin:10px 0;padding:0 10px;border-right:1px solid #3b3b3b;}
+.titre-foot {font-size:22px;margin:0 0 5px;}
 #reseaux a {width:65px;height:65px;}
-#reseaux-facebook, #reseaux-twitter, #reseaux-vimeo {background: url(../img/sprite.png) no-repeat ;display:inline-block;margin:20px 0;}
+#reseaux-facebook, #reseaux-twitter, #reseaux-vimeo {background: url(../img/sprite.png) no-repeat ;display:inline-block;margin:15px 0;}
 #reseaux-facebook {background-position: -525px 0;}
 #reseaux-facebook:hover {background-position: -525px -67px;}
 #reseaux-twitter {background-position: -598px 0;}
 #reseaux-twitter:hover {background-position: -598px -67px;}
 #reseaux-vimeo {background-position: -672px 0;}
 #reseaux-vimeo:hover {background-position: -672px -67px;}
-#reseaux #hetic {background:url(../img/hetic.png) no-repeat;display:block;width:150px;height:50px;display:block;}
-#plan-copyright {clear:both;}
-#plan-copyright a, #plan-copyright p {color:#6a6a6a;}
+#reseaux #hetic {background:url(../img/hetic.png) no-repeat;display:block;width:150px;height:50px;display:block;margin:5px 0 0;}
+#plan-copyright {clear:both;font-size:14px;padding:0 0 5px;}
+#plan-copyright a, #plan-copyright p {color:#6a6a6a;display:inline;}
 #plan-copyright a:hover {color:#acacac;}
 #plan-copyright a:after {content:' -';}
 
