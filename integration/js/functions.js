@@ -57,7 +57,7 @@ window.CHALLENGEME = {
 window.MAP = 
 {
 	map: null,
-	//openedMarker:null,
+	info:false,
 	res: window.CHALLENGEME.localWebservice('get_best_submissions'),
 	initialize : function () 
 	{	
@@ -136,14 +136,20 @@ window.MAP =
 	{
 	  google.maps.event.addListener( marker, 'click', function() 
 	  {
-		infowindow.setContent(texte);// affectation du texte
-		/*if (MAP.openedMarker != "null")
-		{
+		  console.log(MAP.info);
+		  if(MAP.info=="false")
+		  {
+			  infowindow.setContent(texte);
+			  infowindow.open(MAP.map, marker);
+			  MAP.info=true;
+		  }
+		  else 
+		  {
 			infowindow.close(MAP.map,marker);
-			MAP.openedMarker="null";
-		}*/
-		infowindow.open( MAP.map, marker);// affichage InfoWindow
-		//MAP.openedMarker=marker;
+			infowindow.setContent(texte);
+			infowindow.open(MAP.map, marker);
+			MAP.info=true;
+		  }
 	  });
 	},
 	CloseWindow : function ( marker, infoWindow)
