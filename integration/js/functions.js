@@ -1,4 +1,4 @@
-$(document).ready(function(){
+ï»¿$(document).ready(function(){
 	$('#list-slider').carouFredSel({
 		circular: false,
 		infinite: false,
@@ -57,13 +57,15 @@ window.CHALLENGEME = {
 window.MAP = 
 {
 	map: null,
+	info:false,
 	res: window.CHALLENGEME.localWebservice('get_best_submissions'),
 	initialize : function () 
 	{	
         var mapOptions = 
 		{
-          zoom: 11,//définit le zoom sur la carte
-          mapTypeId: google.maps.MapTypeId.ROADMAP//affiche la carte avec les routes
+          zoom: 11,//dÃ©finit le zoom sur la carte
+          mapTypeId: google.maps.MapTypeId.ROADMAP,//affiche la carte avec les routes
+		  scrollwheel:false
         };
 
         MAP.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
@@ -81,13 +83,13 @@ window.MAP =
 	{
 		if( !this.flagIcon)
 		{
-		  this.savIcon = this.getIcon();  // récupération de l'image via la méthode getIcon()
+		  this.savIcon = this.getIcon();  // rÃ©cupÃ©ration de l'image via la mÃ©thode getIcon()
 		  this.flagIcon = true;
 		}
 		this.setIcon( 'img/MouseOverIcone.png');
 	},
 	MouseOut : function(){ this.setIcon( this.savIcon); },
-	//################################ Fonction de succès
+	//################################ Fonction de succÃ¨s
 	NouvPos : function (event) 
 	{
 		pos=event.latLng;
@@ -98,7 +100,7 @@ window.MAP =
 		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 		MAP.map.setCenter(pos);//pour centrer la map sur notre lieu actuel
 
-		for(i=0;i<MAP.res.length;i++)//On va afficher tous les marker représentant les meilleurs soumissions de défis 
+		for(i=0;i<MAP.res.length;i++)//On va afficher tous les marker reprÃ©sentant les meilleurs soumissions de dÃ©fis 
 		{
 			var posMark = new google.maps.LatLng(MAP.res[i].coord.latitude, MAP.res[i].coord.longitude);
 			var oMarker = new google.maps.Marker //on attribue les options des markers
@@ -107,35 +109,47 @@ window.MAP =
 			  map: MAP.map,
 			  position: posMark
 			});
-			//oMarker.setDraggable(true);//Permet de déplacer le marker sur la map
+			//oMarker.setDraggable(true);//Permet de dÃ©placer le marker sur la map
 			var contentString = 
 			[
 			  '<div id="containerTabs">',
 				  '<div id="tabs">',
 					  '<h3>'+ MAP.res[i].title +'</h3>',
 					  '<div id="tab-1">',
-						'<p>Réalisé par <a id="nom" href="'+ MAP.res[i].permalink +'">'+ MAP.res[i].author +'</a></p>',
+						'<p>RÃ©alisÃ© par <a id="nom" href="'+ MAP.res[i].permalink +'">'+ MAP.res[i].author +'</a></p>',
 					  '</div>',
-					  '<a href="#"><span>Voir la vidéo</span></a><br/>',
+					  '<a href="#"><span>Voir la vidÃ©o</span></a><br/>',
 					  '<a href="#"><span>Facebook</span></a>',
 				  '</div>',
 			  '</div>'
 			].join('');
 			
-			var infoWindow=new google.maps.InfoWindow({ position:posMark });//créé une infowindow à la position du marqueur
+			var infoWindow=new google.maps.InfoWindow({ position:posMark });//crÃ©Ã© une infowindow Ã  la position du marqueur
 			MAP.setEventMarker( oMarker, infoWindow, contentString);//ouvre l'infowindow sur le marker
 			MAP.CloseWindow( oMarker, infoWindow);//ferme l'infowindow 
 			google.maps.event.addListener( oMarker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
 			google.maps.event.addListener( oMarker, 'mouseout', MAP.MouseOut);//restauration sur le mouseout
 		}
-		//google.maps.event.addListener(oMarker, 'dragend', MAP.NouvPos);//afficher la nouvelle position d'un marqueur si on le déplace
+		//google.maps.event.addListener(oMarker, 'dragend', MAP.NouvPos);//afficher la nouvelle position d'un marqueur si on le dÃ©place
     },
 	setEventMarker : function ( marker, infowindow, texte)
 	{
 	  google.maps.event.addListener( marker, 'click', function() 
 	  {
-		infowindow.setContent(texte);// affectation du texte
-		infowindow.open( MAP.map, marker);// affichage InfoWindow
+		  console.log(MAP.info);
+		  if(MAP.info=="false")
+		  {
+			  infowindow.setContent(texte);
+			  infowindow.open(MAP.map, marker);
+			  MAP.info=true;
+		  }
+		  else 
+		  {
+			infowindow.close(MAP.map,marker);
+			infowindow.setContent(texte);
+			infowindow.open(MAP.map, marker);
+			MAP.info=true;
+		  }
 	  });
 	},
 	CloseWindow : function ( marker, infoWindow)
