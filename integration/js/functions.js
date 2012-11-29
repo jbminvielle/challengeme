@@ -64,7 +64,8 @@ window.MAP =
         var mapOptions = 
 		{
           zoom: 11,//définit le zoom sur la carte
-          mapTypeId: google.maps.MapTypeId.ROADMAP//affiche la carte avec les routes
+          mapTypeId: google.maps.MapTypeId.ROADMAP,//affiche la carte avec les routes
+		  scrollwheel:false
         };
 
         MAP.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
