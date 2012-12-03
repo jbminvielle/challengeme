@@ -38,7 +38,7 @@
 			      		<a href="#" class="choix">Choisir</a>
 			      	</p><br />
 			      	<p>Choisir un autre lieu</p>
-			      	<input type="text" name="position" placeholder="Votre lieu" />
+					<input type="text" name="position" placeholder="Votre lieu" />
 			      	<ul>
 				      	<li>
 				      		Ville 1
