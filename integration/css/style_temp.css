@@ -323,7 +323,7 @@ input[type="submit"]{background-color: #FFB62A;width: 200px;height: 50px;margin:
 
 /* ---------------------------- Page challenge.php ---------------------------- */
 #defi {margin: 40px 0 0 0; height: 20em; }
-#gmap{width: 890px;height: 300px;border: 1px solid #5D5D5D;background-color: pink;margin: 0 auto;margin-top: 20px;}
+#map_canvas{width: 890px;height: 300px;border: 1px solid #5D5D5D;background-color: pink;margin: 0 auto;margin-top: 20px;}
 #gallery ul{padding-top: 20px;margin:0 auto;width:890px;}
 #gallery ul li{width:220px;height:230px;display: inline-block;}
 #gallery ul li img{margin:10px 10px 0 10px;cursor: pointer;}
