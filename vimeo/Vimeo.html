@@ -11,7 +11,8 @@
                 <link rel="stylesheet" href="reset.css">
                 <script type="text/javascript">
                     document.addEventListener("DOMContentLoaded", init, false);
-                    var username = 'brad';
+                    var username = 'user15011040';
+                    // user15011040
                     var callback = 'showGallery';
                     var oEmbedCallback = 'switchVideo';
                     var oEmbedEndpoint = 'http://vimeo.com/api/oembed.json'
@@ -26,7 +27,13 @@
                         document.getElementById('date').addEventListener('click', recente, false);
                         document.getElementById('pop').addEventListener('click', popularite, false);
                     }
+                    //Afficher la galerie
+                    function showGallery(video) {
+                        videos = video;
+                        affiche(video);
+                    }
 
+                    //Afficher une video dans la popin
                     function getVideo(url) {
                         var js = document.createElement('script');
                         js.setAttribute('type', 'text/javascript');
@@ -41,45 +48,7 @@
                         document.getElementById('close').addEventListener('click',closeVideo,false);
                     }
 
-                    function showGallery(video) {
-                        var ul = document.createElement('ul');
-                        var gallery = document.getElementById('gallery');
-                        gallery.innerHTML = ' ';
-                        gallery.appendChild(ul);
-                        videos = video;
-                        var i;
-                        for(i = 0; i < video.length; i++){
-                            var li = document.createElement('li');
-                            ul.appendChild(li);
-
-                            var a = document.createElement('a');
-                            li.appendChild(a);
-                            a.setAttribute('href',video[i].url);
-
-                            var img = document.createElement('img');
-                            a.appendChild(img);
-                            img.setAttribute('src',video[i].thumbnail_medium);
-                            img.setAttribute('title',video[i].thumbnail_medium);
-                            img.setAttribute('alt',video[i].thumbnail_medium);
-
-                            var div = document.createElement('div');
-                            a.appendChild(div);
-                            div.setAttribute('class','info');
-                            var p1 = document.createElement('p');
-                            div.appendChild(p1);
-                            p1.innerHTML = video[i].title;
-                            p1.setAttribute('class','titre');
-                            var p2 = document.createElement('p');
-                            div.appendChild(p2);
-                            p2.innerHTML = video[i].stats_number_of_likes;
-                            p2.setAttribute('class','auteur');
-                            if(a.addEventListener){
-                                a.addEventListener('click',clickVideo,false);
-                            }else{
-                                a.onclick = clickVideo;
-                            }
-                        }
-                    }
+                    //Ouverture de la popin lors du click sur la video
                     function clickVideo(e){
                         e.preventDefault();
                         getVideo(this);
@@ -90,6 +59,7 @@
                         return false;
                     }
 
+                    //Fermetre de la video
                     function closeVideo(e){
                         e.preventDefault();
                         var laVideo = document.getElementById('laVideo');
@@ -98,16 +68,13 @@
                         return false;
                     }
 
+                    //Classement par popularité
                     function popularite(e){
                         var pop = document.getElementById('pop');
                         var date = document.getElementById('date');
                         pop.className = 'classement active';
                         date.className = 'classement';
                         e.preventDefault();
-                        var ul = document.createElement('ul');
-                        var gallery = document.getElementById('gallery');
-                        gallery.innerHTML = ' ';
-                        gallery.appendChild(ul);
                         var temp;
                         for(i = 0; i < videos.length-1; i++){
                             var max = i;
@@ -120,49 +87,17 @@
                             videos[i] = videos[max];
                             videos[max] = temps;
                         }
-                        for(i = 0; i < videos.length; i++){
-                            var li = document.createElement('li');
-                            ul.appendChild(li);
-
-                            var a = document.createElement('a');
-                            li.appendChild(a);
-                            a.setAttribute('href',videos[i].url);
-
-                            var img = document.createElement('img');
-                            a.appendChild(img);
-                            img.setAttribute('src',videos[i].thumbnail_medium);
-                            img.setAttribute('title',videos[i].thumbnail_medium);
-                            img.setAttribute('alt',videos[i].thumbnail_medium);
-
-                            var div = document.createElement('div');
-                            a.appendChild(div);
-                            div.setAttribute('class','info');
-                            var p1 = document.createElement('p');
-                            div.appendChild(p1);
-                            p1.innerHTML = videos[i].title;
-                            p1.setAttribute('class','titre');
-                            var p2 = document.createElement('p');
-                            div.appendChild(p2);
-                            p2.innerHTML = videos[i].stats_number_of_likes;
-                            p2.setAttribute('class','auteur');
-                            if(a.addEventListener){
-                                a.addEventListener('click',clickVideo,false);
-                            }else{
-                                a.onclick = clickVideo;
-                            }
-                        }
+                        affiche(videos);
                         return false;
                     }
+
+                    //Classement par date
                     function recente(e){
                         var pop = document.getElementById('pop');
                         var date = document.getElementById('date');
                         pop.className = 'classement';
                         date.className = 'classement active';
                         e.preventDefault();
-                        var ul = document.createElement('ul');
-                        var gallery = document.getElementById('gallery');
-                        gallery.innerHTML = ' ';
-                        gallery.appendChild(ul);
                         var temp;
                         for(i = 0; i < videos.length-1; i++){
                             var max = i;
@@ -175,6 +110,16 @@
                             videos[i] = videos[max];
                             videos[max] = temps;
                         }
+                        affiche(videos);
+                        return false;
+                    }
+
+                    //Afficher la galerie
+                    function affiche(video){
+                        var ul = document.createElement('ul');
+                        var gallery = document.getElementById('gallery');
+                        gallery.innerHTML = ' ';
+                        gallery.appendChild(ul);
                         for(i = 0; i < videos.length; i++){
                             var li = document.createElement('li');
                             ul.appendChild(li);
@@ -206,7 +151,6 @@
                                 a.onclick = clickVideo;
                             }
                         }
-                        return false;
                     }
                 </script>
                 <style type="text/css">

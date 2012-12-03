@@ -6,19 +6,19 @@
 	<title>Défi - Gobage de Flamby</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-		<!-- Identifiant de l'application opengraph -->
+	<!-- Identifiant de l'application opengraph -->
 	<meta property="fb:app_id" content="267328883388489" />
 	<!-- Propriétés de l'objet --> 
 	<meta property="og:type" content="challengemehetic:challenge" /> 
-	<meta property="og:title" content="Gobage de famby !" /> 
-	<meta property="og:description" content="Ce défi consiste à gober un flamby lolilol" /> 
-	<meta property="og:image" content="medias/challenges_images/gobage_flamby.png" /> 
-	<meta property="og:url" content="challenge.php?gobage-famby" />
+	<meta property="og:title" content="Danser le Gangnam Style !" /> 
+	<meta property="og:description" content="Ce défi consiste à danser le gangnam style" /> 
+	<meta property="og:image" content="medias/challenges_images/gangnam_style.png" /> 
+	<meta property="og:url" content="challenge.php?gangnam-style" />
 
 	<link rel="stylesheet" href="css/style_temp.css">
 	<?php require('header.php'); ?>
 	<span class="separator">&nbsp;</span>
-	<!-- Page pour le déji "gobage de flamby" -->
+	<!-- Page pour le déji "gangnam style" -->
 	<div id="laVideo">
 		<a id="close" href="">[Fermer]</a>
 	</div>
@@ -27,8 +27,8 @@
 			<h1>Le défi</h1>
 		</header>
 		<div id="absolute">
-			<img src="medias/challenges_images/gobage_famby.png" alt="Gobage_flamby" title="Gobage_flamby" width="376px" height="210px">
-			<h2>"Gobage de Flamby"</h2>
+			<img src="medias/challenges_images/gangnam_style2.jpg" alt="Psy" title="Psy" width="376px" height="210px">
+			<h2>"Danser le Gangnam Style"</h2>
 			<p>
 				<span>Votre objectif :</br></span>
 					Suspendisse commodo, metus nec tristique facilisis, 
@@ -47,14 +47,12 @@
 	<section class="autre_defi" id="video_gallerie">
 		<h1>La galerie des videos</h1>
 		<p id="ligne_orange"></p>
-		<div id="trier_par">
-			<p id="trier">Trier par :</p>
-			<nav>
-				<a href="#" id="date" class="classement active">Date</a>
-				<p> | </p>
-	        	<a href="#" id="pop" class="classement">Popularité</a>
-	        </nav>
-	    </div>
+		<p id="trier">Trier par :</p>
+		<nav>
+			<a href="#" id="date" class="classement active">Date</a>
+			<p> | </p>
+	       	<a href="#" id="pop" class="classement">Popularité</a>
+	    </nav>
 		<section id="gallery">
 			<ul>
 		 		<li>

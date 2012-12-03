@@ -51,7 +51,7 @@
 			</div>
 		</div>
 	</section>
-	<section id="autre_defi">
+	<section class="autre_defi">
 		<header>
 			<h1>Les défis</h1>
 			<p id="ligne_orange"></p>

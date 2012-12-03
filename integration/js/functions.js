@@ -132,3 +132,292 @@ window.FBAPI = {
 		$('#userInfos').addClass('hidden');
 	}
 }
+
+//Send_video.php
+$('.choix').click(function(e){
+	var n = $(this).parent().text().length;
+	$('#lieu').text($(this).parent().text().substring(0,n-20));
+	e.preventDefault();
+});
+
+$('input[name="verif"]').focusout(function(){
+		var n = $(this).index()+1;
+	if($(this).val() == ''){
+		if(n%5 == 0){
+			$('.input').eq(0).attr('class','input non');
+		}
+		else{
+			$('.input').eq(1).attr('class','input non');
+		}
+	}
+	else{
+		if(n%5 == 0){
+			$('.input').eq(0).attr('class','input oui');
+		}
+		else{
+			$('.input').eq(1).attr('class','input oui');
+		}
+	}
+});
+
+//Page défi
+$('#gallery ul li a').click(function(e){
+	e.preventDefault();
+    // getVideo(this);
+    var laVideo = document.getElementById('laVideo');
+    laVideo.style.display = 'inline-block';
+    var n = $('body').scrollTop() - 200;
+    laVideo.style.top=((window.innerHeight-laVideo.offsetHeight )/2)+n+'px';
+    return false;
+});
+
+//Liste des videos
+var username = 'user15011040';
+var callback = 'showGallery';
+var oEmbedCallback = 'switchVideo';
+var oEmbedEndpoint = 'http://vimeo.com/api/oembed.json'
+var url = 'http://vimeo.com/api/v2/' + username + '/videos.json?callback=' + callback;
+var videos = new Array();
+var defi = {};//Initialisation d'un objet contenant tous les défis
+defi.flamby = new Array();//Tableau contenant les videos du défi "Gobage de Flamby"
+defi.gangnam = new Array();//Tableau contenant les videos du défi "Dansez le gangnam style"
+var url_page = window.location.pathname;
+var page = 1;
+
+$(document).ready(function(){
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('src', url);
+    document.getElementsByTagName('head').item(0).appendChild(js);
+});
+
+//Afficher la galerie
+function showGallery(video) {
+    videos = video;
+    var n = 0;
+    var m = 0;
+    for(i = 0; i < videos.length; i++){
+    	if(video[i].tags == 'gangnam'){
+    		defi.gangnam[n] = video[i];
+    		n++;
+    	}
+    	else if(video[i].tags == 'flamby'){
+    		defi.flamby[m] = video[i];
+    		m++;
+    	}
+    }
+    if(url_page.indexOf('flamby') != -1 ){
+		page = 0;
+		affiche(defi.flamby,page);
+	}
+	else if(url_page.indexOf('gangnam') != -1 ){
+		page = 0;
+		affiche(defi.gangnam,page);
+	}
+	else{
+		affiche(video,page);
+	}
+}
+//Afficher la galerie
+function affiche(video,page){
+	if(page == 1){
+	    var ul = document.createElement('ul');
+	    var gallery = document.getElementById('resultat_recherche');
+	    gallery.innerHTML = ' ';
+	    gallery.appendChild(ul);
+	    for(i = 0; i < video.length; i++){
+	        var li = document.createElement('li');
+	        ul.appendChild(li);
+	        li.setAttribute('class','video');
+
+	        var a = document.createElement('a');
+	        li.appendChild(a);
+	        a.setAttribute('href',video[i].url);
+
+	        var img = document.createElement('img');
+	        a.appendChild(img);
+	        img.setAttribute('src',video[i].thumbnail_medium);
+	        img.setAttribute('title',video[i].thumbnail_medium);
+	        img.setAttribute('alt',video[i].thumbnail_medium);
+
+	        var h3 = document.createElement('h3');
+	        li.appendChild(h3);
+	        h3.innerHTML = video[i].title;
+
+	        var p1 = document.createElement('p');
+	        li.appendChild(p1);
+	        p1.innerHTML = 'réalisé le';
+
+	        var date = document.createElement('p');
+	        li.appendChild(date);
+	        date.innerHTML = video[i].upload_date;
+
+	        var p2 = document.createElement('p');
+	        li.appendChild(p2);
+	        p2.innerHTML = 'à';
+
+	        var lieu = document.createElement('p');
+	        li.appendChild(lieu);
+	        lieu.innerHTML = 'Montreuil';
+
+	        var p3 = document.createElement('p');
+	        li.appendChild(p3);
+	        p3.innerHTML = ' - ';
+
+	        var duree = document.createElement('p');
+	        li.appendChild(duree);
+	        duree.innerHTML = video[i].duration;
+
+	        var auteur = document.createElement('p');
+	        auteur.setAttribute('class','auteur');
+	        li.appendChild(auteur);
+	        auteur.innerHTML = 'par';
+
+	        var lien = document.createElement('a');
+	        auteur.appendChild(lien);
+	        lien.setAttribute('href','#');
+	        lien.innerHTML = video[i].user_name;
+
+	        var description = document.createElement('p');
+	        li.appendChild(description);
+	        description.setAttribute('class','description');
+	        description.innerHTML = video[i].description;
+	    }
+	}
+	else{
+		var ul = document.createElement('ul');
+        var gallery = document.getElementById('gallery');
+        gallery.innerHTML = ' ';
+        gallery.appendChild(ul);
+        for(i = 0; i < video.length; i++){
+            var li = document.createElement('li');
+            ul.appendChild(li);
+
+            var a = document.createElement('a');
+            li.appendChild(a);
+            a.setAttribute('href',video[i].url);
+
+            var img = document.createElement('img');
+            a.appendChild(img);
+            img.setAttribute('src',video[i].thumbnail_medium);
+            img.setAttribute('title',video[i].thumbnail_medium);
+            img.setAttribute('alt',video[i].thumbnail_medium);
+
+            var p1 = document.createElement('p');
+            li.appendChild(p1);
+            p1.innerHTML = 'réalisé par';
+
+            var auteur = document.createElement('a');
+            p1.appendChild(auteur);
+            auteur.setAttribute('href','#');
+            auteur.innerHTML = video[i].user_name;
+
+	        var date = document.createElement('p');
+	        li.appendChild(date);
+	        date.innerHTML = video[i].upload_date;
+	    }
+	}
+	$('#resultat_recherche ul li a').click(function(e){
+		e.preventDefault();
+	    popin(this);
+	    return false;
+	});
+	$('#gallery ul li a').click(function(e){
+		e.preventDefault();
+	    popin(this);
+	    return false;
+	});
+}
+
+function popin(video){
+	getVideo(video);
+	var laVideo = document.getElementById('laVideo');
+    laVideo.style.display = 'inline-block';
+	var n = $('body').scrollTop() - 200;
+    laVideo.style.top=((window.innerHeight-laVideo.offsetHeight )/2)+n+'px';
+}
+
+//Afficher une video dans la popin
+function getVideo(url) { //Récupère les informations relatives à la video
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('src', oEmbedEndpoint + '?url=' + url + '&width=620&height=350&callback=' + oEmbedCallback);
+    document.getElementsByTagName('head').item(0).appendChild(js);
+}
+
+function switchVideo(video) {
+    var laVideo = document.getElementById('laVideo');
+    laVideo.innerHTML += unescape(video.html);//Affiche la video
+    $('#close').click(function(e){ //Pour fermer la video
+		e.preventDefault();
+		var laVideo = document.getElementById('laVideo');
+		laVideo.innerHTML = ' ';
+		laVideo.style.display='none';
+		return false;
+	});
+}
+
+//Navigation Trier par Date ou Popularité
+$('.classement').click(function(e){
+	$('.classement').removeClass('active');
+	$(this).addClass('active');
+	if($(this).text() == 'Popularité'){
+		if(url_page.indexOf('flamby') != -1 ){
+			popularite(defi.flamby);
+		}
+		else if(url_page.indexOf('gangnam') != -1 ){
+			popularite(defi.gangnam);
+		}
+		else{
+			popularite(videos);
+		}
+	}
+	else{
+		if(url_page.indexOf('flamby') != -1 ){
+			recente(defi.flamby);
+		}
+		else if(url_page.indexOf('gangnam') != -1 ){
+			recente(defi.gangnam);
+		}
+		else{
+			recente(videos);
+		}
+	}
+	e.preventDefault();
+});
+
+//Classement par popularité
+function popularite(video){
+    var temp;
+    for(i = 0; i < video.length-1; i++){
+        var max = i;
+        for(j = i+1; j < video.length; j++){
+            if(video[max].stats_number_of_likes < video[j].stats_number_of_likes){
+                max = j;
+            }
+        }
+        temps = video[i];
+        video[i] = video[max];
+        video[max] = temps;
+    }
+    affiche(video,page);
+}
+
+//Classement par date
+function recente(video){
+    var temp;
+    for(i = 0; i < video.length-1; i++){
+        var max = i;
+        for(j = i+1; j < video.length; j++){
+            if(video[max].upload_date < video[j].upload_date){
+                max = j;
+            }
+        }
+        temps = video[i];
+        video[i] = video[max];
+        video[max] = temps;
+    }
+    affiche(video,page);
+}
+
+//Konami Code

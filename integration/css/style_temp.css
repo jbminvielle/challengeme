@@ -21,7 +21,7 @@
 	margin: 0 auto;
 }
 
-#defi_de_la_semaine img{
+#absolute img{
 	border: 5px solid #FFA801;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
@@ -108,12 +108,12 @@ li{
 	font-size: 0.87em;
 }
 
-#autre_defi h1{
+.autre_defi h1{
 	color:#7b06a6;
 	font-size: 1.2em;
 	margin:0 0 24px 33px;
 	position: relative;
-	background-color: #eeeeee;
+	background-color: #F3F3F3;
 	z-index: 20;
 	display: inline;
 	padding: 0 10px;
@@ -130,11 +130,11 @@ li{
 	z-index: 2;
 }
 
-#autre_defi #bandeau-participer{
+.autre_defi #bandeau-participer{
 	margin-top: 20px;
 }
 
-#autre_defi #bandeau-participer a{
+.autre_defi #bandeau-participer a{
 	line-height:90px;
 	display:block;
 	font-size:42px;
@@ -216,13 +216,14 @@ li{
 	text-align: center;
 }
 
-#autre_defi{
+.autre_defi{
 	position: relative;
+	margin-bottom: 20px;
 }
 
 #videos{
 	margin: 40px 0 0 0;
-	height: 27em;
+	height: 127em;
 }
 
 #absolute2{
@@ -245,7 +246,7 @@ li{
 
 #recherche_video form{
 	display: inline-block;
-	margin: 10px 0 0 144px;
+	margin: -10px 0 0 144px;
 }
 
  select{
@@ -258,30 +259,15 @@ li{
  	height: 27px;
  }
 
- #trier_par{
- 	font-size: 17px;
- 	color:#c1c1c1;
- 	margin-left: 40px;
- }
-
- #trier_par .active{
-	color: #2a2a2a;
-}
-
- #trier_par p{
+ #trier{
+ 	margin:0 0 0 750px;
  	display: inline-block;
  }
 
- #trier{
- 	margin:0 30px 0 500px;
- }
-
-#trier_par p a{
-	color:#c1c1c1;
-}
+ #trier_par nav{display: inline-block;}
 
 .video{
-	clear: left;
+	width:960px;
 }
 
 .video img{
@@ -313,3 +299,44 @@ li{
 .description{
 	font-size: 15px;
 }
+
+
+/* ---------------------------- Envoie video ---------------------------- */
+#envoi {margin: 40px 0 0 0; height: 37em; }
+#envoi h2{font-size: 30px;}
+
+/* ----------------- Formulaire ----------------- */
+#addvideo label{font-size: 23px;position: relative;margin: 6px 0;display: inline-block; width:210px;}
+#addvideo span{font-size: 20px;}
+#addvideo p{font-size:20px; margin:0 10px 0 20px; display: inline-block;}
+#addvideo a{font-size:20px; margin:0 10px; color: #FFB62A;}
+#carte{width:500px; height:250px; background-color: pink;}
+#localisation{margin:-250px 0 0 500px;height:250px;}
+#addvideo ul{display:block;}
+#addvideo ul li{display: block;margin:0 0 0 20px;}
+#check{margin:30px 0 0 0;}
+input[type="submit"]{background-color: #FFB62A;width: 200px;height: 50px;margin: 20px 0 0 0;border: none;font:30px 'Myriad Pro Condensed'; color:#fff;}
+#addvideo .non{background:url(../img/input.png) no-repeat 0 0;width:25px;height:20px;margin:0;}
+#addvideo .oui{background:url(../img/input.png) no-repeat 0 -25px;width:25px;height:20px;margin: 0;}
+
+/* ---------------------------- Fin Envoie video ---------------------------- */
+
+/* ---------------------------- Page challenge.php ---------------------------- */
+#defi {margin: 40px 0 0 0; height: 20em; }
+#gmap{width: 890px;height: 300px;border: 1px solid #5D5D5D;background-color: pink;margin: 0 auto;margin-top: 20px;}
+#gallery ul{padding-top: 20px;margin:0 auto;width:890px;}
+#gallery ul li{width:220px;height:230px;display: inline-block;}
+#gallery ul li img{margin:10px 10px 0 10px;cursor: pointer;}
+#gallery ul li p{color:#FFB62A;font-size: 18px;margin: 0 5px 0 10px;}
+#gallery ul li a{color: #7B06A6; font-size: 20px;}
+
+/* ------------------------------- PopIn ------------------------------- */
+#laVideo{display: none;opacity: 1;height: 405px;width: 700px;position: absolute;z-index: 100;padding:20px 40px 30px 40px;background-color: #FFB62A;margin: 0 0 0 127px;border-radius: 10px;}
+#close{text-align: right;font-size: 0.8em; margin: -12px 0 2px 0;display: block;}
+nav .classement{color:#2A2A2A; font-size: 18px;text-transform: lowercase;}
+nav p{color:#2A2A2A; font-size: 18px;text-transform: lowercase;display: inline-block;}
+nav .active{color: #FFB62A;font-size: 18px;text-transform: lowercase;}
+.autre_defi nav{display: inline-block;}
+
+/* ---------------------------- Page classement.php ---------------------------- */
+#rank {margin: 40px 0 0 0; height: 37em; }

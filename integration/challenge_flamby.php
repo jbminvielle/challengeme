@@ -47,14 +47,12 @@
 	<section class="autre_defi" id="video_gallerie">
 		<h1>La galerie des videos</h1>
 		<p id="ligne_orange"></p>
-		<div id="trier_par">
-			<p id="trier">Trier par :</p>
-			<nav>
-				<a href="#" id="date" class="classement active">Date</a>
-				<p> | </p>
-	        	<a href="#" id="pop" class="classement">Popularité</a>
-	        </nav>
-	    </div>
+		<p id="trier">Trier par :</p>
+		<nav>
+			<a href="#" id="date" class="classement active">Date</a>
+			<p> | </p>
+	       	<a href="#" id="pop" class="classement">Popularité</a>
+	    </nav>
 		<section id="gallery">
 			<ul>
 		 		<li>

@@ -28,8 +28,8 @@
 			<nav>
 				<ul>
 					<li class="current"><a href="#">Accueil</a></li>
-					<li><a href="#">La carte</a></li>
-					<li><a href="#">Les défis</a></li>
-					<li><a href="#">Classement</a></li>
+					<li><a href="liste_video.php">La carte</a></li>
+					<li><a href="liste_challenge.php">Les défis</a></li>
+					<li><a href="classement.php">Classement</a></li>
 				</ul>
 			</nav>
