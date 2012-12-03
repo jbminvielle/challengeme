@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/style_temp.css">
 	<?php require('header.php'); ?>
 	<span class="separator">&nbsp;</span>
+
 	<!-- Page pour le déji "gobage de flamby" -->
 	<div id="laVideo">
 		<a id="close" href="">[Fermer]</a>

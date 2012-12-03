@@ -8,29 +8,25 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<?php require('header.php'); ?>
-	<span class="separator">&nbsp;</span>
 
 	<div id="main-slider">
-		<div id="list-slider">
-			<img src="img/slide1.jpg" alt="Principe du site"/>
-			<img src="img/slide1.jpg" alt="Principe du site"/>
-			<img src="img/slide1.jpg" alt="Principe du site"/>
-			<!--<li>
+		<ul id="list-slider">
+			<li>
 				<img src="img/slide1.jpg" alt="Principe du site"/>
-				<span><p class="titre-slide">Le principe ?</p>
-				<p class="sous-titre-slide">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet !</p></span>
+				<p><span class="titre-slide">Le principe ?</span>
+				<span class="sous-titre-slide">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet !</span></p>
 			</li>
 			<li>
 				<img src="img/slide1.jpg" alt="Principe du site"/>
-				<span><p class="titre-slide">Le principe ?</p>
-				<p class="sous-titre-slide">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet !</p></span>
+				<p><span class="titre-slide">Texte 2</span>
+				<span class="sous-titre-slide">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet !</span></p>
 			</li>
 			<li>
 				<img src="img/slide1.jpg" alt="Principe du site"/>
-				<span><p class="titre-slide">Le principe ?</p>
-				<p class="sous-titre-slide">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet !</p></span>
-			</li>-->
-		</div>
+				<p><span class="titre-slide">Texte 3</span>
+				<span class="sous-titre-slide">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet !</span></p>
+			</li>
+		</ul>
 		<div class="clearfix"></div>
 		<a class="prev-slide" href="#">&nbsp;</a>
 		<a class="next-slide" href="#">&nbsp;</a>
@@ -46,9 +42,16 @@
 				<a href="#">Participez !</a>
 			</div>
 			<div id="defi-semaine-infos">
-				<p>Temps restant : <span>53h 43min 32sec</span></p>
-				<p>Participants : <span>32</span></p>
-				<p>Votants : <span>145</span></p>
+				<div>
+					<p>Temps restant :</p>
+					<p>Participants :</p>
+					<p>Votants : </p>
+				</div>
+				<div>
+					<p>53h 43min 32sec</p>
+					<p>32</p>
+					<p>145</p>
+				</div>
 			</div>
 			<img src="img/img-defi.jpg" alt="Nom du défi"/>
 		</div>
@@ -71,7 +74,7 @@
 	
 	<div id="map">
 		<p>Le best-of des challenges réalisés autour de vous !</p>
-		<div></div>
+		<div id="map_canvas"></div>
 	</div>
 
 		<?php require('footer.php'); ?>
