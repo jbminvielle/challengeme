@@ -1,305 +1,54 @@
-#defi_de_la_semaine{
-	margin: 40px 0 0 0;
-	height: 27em;
-}
+/* --------------------------------- liste_challenge.php --------------------------------- */
+/* ----------------- Défi de la semaine ----------------- */
+#defi_de_la_semaine{margin: 40px 0 0 0;height: 27em;}
+#defi-semaine-head{position: relative;box-shadow: none;}
+#defi-semaine-head h1{font-size: 1.9em;margin: 0.19em 0 0 0;}
+#absolute{position: absolute;top:210px;left:33px;width: 884px;margin: 0 auto;}
+#absolute img{border: 5px solid #FFA801;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;box-shadow: 2px 2px 18px 0px #A8A8A8;float: left;margin:0 50px 0 0;}
+#absolute h2{color:#7b06a6;font-size: 1.6em;margin: 0 0 0.65em 0;}
+#absolute span{font-size: 1.1em;font-weight: bold;}
+#absolute p{color:#2a2a2a;font-size: 1em;	margin:0 0 0.5em 0;}
+.call_action{font-size: 1.8em;color:#f5f5f5;padding: 0.28em;display: inline-block;background-color: #ffb62a;margin:0 1.2em;-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;box-shadow: 2px 2px 18px 0px #A8A8A8;}
+#information_defi ul{width:14em;margin: 1em 0 0 0;color: #2a2a2a;}
+#information_defi{margin:0.3em 0 0 0;}
+li{display: inline-block;width: 6em;color: #2a2a2a;}
+.orange{color:#ffb62a;}
+#podium{position: absolute;right: 0px;bottom:-1.4em;}
+#podium ul{width:310px;}
+#podium li{width: 100px;}
+#podium #titre{width: 10em;font-size: 1.5em;}
+.nom a{color: #ffb62a;font-size: 1.03em;text-decoration: none;}
+.likes{font-size: 0.87em;}
 
-#defi-semaine-head{
-	position: relative;
-	box-shadow: none;
-}
+/* ----------------- Bandeau de participation ----------------- */
+.autre_defi h1{color:#7b06a6;font-size: 1.2em;margin:0 0 24px 33px;position: relative;background-color: #F3F3F3;z-index: 20;display: inline;padding: 0 10px;}
+.autre_defi{position: relative;margin-bottom: 20px;}
+#ligne_orange{background-color: #ffb62a;height:10px;width: 1005px;position: absolute;top: 0px;left: 0px;margin:10px 0 0 -25px;z-index: 2;}
+.autre_defi #bandeau-participer{margin-top: 20px;}
+.autre_defi #bandeau-participer a{line-height:90px;display:block;font-size:42px;width:50%;}
 
-#defi-semaine-head h1{
-	font-size: 1.9em;
-	margin: 0.19em 0 0 0;
-}
+/* -----------------Liste des défis ----------------- */
+#liste_des_defis{width: 884px;margin: 30px 33px 40px 33px;position: relative;}
+.defis_description img{border: 5px solid #FFA801;-webkit-border-radius: 8px;border-radius: 5px;-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;box-shadow: 2px 2px 18px 0px #A8A8A8;float: left;margin:0 30px 0 0;}
+#liste_des_defis h2{color: #7B06A6;font-size: 1em;margin: 0 0 0.1em 0;}
+.defis_description p{color: #2A2A2A;font-size: 1em;margin: 0 0 0.5em 0;width: 280px;display: inline-block;}
+.defis_description a{color: #f5f5f5;font-size: 25px;background: url(../img/bouton.png) no-repeat;padding: 0 0 0 6px;width: 109px;height: 31px;margin: 0 0 0 390px;display: block;}
+.top_video{display: inline-block;position: absolute;top: 0px;right: 0px;}
+.top_video div{display: inline-block;}
+.top_video p{font-size: 20px;color: #FFB62A;width: 104px;text-align: center;}
 
-#absolute{
-	position: absolute;
-	top:210px;
-	left:33px;
-	width: 884px;
-	margin: 0 auto;
-}
-
-#absolute img{
-	border: 5px solid #FFA801;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
-	-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;
-	box-shadow: 2px 2px 18px 0px #A8A8A8;
-	float: left;
-	margin:0 50px 0 0;
-}
-
-#absolute h2{
-	color:#7b06a6;
-	font-size: 1.6em;
-	margin: 0 0 0.65em 0;
-}
-
-#absolute span{
-	font-size: 1.1em;
-	font-weight: bold;
-}
-
-#absolute p{
-	color:#2a2a2a;
-	font-size: 1em;
-	margin:0 0 0.5em 0;
-}
-
-.call_action{
-	font-size: 1.8em;
-	color:#f5f5f5;
-	padding: 0.28em;
-	display: inline-block;
-	background-color: #ffb62a;
-	margin:0 1.2em;
-	-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;
-	box-shadow: 2px 2px 18px 0px #A8A8A8;
-}
-
-#information_defi ul{
-	width:14em;
-	margin: 1em 0 0 0;
-	color: #2a2a2a;
-}
-
-#information_defi{
-	margin:0.3em 0 0 0;
-}
-
-li{
-	display: inline-block;
-	width: 6em;
-	color: #2a2a2a;
-}
-
-.orange{
-	color:#ffb62a;
-}
-
-#podium{
-	position: absolute;
-	right: 0px;
-	bottom:-1.4em;
-}
-
-#podium ul{
-	width:310px;
-}
-
-#podium li{
-	width: 100px;
-}
-
-#podium #titre{
-	width: 10em;
-	font-size: 1.5em;
-}
-
-.nom a{
-	color: #ffb62a;
-	font-size: 1.03em;
-	text-decoration: none;
-}
-
-.likes{
-	font-size: 0.87em;
-}
-
-.autre_defi h1{
-	color:#7b06a6;
-	font-size: 1.2em;
-	margin:0 0 24px 33px;
-	position: relative;
-	background-color: #F3F3F3;
-	z-index: 20;
-	display: inline;
-	padding: 0 10px;
-}
-
-#ligne_orange{
-	background-color: #ffb62a;
-	height:10px;
-	width: 1005px;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	margin:10px 0 0 -25px;
-	z-index: 2;
-}
-
-.autre_defi #bandeau-participer{
-	margin-top: 20px;
-}
-
-.autre_defi #bandeau-participer a{
-	line-height:90px;
-	display:block;
-	font-size:42px;
-	width:50%;
-}
-
-#bandeau-defi {
-	background: url(../img/bandeau.png) no-repeat;
-	height:90px;
-}
-
-#bandeau-defi a {
-	line-height:50px;
-	font-size:25px;
-	width:60%;
-}
-
-#bandeau-defi a:first-child {
-	float:left;
-	padding-left:140px;
-}
-
-#liste_des_defis{
-	width: 884px;
-	margin: 30px 33px 40px 33px;
-	position: relative;
-}
-
-.defis_description img{
-	border: 5px solid #FFA801;
-	-webkit-border-radius: 8px;
-	border-radius: 5px;
-	-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;
-	box-shadow: 2px 2px 18px 0px #A8A8A8;
-	float: left;
-	margin:0 30px 0 0;
-}
-
-#liste_des_defis h2{
-	color: #7B06A6;
-	font-size: 1em;
-	margin: 0 0 0.1em 0;
-}
-
-.defis_description p{
-	color: #2A2A2A;
-	font-size: 1em;
-	margin: 0 0 0.5em 0;
-	width: 280px;
-	display: inline-block;
-}
-
-.defis_description a{
-	color: #f5f5f5;
-	font-size: 25px;
-	background: url(../img/bouton.png) no-repeat;
-	padding: 0 0 0 6px;
-	width: 109px;
-	height: 31px;
-	margin: 0 0 0 390px;
-	display: block;
-}
-
-.top_video{
-	display: inline-block;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-}
-
-.top_video div{
-	display: inline-block;
-}
-
-.top_video p{
-	font-size: 20px;
-	color: #FFB62A;
-	width: 104px;
-	text-align: center;
-}
-
-.autre_defi{
-	position: relative;
-	margin-bottom: 20px;
-}
-
-#videos{
-	margin: 40px 0 0 0;
-	height: 127em;
-}
-
-#absolute2{
-	position: absolute;
-	top:210px;
-	left:0px;
-	width: 100%;
-}
-
-#recherche_video{
-	background: url(../img/bandeau_uni.png) no-repeat;
-	height: 90px;
-}
-
-#recherche_video label{
-	color:#f5f5f5;
-	font-size: 22px;
-	display: inline-block;
-}
-
-#recherche_video form{
-	display: inline-block;
-	margin: -10px 0 0 144px;
-}
-
- select{
- 	width: 140px;
- 	margin-right: 10px;
- }
-
-#go{
- 	width:43px;
- 	height: 27px;
- }
-
- #trier{
- 	margin:0 0 0 750px;
- 	display: inline-block;
- }
-
- #trier_par nav{display: inline-block;}
-
-.video{
-	width:960px;
-}
-
-.video img{
-	float: left;
-	margin: 20px 20px 20px 40px;
-}
-
-.video h3{
-	font-size: 27px;
-	color:#ffb62a;
-	padding:20px 0 0 0;
-}
-
-.video p{
-	display: inline-block;
-	font-size: 17px;
-	color: #2a2a2a;
-}
-
-.auteur a{
-	color: #7b06a6;
-	font-size: 17px;
-}
-
-.video .auteur{
-	display: block;
-}
-
-.description{
-	font-size: 15px;
-}
-
+/* --------------------------------- liste_video.php --------------------------------- */
+#videos{margin: 40px 0 0 0;height: 127em;}
+#absolute2{position: absolute;top:210px;left:0px;width: 100%;}
+#trier{margin:0 0 0 750px;display: inline-block;}
+#trier_par nav{display: inline-block;}
+.video{width:960px;}
+.video img{float: left;margin: 20px 20px 20px 40px;}
+.video h3{font-size: 27px;color:#ffb62a;padding:20px 0 0 0;}
+.video p{display: inline-block;font-size: 17px;color: #2a2a2a;}
+.auteur a{color: #7b06a6;font-size: 17px;}
+.video .auteur{display: block;}
+.description{font-size: 15px;}
 
 /* ---------------------------- Envoie video ---------------------------- */
 #envoi {margin: 40px 0 0 0; height: 37em; }
@@ -339,4 +88,19 @@ nav .active{color: #FFB62A;font-size: 18px;text-transform: lowercase;}
 .autre_defi nav{display: inline-block;}
 
 /* ---------------------------- Page classement.php ---------------------------- */
-#rank {margin: 40px 0 0 0; height: 37em; }
+#rank {margin: 40px 0 0 0; height: 52em; }
+.semaine_defi{position: relative;margin-top:0px;z-index: 20;}
+.semaine_defi img{display: block;position: absolute;top:-20px; left:570px;border: 5px solid #FFB62A;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;box-shadow: 2px 2px 18px 0px #A8A8A8;z-index: 10;}
+.semaine_defi h2{position: absolute;top: 95px;left: 570px;color: #000;font-size:22px;}
+.join{position: absolute;top: 30px;left: 785px;display: inline-block;background-color: #FFB62A; width: 143px;height: 50px;-webkit-border-radius: 4px;border-radius: 4px;font-size: 35px;padding:3px 0 0 15px;}
+.semaine_defi ul{margin:25px 20px 0 20px;}
+.semaine_defi ul li{display: inline-block;width: 495px;}
+.semaine_defi ul li p,.semaine_defi ul li p a{font-size: 36px; color:#7b06a6;margin:0 20px;display:inline-block;}
+.semaine_defi .small li p,.semaine_defi .small li p a{font-size: 20px;margin:0 10px;}
+.semaine_defi .small li .nbr_like{color: #2a2a2a}
+.semaine_defi ul li:first-child{background: url(../img/bckg_class.png) no-repeat 7px 0;}
+.semaine_defi .small li:first-child{background: none;}
+.semaine_defi .small{margin: -163px 0 0 565px;}
+.semaine_defi .nbr_like{color: #c1c1c1;}
+.semaine_defi .nbr_like span{color: #ffb62a;}
+.semaine_defi .fb_voter a{background: url(../img/voter.png) no-repeat 7px 0;width: 70px;height: 24px;margin:0;}

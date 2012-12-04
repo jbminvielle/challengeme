@@ -43,7 +43,9 @@
 	<section class="autre_defi">
 		<h1>Les vidéos réalisées autour de vous !</h1>
 		<p id="ligne_orange"></p>
-		<div id="gmap"></div>
+		<div id="map">
+			<div id="map_canvas"></div>
+		</div>
 	</section>
 	<section class="autre_defi" id="video_gallerie">
 		<h1>La galerie des videos</h1>

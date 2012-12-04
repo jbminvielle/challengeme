@@ -67,17 +67,32 @@ window.MAP =
           mapTypeId: google.maps.MapTypeId.ROADMAP,//affiche la carte avec les routes
 		  scrollwheel:false
         };
-
-        MAP.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-        // Si le navigateur prend en compte le HTML5
-        if(navigator.geolocation) 
+		if(document.getElementById('map_canvas'))
 		{
-		  navigator.geolocation.getCurrentPosition(MAP.geoSuccess,
-		  											MAP.geoError,
-		  											{enableHighAccuracy:true});
+			MAP.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+			// Si le navigateur prend en compte le HTML5
+			if(navigator.geolocation) 
+			{
+			  navigator.geolocation.getCurrentPosition(MAP.geoSuccess,
+														MAP.geoError,
+														{enableHighAccuracy:true});
+			}
+			// Si le navigateur n'accepte pas la geoloc
+			else {MAP.handleNoGeolocation(false);}
 		}
-		// Si le navigateur n'accepte pas la geoloc
-		else {MAP.handleNoGeolocation(false);}
+		else if(document.getElementById('carte'))
+		{
+			MAP.map = new google.maps.Map(document.getElementById('carte'), mapOptions);
+			// Si le navigateur prend en compte le HTML5
+			if(navigator.geolocation) 
+			{
+			  navigator.geolocation.getCurrentPosition(MAP.geoSuccess2,
+														MAP.geoError,
+														{enableHighAccuracy:true});
+			}
+			// Si le navigateur n'accepte pas la geoloc
+			else {MAP.handleNoGeolocation(false);}
+		}
     },
 	MouseOver : function ()
 	{
@@ -89,12 +104,13 @@ window.MAP =
 		this.setIcon( 'img/MouseOverIcone.png');
 	},
 	MouseOut : function(){ this.setIcon( this.savIcon); },
-	//################################ Fonction de succès
 	NouvPos : function (event) 
 	{
 		pos=event.latLng;
 		MAP.map.setCenter(pos);
 	},
+	
+	//################################ Fonction de succès
 	geoSuccess :  function (position)
 	{
 		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -109,7 +125,6 @@ window.MAP =
 			  map: MAP.map,
 			  position: posMark
 			});
-			//oMarker.setDraggable(true);//Permet de déplacer le marker sur la map
 			var contentString = 
 			[
 			  '<div id="containerTabs">',
@@ -130,8 +145,51 @@ window.MAP =
 			google.maps.event.addListener( oMarker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
 			google.maps.event.addListener( oMarker, 'mouseout', MAP.MouseOut);//restauration sur le mouseout
 		}
-		//google.maps.event.addListener(oMarker, 'dragend', MAP.NouvPos);//afficher la nouvelle position d'un marqueur si on le déplace
     },
+	geoSuccess2 :  function (position)
+	{
+		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		MAP.map.setCenter(pos);//pour centrer la map sur notre lieu actuel
+
+		var oMarker = new google.maps.Marker //on attribue les options des markers
+		({
+		  icon:'img/icone.png',
+		  map: MAP.map,
+		  position: pos
+		});
+		oMarker.setDraggable(true);//Permet de déplacer le marker sur la map
+		
+		var geocoder = document.getElementById("addvideo");
+		MAP.geoCoding(oMarker, geocoder);//déplacer le curseur directement à l'endroit saisi
+		google.maps.event.addListener( oMarker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
+		google.maps.event.addListener( oMarker, 'mouseout', MAP.MouseOut);//restauration sur le mouseout
+		google.maps.event.addListener( oMarker, 'dragend', MAP.NouvPos);//afficher la nouvelle position d'un marqueur si on le déplace
+		
+    },
+	geoCoding : function(marker,geocoding)
+	{
+		
+		geocoding.addEventListener('submit',function(e)
+		{
+			e.preventDefault();
+			var address=document.querySelector("input[name='position']");
+			var geocoder=new google.maps.Geocoder(); //objet de google maps
+			geocoder.geocode({"address":address.value},function(data,status)
+			{
+				if(status=='OK')
+				{
+					marker.setMap(null);
+					MAP.map.setCenter(data[0].geometry.location);
+					marker = new google.maps.Marker({icon:'img/icone.png',position: data[0].geometry.location,map:MAP.map});
+					marker.setDraggable(true);
+					google.maps.event.addListener( marker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
+					google.maps.event.addListener( marker, 'mouseout', MAP.MouseOut);//restauration sur le mouseout
+					google.maps.event.addListener( marker, 'dragend', MAP.NouvPos);//afficher la nouvelle position d'un marqueur si on le déplace
+				}
+			});
+		},false);
+		
+	},
 	setEventMarker : function ( marker, infowindow, texte)
 	{
 	  google.maps.event.addListener( marker, 'click', function() 
@@ -280,7 +338,7 @@ var defi = {};//Initialisation d'un objet contenant tous les défis
 defi.flamby = new Array();//Tableau contenant les videos du défi "Gobage de Flamby"
 defi.gangnam = new Array();//Tableau contenant les videos du défi "Dansez le gangnam style"
 var url_page = window.location.pathname;
-var page = 1;
+var page = 2;
 
 $(document).ready(function(){
     var js = document.createElement('script');
@@ -312,7 +370,8 @@ function showGallery(video) {
 		page = 0;
 		affiche(defi.gangnam,page);
 	}
-	else{
+	else if(url_page.indexOf('video') != -1 ){
+		page = 1;
 		affiche(video,page);
 	}
 }
@@ -517,5 +576,3 @@ function recente(video){
     }
     affiche(video,page);
 }
-
-//Konami Code
