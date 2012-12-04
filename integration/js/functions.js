@@ -351,7 +351,7 @@ var defi = {};//Initialisation d'un objet contenant tous les défis
 defi.flamby = new Array();//Tableau contenant les videos du défi "Gobage de Flamby"
 defi.gangnam = new Array();//Tableau contenant les videos du défi "Dansez le gangnam style"
 var url_page = window.location.pathname;
-var page = 1;
+var page = 2;
 
 $(document).ready(function(){
     var js = document.createElement('script');
@@ -383,7 +383,8 @@ function showGallery(video) {
 		page = 0;
 		affiche(defi.gangnam,page);
 	}
-	else{
+	else if(url_page.indexOf('video') != -1 ){
+		page = 1;
 		affiche(video,page);
 	}
 }
@@ -588,5 +589,3 @@ function recente(video){
     }
     affiche(video,page);
 }
-
-//Konami Code
