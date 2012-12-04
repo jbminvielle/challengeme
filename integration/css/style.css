@@ -81,10 +81,11 @@ padding:10px 0;position:relative;}
 /* EN-TETE
 -------------------------------------------------- */
 #global>header {margin:0 auto;position:relative;z-index:30;background: #7b06a6 ;width:100%;height:150px;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;}
+#global>header>#wrapper {width:960px; position:relative; margin: auto;}
 #logo {background: url(../img/logo.png) no-repeat 48% 50%;height:100%;}
 #logo a {font:68px 'Noteworthy';line-height:160px;/*text-shadow: 0px 5px 5px #d09523;*/filter: dropshadow(color=#d09523, offx=0, offy=5);color:transparent;}
 #userPlace p{color:#fff;margin: 50px 5px 5px 0;}
-#userPlace { position:absolute;top:0;right:210px; width:140px;height: 155px;background-color: #FFB62A;
+#userPlace { position:absolute;top:0;right:50px; width:140px;height: 155px;background-color: #FFB62A;
 -webkit-box-shadow: -1px -2px 10px 2px #550473;box-shadow: -1px -2px 10px 2px #550473;}
 #facebookConnect {display: block;margin:0 0 0 15px;}
 #facebookConnect:hover {background:#4b67a1;}

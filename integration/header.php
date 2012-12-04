@@ -13,23 +13,25 @@
 <body>
 	<div id="global">
 		<header>
-			<div id="userPlace">
-				<div id="facebookAuth">
-					<p>Connecte toi pour jouer!</p>
-					<div id="facebookConnect" class="fb-login-button hidden" scope="email,user_checkins, publish_stream">Se connecter</div>
-				</div>
-				<div id="userInfos" class="hidden">
-					<img src="#" alt="" id="userPicture" />
-					<div id="userPseudo">jbminvielle</div>
-					<div id="userName"></div>
-				</div>
+			<div id="wrapper">
+				<div id="userPlace">
+					<div id="facebookAuth">
+						<p>Connecte toi pour jouer!</p>
+						<div id="facebookConnect" class="fb-login-button hidden" scope="email,user_checkins, publish_stream">Se connecter</div>
+					</div>
+					<div id="userInfos" class="hidden">
+						<img src="#" alt="" id="userPicture" />
+						<div id="userPseudo">jbminvielle</div>
+						<div id="userName"></div>
+					</div>
 
-				<div id="userMenu">
-					<ul>
-						<li>Mon Profil</li>
-						<li>Soumettre une vidéo</li>
-						<li>Défier un ami</li>
-					</ul>
+					<div id="userMenu">
+						<ul>
+							<li>Mon Profil</li>
+							<li>Soumettre une vidéo</li>
+							<li>Défier un ami</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 
