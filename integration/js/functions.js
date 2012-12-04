@@ -217,23 +217,10 @@ window.FBAPI = {
 		$('#facebookConnect').addClass('hidden');
 		$('#userInfos').removeClass('hidden');
 
-		$.ajax({
-			url: 'https://graph.facebook.com/me',
-			method: 'GET',
-			async: false,
-			data: {
-				access_token: access_token,
-				fields: 'id,name'
-			},
-			complete: function(response) {
-				if(response.status!=200) return false;
-				var data = JSON.parse(response.responseText);
-				console.log(data);
-				$('#userName').text(data.name);
-				$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
-			}
+		FB.api('/me', function(data) {
+			$('#userName').text(data.name);
+			$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
 		});
-
 	},
 
 	showFacebookButton: function() {
