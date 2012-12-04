@@ -18,33 +18,6 @@
 			<h1>Les vidéos</h1>
 		</header>
 		<div id="absolute2">
-			<div id="recherche_video">
-				<form method="post" name="form">
-					<label>Rechercher une vidéo :</label>
-					<select>
-						<option value="0">Intitulé du défi</option>
-						<option value="1">Défi 1</option>
-						<option value="2">Défi 2</option>
-						<option value="3">Défi 3</option>
-						<option value="4">Défi 4</option>
-					</select>
-					<select>
-						<option value="0">Auteur du défi</option>
-						<option value="1">Défi 1</option>
-						<option value="2">Défi 2</option>
-						<option value="3">Défi 3</option>
-						<option value="4">Défi 4</option>
-					</select>
-					<select>
-						<option value="0">Localisation du défi</option>
-						<option value="1">Défi 1</option>
-						<option value="2">Défi 2</option>
-						<option value="3">Défi 3</option>
-						<option value="4">Défi 4</option>
-					</select>
-					<input id="go" type="submit" value="GO" onclick="valid(this);"/>
-				</form>
-			</div>
 			<div id="trier_par">
 				<p id="trier">Trier par :</p>
 				<nav>
