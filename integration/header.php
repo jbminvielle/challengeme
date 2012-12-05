@@ -25,11 +25,13 @@
 						<div id="userName"></div>
 					</div>
 
-					<div id="userMenu">
+					<div id="userMenu" class="hidden">
 						<ul>
-							<li>Mon Profil</li>
-							<li>Soumettre une vidéo</li>
-							<li>Défier un ami</li>
+							<li><a href="#">Mon Profil</a></li>
+							<li><a href="send_video.php">Soumettre une vidéo</a></li>
+							<li><a href="#">Défier un ami</a></li>
+							<li><div id="facebookUnconnect" class="fb-login-button">Se déconnecter</div>
+</li>
 						</ul>
 					</div>
 				</div>

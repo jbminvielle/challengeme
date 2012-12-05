@@ -274,6 +274,7 @@ window.FBAPI = {
 		console.log('show profile');
 		$('#facebookAuth').addClass('hidden');
 		$('#userInfos').removeClass('hidden');
+		$('#userMenu').removeClass('hidden');
 
 		FB.api('/me', function(data) {
 			$('#userName').text(data.name);
@@ -286,9 +287,8 @@ window.FBAPI = {
 
 		$('#facebookAuth').removeClass('hidden');
 		$('#userInfos').addClass('hidden');
+		$('#userMenu').addClass('hidden');
 	}
-
-
 }
 
 //Send_video.php
@@ -316,6 +316,26 @@ $('input[name="verif"]').focusout(function(){
 			$('.input').eq(1).attr('class','input oui');
 		}
 	}
+});
+
+//time until
+
+$('[data-timeUntil]').each(function() {
+	$el = $(this);
+	setInterval(function() {
+
+		//alert($(this).attr('data-timeUntil'));
+		var datetime = new Date($el.attr('data-timeUntil'));
+		var datetimeToday = new Date();
+		var dateToGo = new Date();
+		dateToGo.setTime(datetime.getTime()-datetimeToday.getTime());
+
+		var totalHours = ((dateToGo.getFullYear()-1970)*12*30*24)+(dateToGo.getMonth()*30*24)+(dateToGo.getDate()*24) + dateToGo.getHours(); //not efficient if we have a date far away
+		$el.html(totalHours+'h '+dateToGo.getMinutes()+'m '+dateToGo.getSeconds()+'s');
+	}, 1000)
+
+	
+
 });
 
 //Page défi
