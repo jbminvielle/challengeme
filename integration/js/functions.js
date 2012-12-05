@@ -158,19 +158,7 @@ window.MAP =
 		  position: pos
 		});
 		oMarker.setDraggable(true);//Permet de déplacer le marker sur la map
-		//Va permettre de récupérer notre lieu à partir de nos coordonnées lat et long
-		var lieu = new google.maps.Geocoder();
-		var GeoReverse=lieu.geocode({'latLng': pos}, function(results, status) 
-		{
-			if (status == google.maps.GeocoderStatus.OK) 
-			{
-				if (results[1]) 
-				{
-				  console.log(results[1].formatted_address);
-				  console.log(results[1]);
-				}
-			}
-		});
+		
 		var geocoder = document.getElementById("addvideo");
 		MAP.geoCoding(oMarker, geocoder);//déplacer le curseur directement à l'endroit saisi
 		google.maps.event.addListener( oMarker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
@@ -192,12 +180,6 @@ window.MAP =
 				{
 					marker.setMap(null);
 					MAP.map.setCenter(data[0].geometry.location);
-					// Va permettre de récupérer toutes les villes de même nom et leurs coordonnées
-					for(i=0;i<data.length;i++)
-					{
-						data[i];
-						console.log(data[i]);
-					}
 					marker = new google.maps.Marker({icon:'img/icone.png',position: data[0].geometry.location,map:MAP.map});
 					marker.setDraggable(true);
 					google.maps.event.addListener( marker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
@@ -291,23 +273,19 @@ window.FBAPI = {
 	showProfile: function(access_token) {
 		console.log('show profile');
 		$('#facebookConnect').addClass('hidden');
-		$('#facebookAuth').addClass('hidden');
 		$('#userInfos').removeClass('hidden');
-		$('#userMenu').removeClass('hidden');
 
 		FB.api('/me', function(data) {
 			$('#userName').text(data.name);
 			$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
 		});
-
 	},
 
 	showFacebookButton: function() {
 		console.log('show facebook button');
+
 		$('#facebookConnect').removeClass('hidden');
-		$('#facebookAuth').removeClass('hidden');
 		$('#userInfos').addClass('hidden');
-		$('#userMenu').addClass('hidden');
 	}
 }
 
@@ -336,26 +314,6 @@ $('input[name="verif"]').focusout(function(){
 			$('.input').eq(1).attr('class','input oui');
 		}
 	}
-});
-
-//time until
-
-$('[data-timeUntil]').each(function() {
-	$el = $(this);
-	setInterval(function() {
-
-		//alert($(this).attr('data-timeUntil'));
-		var datetime = new Date($el.attr('data-timeUntil'));
-		var datetimeToday = new Date();
-		var dateToGo = new Date();
-		dateToGo.setTime(datetime.getTime()-datetimeToday.getTime());
-
-		var totalHours = ((dateToGo.getFullYear()-1970)*12*30*24)+(dateToGo.getMonth()*30*24)+(dateToGo.getDate()*24) + dateToGo.getHours(); //not efficient if we have a date far away
-		$el.html(totalHours+'h '+dateToGo.getMinutes()+'m '+dateToGo.getSeconds()+'s');
-	}, 1000)
-
-	
-
 });
 
 //Page défi
@@ -412,7 +370,8 @@ function showGallery(video) {
 		page = 0;
 		affiche(defi.gangnam,page);
 	}
-	else{
+	else if(url_page.indexOf('video') != -1 ){
+		page = 1;
 		affiche(video,page);
 	}
 }
@@ -458,13 +417,12 @@ function affiche(video,page){
 	        li.appendChild(lieu);
 	        lieu.innerHTML = 'Montreuil';
 
-	        var p3 = document.createElement('p');
-	        li.appendChild(p3);
-	        p3.innerHTML = ' - ';
-
-	        var duree = document.createElement('p');
-	        li.appendChild(duree);
-	        duree.innerHTML = video[i].duration;
+	        // var p3 = document.createElement('p');
+	        // li.appendChild(p3);
+	        // p3.innerHTML = ' - ';
+	        // var duree = document.createElement('p');
+	        // li.appendChild(duree);
+	        // duree.innerHTML = video[i].duration;
 
 	        var auteur = document.createElement('p');
 	        auteur.setAttribute('class','auteur');
@@ -473,7 +431,7 @@ function affiche(video,page){
 
 	        var lien = document.createElement('a');
 	        auteur.appendChild(lien);
-	        lien.setAttribute('href','#');
+	        lien.setAttribute('href','profil.html');
 	        lien.innerHTML = video[i].user_name;
 
 	        var description = document.createElement('p');
@@ -507,7 +465,8 @@ function affiche(video,page){
 
             var auteur = document.createElement('a');
             p1.appendChild(auteur);
-            auteur.setAttribute('href','#');
+            auteur.setAttribute('href','profil.html');
+            auteur.setAttribute('class','auteurClass');
             auteur.innerHTML = video[i].user_name;
 
 	        var date = document.createElement('p');
@@ -515,14 +474,14 @@ function affiche(video,page){
 	        date.innerHTML = video[i].upload_date;
 	    }
 	}
-	$('#resultat_recherche ul li a').click(function(e){
+	$('#resultat_recherche ul li a img').click(function(e){
 		e.preventDefault();
-	    popin(this);
+	    popin(this.parentNode);
 	    return false;
 	});
-	$('#gallery ul li a').click(function(e){
+	$('#gallery ul li a img').click(function(e){
 		e.preventDefault();
-	    popin(this);
+	    popin(this.parentNode);
 	    return false;
 	});
 }
@@ -545,6 +504,12 @@ function getVideo(url) { //Récupère les informations relatives à la video
 
 function switchVideo(video) {
     var laVideo = document.getElementById('laVideo');
+    laVideo.innerHTML = '';
+    var close = document.createElement('a');
+    laVideo.appendChild(close);
+    close.setAttribute('id','close');
+    close.setAttribute('href','#');
+    close.innerHTML = '[Fermer]';
     laVideo.innerHTML += unescape(video.html);//Affiche la video
     $('#close').click(function(e){ //Pour fermer la video
 		e.preventDefault();
@@ -617,5 +582,3 @@ function recente(video){
     }
     affiche(video,page);
 }
-
-//Konami Code
