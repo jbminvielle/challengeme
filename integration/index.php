@@ -9,7 +9,7 @@
 
 	<?php require('header.php'); ?>
 
-	<div id="main-slider">
+	<section id="main-slider">
 		<ul id="list-slider">
 			<li>
 				<img src="img/slide1.jpg" alt="Principe du site"/>
@@ -30,11 +30,11 @@
 		<div class="clearfix"></div>
 		<a class="prev-slide" href="#">&nbsp;</a>
 		<a class="next-slide" href="#">&nbsp;</a>
-	</div>
+	</section>
 
-	<div id="bloc-defis" class="clearfix">
+	<section id="bloc-defis" class="clearfix">
 		<div id="defi-semaine">
-			<div id="defi-semaine-head">
+			<div id="defi-semaine-head" class="bandeau-titre">
 				<p>Le défi de la semaine :</p>
 				<a href="#">« Danser le Gangnam Style en public »</a> <!-- A l'avenir, récupérer le titre, infos et image de la vidéo par requête JS -->
 			</div>
@@ -42,40 +42,40 @@
 				<a href="#">Participez !</a>
 			</div>
 			<div id="defi-semaine-infos">
-				<div>
-					<p>Temps restant :</p>
-					<p>Participants :</p>
-					<p>Votants : </p>
-				</div>
-				<div>
-					<p>53h 43min 32sec</p>
-					<p>32</p>
-					<p>145</p>
-				</div>
+				<ul>
+					<li>Temps restant :</li>
+					<li>Participants :</li>
+					<li>Votants : </li>
+				</ul>
+				<ul class="info-valeurs yellow">
+					<li>53h 43min 32sec</li>
+					<li>32</li>
+					<li>145</li>
+				</ul>
 			</div>
 			<img src="img/img-defi.jpg" alt="Nom du défi"/>
 		</div>
 		<div id="classement">
 			<p>Ils dominent le classement !</p>
 			<ul>
-				<li><span>1er</span><a href="#"> Akajiro <span>&nbsp;</span></a></li>
-				<li><span>2ème</span><a href="#"> Neuski <span>&nbsp;</span></a></li>
-				<li><span>3ème</span><a href="#"> Dragirl <span>&nbsp;</span></a></li>
-				<li><span>4ème</span><a href="#"> Nadium <span>&nbsp;</span></a></li>
-				<li><span>5ème</span><a href="#"> Scouty <span>&nbsp;</span></a></li>
+				<li><span>1er</span><a href="#"> Akajiro <span class="fleche">&nbsp;</span></a></li>
+				<li><span>2ème</span><a href="#"> Neuski <span class="fleche">&nbsp;</span></a></li>
+				<li><span>3ème</span><a href="#"> Dragirl <span class="fleche">&nbsp;</span></a></li>
+				<li><span>4ème</span><a href="#"> Nadium <span class="fleche">&nbsp;</span></a></li>
+				<li><span>5ème</span><a href="#"> Scouty <span class="fleche">&nbsp;</span></a></li>
 			</ul> <!-- Récupération du classement avec requête JS -->
 		</div>
-	</div>
+	</section>
 	
 	<div id="bandeau-participer">
 		<a href="#">Accédez à tous les défis</a>
-		<a href="#">Envie de défis ? Participez dès maintenant !</a>
+		<a href="#">Envie de défis ? <span>Participez dès maintenant !</span></a>
 	</div>
 	
-	<div id="map">
+	<section id="map">
 		<p>Le best-of des challenges réalisés autour de vous !</p>
 		<div id="map_canvas"></div>
-	</div>
+	</section>
 
 		<?php require('footer.php'); ?>
 	</div>

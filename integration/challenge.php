@@ -17,7 +17,6 @@
 	<meta property="og:url" content="challenge.php?gobage-famby" />
 
 	<?php include('header.php'); ?>
-	<span class="separator">&nbsp;</span>
 	<!-- Page pour le défi "gobage de flamby" -->
 
 	<h1>Gobage de famby</h1>

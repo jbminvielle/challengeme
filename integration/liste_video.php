@@ -9,10 +9,9 @@
 
 	<link rel="stylesheet" href="css/style_temp.css">
 	<?php require('header.php'); ?>
-	<span class="separator">&nbsp;</span>
 
 	<section id="videos">
-		<header id="defi-semaine-head">
+		<header id="defi-semaine-head" class="bandeau-titre">
 			<h1>Les vidéos</h1>
 		</header>
 		<div id="absolute2">

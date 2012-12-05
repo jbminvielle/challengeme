@@ -27,10 +27,9 @@
 		<div id="container">
 			<nav>
 				<ul>
-					<li class="current"><a href="#">Accueil</a></li>
+					<li class="current"><a href="index.php">Accueil</a></li>
 					<li><a href="#">La carte</a></li>
 					<li><a href="#">Les défis</a></li>
 					<li><a href="#">Classement</a></li>
 				</ul>
 			</nav>
-			<span class="separator">&nbsp;</span>
