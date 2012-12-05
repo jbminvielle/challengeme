@@ -290,25 +290,13 @@ window.fbAsyncInit = function() {
 window.FBAPI = {
 	showProfile: function(access_token) {
 		console.log('show profile');
-		$('#facebookConnect').addClass('hidden');
+		$('#facebookAuth').addClass('hidden');
 		$('#userInfos').removeClass('hidden');
 		$('#userMenu').removeClass('hidden');
 
-		$.ajax({
-			url: 'https://graph.facebook.com/me',
-			method: 'GET',
-			async: false,
-			data: {
-				access_token: access_token,
-				fields: 'id,name'
-			},
-			complete: function(response) {
-				if(response.status!=200) return false;
-				var data = JSON.parse(response.responseText);
-				console.log(data);
-				$('#userName').text(data.name);
-				$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
-			}
+		FB.api('/me', function(data) {
+			$('#userName').text(data.name);
+			$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
 		});
 
 	},
@@ -316,7 +304,7 @@ window.FBAPI = {
 	showFacebookButton: function() {
 		console.log('show facebook button');
 
-		$('#facebookConnect').removeClass('hidden');
+		$('#facebookAuth').removeClass('hidden');
 		$('#userInfos').addClass('hidden');
 		$('#userMenu').addClass('hidden');
 	}
@@ -391,7 +379,7 @@ var defi = {};//Initialisation d'un objet contenant tous les défis
 defi.flamby = new Array();//Tableau contenant les videos du défi "Gobage de Flamby"
 defi.gangnam = new Array();//Tableau contenant les videos du défi "Dansez le gangnam style"
 var url_page = window.location.pathname;
-var page = 1;
+var page = 2;
 
 $(document).ready(function(){
     var js = document.createElement('script');
