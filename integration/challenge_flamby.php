@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-<!doctype html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title></title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-
-	<!-- Identifiant de l'application opengraph -->
-	<meta property="fb:app_id" content="267328883388489" />
-	<!-- Propriétés de l'objet --> 
-	<meta property="og:type" content="challengemehetic:challenge" /> 
-	<meta property="og:title" content="Gobage de famby !" /> 
-	<meta property="og:description" content="Ce défi consiste à gober un flamby lolilol" /> 
-	<meta property="og:image" content="medias/challenges_images/gobage_flamby.png" /> 
-	<meta property="og:url" content="challenge.php?gobage-famby" />
-
-	<?php include('header.php'); ?>
-	<!-- Page pour le défi "gobage de flamby" -->
-
-	<h1>Gobage de famby</h1>
-
-		<?php include('footer.php'); ?>
-	</div>
-	
-</body>
-=======
 <!doctype html>
 <html lang="fr">
 <head>
@@ -47,7 +18,6 @@
 	<link rel="stylesheet" href="css/style_temp.css">
 	<?php require('header.php'); ?>
 	<span class="separator">&nbsp;</span>
-
 	<!-- Page pour le déji "gobage de flamby" -->
 	<div id="laVideo">
 		<a id="close" href="">[Fermer]</a>
@@ -72,21 +42,17 @@
 	<section class="autre_defi">
 		<h1>Les vidéos réalisées autour de vous !</h1>
 		<p id="ligne_orange"></p>
-		<div id="map">
-			<div id="map_canvas"></div>
-		</div>
+		<div id="gmap"></div>
 	</section>
 	<section class="autre_defi" id="video_gallerie">
 		<h1>La galerie des videos</h1>
 		<p id="ligne_orange"></p>
-		<div id="trier_par">
-			<p id="trier">Trier par :</p>
-			<nav>
-				<a href="#" id="date" class="classement active">Date</a>
-				<p> | </p>
-	        	<a href="#" id="pop" class="classement">Popularité</a>
-	        </nav>
-	    </div>
+		<p id="trier">Trier par :</p>
+		<nav>
+			<a href="#" id="date" class="classement active">Date</a>
+			<p> | </p>
+	       	<a href="#" id="pop" class="classement">Popularité</a>
+	    </nav>
 		<section id="gallery">
 			<ul>
 		 		<li>
@@ -105,5 +71,4 @@
 	</div>
 	
 </body>
->>>>>>> 7aacef9dc2632cb7655be09467a9389d4c2cadde
 </html>

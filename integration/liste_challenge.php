@@ -14,7 +14,7 @@
 			<h1>Le défi de la semaine</h1>
 		</header>
 		<div id="absolute">
-			<img src="" alt="Psy_Gangnam_Style" title="Psy_Gangnam_Style" width="376px" height="210px">
+			<img src="medias/challenges_images/gangnam_style2.jpg" alt="Psy_Gangnam_Style" title="Psy_Gangnam_Style" width="376px" height="210px">
 			<h2>"Dansez le Gangnam Style en public"</h2>
 			<p>
 				<span>Votre objectif :</br></span>
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 	</section>
-	<section id="autre_defi">
+	<section class="autre_defi">
 		<header>
 			<h1>Les défis</h1>
 			<p id="ligne_orange"></p>
@@ -58,20 +58,10 @@
 				<a href="#">Soumettre un défi</a>
 				<a href="#">Défier un ami +fb</a>
 			</div>
-			<div id="bandeau-defi">
-				<a href="#">Afficher tous les défis</a>
-				<a href="#">Trouver un défi</a>
-				<select>
-					<option value="0">Choisir un défi</option>
-					<option value="1">Défi 1</option>
-					<option value="2">Défi 2</option>
-					<option value="3">Défi 3</option>
-				</select>
-			</div>
 		</header>
 		<div id="liste_des_defis">
 			<div class="defis_description">
-				<img src="" alt="" title="" width="194px" height="109px">
+				<img src="medias/challenges_images/gobage_famby.png" alt="" title="" width="194px" height="109px">
 				<h2>"Gobage de Flamby"</h2>
 				<p>
 					Suspendisse commodo, metus nec tristique facilisis, justo leo . 

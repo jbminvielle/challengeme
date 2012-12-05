@@ -13,9 +13,28 @@
 <body>
 	<div id="global">
 		<header>
-			<div id="userplace">
-				<div id="facebookConnect" class="fb-login-button hidden" scope="email,user_checkins, publish_stream">Se connecter</div>
-				<div id="userInfos" class="hidden"><img src="#" alt="" id="userPicture" /><span id="userName"></span></div>
+			<div id="wrapper">
+				<div id="userPlace">
+					<div id="facebookAuth">
+						<p>Connecte toi pour jouer!</p>
+						<div id="facebookConnect" class="fb-login-button hidden" scope="email,user_checkins, publish_stream">Se connecter</div>
+					</div>
+					<div id="userInfos" class="hidden">
+						<img src="#" alt="" id="userPicture" />
+						<div id="userPseudo">jbminvielle</div>
+						<div id="userName"></div>
+					</div>
+
+					<div id="userMenu" class="hidden">
+						<ul>
+							<li><a href="#">Mon Profil</a></li>
+							<li><a href="send_video.php">Soumettre une vidéo</a></li>
+							<li><a href="#">Défier un ami</a></li>
+							<li><div id="facebookUnconnect" class="fb-login-button">Se déconnecter</div>
+</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 
 			<div id="logo">
@@ -27,9 +46,9 @@
 		<div id="container">
 			<nav>
 				<ul>
-					<li class="current"><a href="index.php">Accueil</a></li>
-					<li><a href="#">La carte</a></li>
-					<li><a href="#">Les défis</a></li>
-					<li><a href="#">Classement</a></li>
+					<li class="current"><a href="#">Accueil</a></li>
+					<li><a href="liste_challenge.php">Défis</a></li>
+					<li><a href="liste_video.php">Videos</a></li>
+					<li><a href="classement.php">Classement</a></li>
 				</ul>
 			</nav>

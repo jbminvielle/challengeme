@@ -67,17 +67,32 @@ window.MAP =
           mapTypeId: google.maps.MapTypeId.ROADMAP,//affiche la carte avec les routes
 		  scrollwheel:false
         };
-
-        MAP.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-        // Si le navigateur prend en compte le HTML5
-        if(navigator.geolocation) 
+		if(document.getElementById('map_canvas'))
 		{
-		  navigator.geolocation.getCurrentPosition(MAP.geoSuccess,
-		  											MAP.geoError,
-		  											{enableHighAccuracy:true});
+			MAP.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+			// Si le navigateur prend en compte le HTML5
+			if(navigator.geolocation) 
+			{
+			  navigator.geolocation.getCurrentPosition(MAP.geoSuccess,
+														MAP.geoError,
+														{enableHighAccuracy:true});
+			}
+			// Si le navigateur n'accepte pas la geoloc
+			else {MAP.handleNoGeolocation(false);}
 		}
-		// Si le navigateur n'accepte pas la geoloc
-		else {MAP.handleNoGeolocation(false);}
+		else if(document.getElementById('carte'))
+		{
+			MAP.map = new google.maps.Map(document.getElementById('carte'), mapOptions);
+			// Si le navigateur prend en compte le HTML5
+			if(navigator.geolocation) 
+			{
+			  navigator.geolocation.getCurrentPosition(MAP.geoSuccess2,
+														MAP.geoError,
+														{enableHighAccuracy:true});
+			}
+			// Si le navigateur n'accepte pas la geoloc
+			else {MAP.handleNoGeolocation(false);}
+		}
     },
 	MouseOver : function ()
 	{
@@ -89,12 +104,13 @@ window.MAP =
 		this.setIcon( 'img/MouseOverIcone.png');
 	},
 	MouseOut : function(){ this.setIcon( this.savIcon); },
-	//################################ Fonction de succès
 	NouvPos : function (event) 
 	{
 		pos=event.latLng;
 		MAP.map.setCenter(pos);
 	},
+	
+	//################################ Fonction de succès
 	geoSuccess :  function (position)
 	{
 		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -109,7 +125,6 @@ window.MAP =
 			  map: MAP.map,
 			  position: posMark
 			});
-			//oMarker.setDraggable(true);//Permet de déplacer le marker sur la map
 			var contentString = 
 			[
 			  '<div id="containerTabs">',
@@ -130,8 +145,69 @@ window.MAP =
 			google.maps.event.addListener( oMarker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
 			google.maps.event.addListener( oMarker, 'mouseout', MAP.MouseOut);//restauration sur le mouseout
 		}
-		//google.maps.event.addListener(oMarker, 'dragend', MAP.NouvPos);//afficher la nouvelle position d'un marqueur si on le déplace
     },
+	geoSuccess2 :  function (position)
+	{
+		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		MAP.map.setCenter(pos);//pour centrer la map sur notre lieu actuel
+
+		var oMarker = new google.maps.Marker //on attribue les options des markers
+		({
+		  icon:'img/icone.png',
+		  map: MAP.map,
+		  position: pos
+		});
+		oMarker.setDraggable(true);//Permet de déplacer le marker sur la map
+		//Va permettre de récupérer notre lieu à partir de nos coordonnées lat et long
+		var lieu = new google.maps.Geocoder();
+		var GeoReverse=lieu.geocode({'latLng': pos}, function(results, status) 
+		{
+			if (status == google.maps.GeocoderStatus.OK) 
+			{
+				if (results[1]) 
+				{
+				  console.log(results[1].formatted_address);
+				  console.log(results[1]);
+				}
+			}
+		});
+		var geocoder = document.getElementById("addvideo");
+		MAP.geoCoding(oMarker, geocoder);//déplacer le curseur directement à l'endroit saisi
+		google.maps.event.addListener( oMarker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
+		google.maps.event.addListener( oMarker, 'mouseout', MAP.MouseOut);//restauration sur le mouseout
+		google.maps.event.addListener( oMarker, 'dragend', MAP.NouvPos);//afficher la nouvelle position d'un marqueur si on le déplace
+		
+    },
+	geoCoding : function(marker,geocoding)
+	{
+		
+		geocoding.addEventListener('submit',function(e)
+		{
+			e.preventDefault();
+			var address=document.querySelector("input[name='position']");
+			var geocoder=new google.maps.Geocoder(); //objet de google maps
+			geocoder.geocode({"address":address.value},function(data,status)
+			{
+				if(status=='OK')
+				{
+					marker.setMap(null);
+					MAP.map.setCenter(data[0].geometry.location);
+					// Va permettre de récupérer toutes les villes de même nom et leurs coordonnées
+					for(i=0;i<data.length;i++)
+					{
+						data[i];
+						console.log(data[i]);
+					}
+					marker = new google.maps.Marker({icon:'img/icone.png',position: data[0].geometry.location,map:MAP.map});
+					marker.setDraggable(true);
+					google.maps.event.addListener( marker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
+					google.maps.event.addListener( marker, 'mouseout', MAP.MouseOut);//restauration sur le mouseout
+					google.maps.event.addListener( marker, 'dragend', MAP.NouvPos);//afficher la nouvelle position d'un marqueur si on le déplace
+				}
+			});
+		},false);
+		
+	},
 	setEventMarker : function ( marker, infowindow, texte)
 	{
 	  google.maps.event.addListener( marker, 'click', function() 
@@ -214,24 +290,13 @@ window.fbAsyncInit = function() {
 window.FBAPI = {
 	showProfile: function(access_token) {
 		console.log('show profile');
-		$('#facebookConnect').addClass('hidden');
+		$('#facebookAuth').addClass('hidden');
 		$('#userInfos').removeClass('hidden');
+		$('#userMenu').removeClass('hidden');
 
-		$.ajax({
-			url: 'https://graph.facebook.com/me',
-			method: 'GET',
-			async: false,
-			data: {
-				access_token: access_token,
-				fields: 'id,name'
-			},
-			complete: function(response) {
-				if(response.status!=200) return false;
-				var data = JSON.parse(response.responseText);
-				console.log(data);
-				$('#userName').text(data.name);
-				$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
-			}
+		FB.api('/me', function(data) {
+			$('#userName').text(data.name);
+			$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
 		});
 
 	},
@@ -239,7 +304,317 @@ window.FBAPI = {
 	showFacebookButton: function() {
 		console.log('show facebook button');
 
-		$('#facebookConnect').removeClass('hidden');
+		$('#facebookAuth').removeClass('hidden');
 		$('#userInfos').addClass('hidden');
+		$('#userMenu').addClass('hidden');
 	}
 }
+
+//Send_video.php
+$('.choix').click(function(e){
+	var n = $(this).parent().text().length;
+	$('#lieu').text($(this).parent().text().substring(0,n-20));
+	e.preventDefault();
+});
+
+$('input[name="verif"]').focusout(function(){
+		var n = $(this).index()+1;
+	if($(this).val() == ''){
+		if(n%5 == 0){
+			$('.input').eq(0).attr('class','input non');
+		}
+		else{
+			$('.input').eq(1).attr('class','input non');
+		}
+	}
+	else{
+		if(n%5 == 0){
+			$('.input').eq(0).attr('class','input oui');
+		}
+		else{
+			$('.input').eq(1).attr('class','input oui');
+		}
+	}
+});
+
+//time until
+
+$('[data-timeUntil]').each(function() {
+	$el = $(this);
+	setInterval(function() {
+
+		//alert($(this).attr('data-timeUntil'));
+		var datetime = new Date($el.attr('data-timeUntil'));
+		var datetimeToday = new Date();
+		var dateToGo = new Date();
+		dateToGo.setTime(datetime.getTime()-datetimeToday.getTime());
+
+		var totalHours = ((dateToGo.getFullYear()-1970)*12*30*24)+(dateToGo.getMonth()*30*24)+(dateToGo.getDate()*24) + dateToGo.getHours(); //not efficient if we have a date far away
+		$el.html(totalHours+'h '+dateToGo.getMinutes()+'m '+dateToGo.getSeconds()+'s');
+	}, 1000)
+
+	
+
+});
+
+//Page défi
+$('#gallery ul li a').click(function(e){
+	e.preventDefault();
+    // getVideo(this);
+    var laVideo = document.getElementById('laVideo');
+    laVideo.style.display = 'inline-block';
+    var n = $('body').scrollTop() - 200;
+    laVideo.style.top=((window.innerHeight-laVideo.offsetHeight )/2)+n+'px';
+    return false;
+});
+
+//Liste des videos
+var username = 'user15011040';
+var callback = 'showGallery';
+var oEmbedCallback = 'switchVideo';
+var oEmbedEndpoint = 'http://vimeo.com/api/oembed.json'
+var url = 'http://vimeo.com/api/v2/' + username + '/videos.json?callback=' + callback;
+var videos = new Array();
+var defi = {};//Initialisation d'un objet contenant tous les défis
+defi.flamby = new Array();//Tableau contenant les videos du défi "Gobage de Flamby"
+defi.gangnam = new Array();//Tableau contenant les videos du défi "Dansez le gangnam style"
+var url_page = window.location.pathname;
+var page = 2;
+
+$(document).ready(function(){
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('src', url);
+    document.getElementsByTagName('head').item(0).appendChild(js);
+});
+
+//Afficher la galerie
+function showGallery(video) {
+    videos = video;
+    var n = 0;
+    var m = 0;
+    for(i = 0; i < videos.length; i++){
+    	if(video[i].tags == 'gangnam'){
+    		defi.gangnam[n] = video[i];
+    		n++;
+    	}
+    	else if(video[i].tags == 'flamby'){
+    		defi.flamby[m] = video[i];
+    		m++;
+    	}
+    }
+    if(url_page.indexOf('flamby') != -1 ){
+		page = 0;
+		affiche(defi.flamby,page);
+	}
+	else if(url_page.indexOf('gangnam') != -1 ){
+		page = 0;
+		affiche(defi.gangnam,page);
+	}
+	else{
+		affiche(video,page);
+	}
+}
+//Afficher la galerie
+function affiche(video,page){
+	if(page == 1){
+	    var ul = document.createElement('ul');
+	    var gallery = document.getElementById('resultat_recherche');
+	    gallery.innerHTML = ' ';
+	    gallery.appendChild(ul);
+	    for(i = 0; i < video.length; i++){
+	        var li = document.createElement('li');
+	        ul.appendChild(li);
+	        li.setAttribute('class','video');
+
+	        var a = document.createElement('a');
+	        li.appendChild(a);
+	        a.setAttribute('href',video[i].url);
+
+	        var img = document.createElement('img');
+	        a.appendChild(img);
+	        img.setAttribute('src',video[i].thumbnail_medium);
+	        img.setAttribute('title',video[i].thumbnail_medium);
+	        img.setAttribute('alt',video[i].thumbnail_medium);
+
+	        var h3 = document.createElement('h3');
+	        li.appendChild(h3);
+	        h3.innerHTML = video[i].title;
+
+	        var p1 = document.createElement('p');
+	        li.appendChild(p1);
+	        p1.innerHTML = 'réalisé le';
+
+	        var date = document.createElement('p');
+	        li.appendChild(date);
+	        date.innerHTML = video[i].upload_date;
+
+	        var p2 = document.createElement('p');
+	        li.appendChild(p2);
+	        p2.innerHTML = 'à';
+
+	        var lieu = document.createElement('p');
+	        li.appendChild(lieu);
+	        lieu.innerHTML = 'Montreuil';
+
+	        var p3 = document.createElement('p');
+	        li.appendChild(p3);
+	        p3.innerHTML = ' - ';
+
+	        var duree = document.createElement('p');
+	        li.appendChild(duree);
+	        duree.innerHTML = video[i].duration;
+
+	        var auteur = document.createElement('p');
+	        auteur.setAttribute('class','auteur');
+	        li.appendChild(auteur);
+	        auteur.innerHTML = 'par';
+
+	        var lien = document.createElement('a');
+	        auteur.appendChild(lien);
+	        lien.setAttribute('href','#');
+	        lien.innerHTML = video[i].user_name;
+
+	        var description = document.createElement('p');
+	        li.appendChild(description);
+	        description.setAttribute('class','description');
+	        description.innerHTML = video[i].description;
+	    }
+	}
+	else{
+		var ul = document.createElement('ul');
+        var gallery = document.getElementById('gallery');
+        gallery.innerHTML = ' ';
+        gallery.appendChild(ul);
+        for(i = 0; i < video.length; i++){
+            var li = document.createElement('li');
+            ul.appendChild(li);
+
+            var a = document.createElement('a');
+            li.appendChild(a);
+            a.setAttribute('href',video[i].url);
+
+            var img = document.createElement('img');
+            a.appendChild(img);
+            img.setAttribute('src',video[i].thumbnail_medium);
+            img.setAttribute('title',video[i].thumbnail_medium);
+            img.setAttribute('alt',video[i].thumbnail_medium);
+
+            var p1 = document.createElement('p');
+            li.appendChild(p1);
+            p1.innerHTML = 'réalisé par';
+
+            var auteur = document.createElement('a');
+            p1.appendChild(auteur);
+            auteur.setAttribute('href','#');
+            auteur.innerHTML = video[i].user_name;
+
+	        var date = document.createElement('p');
+	        li.appendChild(date);
+	        date.innerHTML = video[i].upload_date;
+	    }
+	}
+	$('#resultat_recherche ul li a').click(function(e){
+		e.preventDefault();
+	    popin(this);
+	    return false;
+	});
+	$('#gallery ul li a').click(function(e){
+		e.preventDefault();
+	    popin(this);
+	    return false;
+	});
+}
+
+function popin(video){
+	getVideo(video);
+	var laVideo = document.getElementById('laVideo');
+    laVideo.style.display = 'inline-block';
+	var n = $('body').scrollTop() - 200;
+    laVideo.style.top=((window.innerHeight-laVideo.offsetHeight )/2)+n+'px';
+}
+
+//Afficher une video dans la popin
+function getVideo(url) { //Récupère les informations relatives à la video
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('src', oEmbedEndpoint + '?url=' + url + '&width=620&height=350&callback=' + oEmbedCallback);
+    document.getElementsByTagName('head').item(0).appendChild(js);
+}
+
+function switchVideo(video) {
+    var laVideo = document.getElementById('laVideo');
+    laVideo.innerHTML += unescape(video.html);//Affiche la video
+    $('#close').click(function(e){ //Pour fermer la video
+		e.preventDefault();
+		var laVideo = document.getElementById('laVideo');
+		laVideo.innerHTML = ' ';
+		laVideo.style.display='none';
+		return false;
+	});
+}
+
+//Navigation Trier par Date ou Popularité
+$('.classement').click(function(e){
+	$('.classement').removeClass('active');
+	$(this).addClass('active');
+	if($(this).text() == 'Popularité'){
+		if(url_page.indexOf('flamby') != -1 ){
+			popularite(defi.flamby);
+		}
+		else if(url_page.indexOf('gangnam') != -1 ){
+			popularite(defi.gangnam);
+		}
+		else{
+			popularite(videos);
+		}
+	}
+	else{
+		if(url_page.indexOf('flamby') != -1 ){
+			recente(defi.flamby);
+		}
+		else if(url_page.indexOf('gangnam') != -1 ){
+			recente(defi.gangnam);
+		}
+		else{
+			recente(videos);
+		}
+	}
+	e.preventDefault();
+});
+
+//Classement par popularité
+function popularite(video){
+    var temp;
+    for(i = 0; i < video.length-1; i++){
+        var max = i;
+        for(j = i+1; j < video.length; j++){
+            if(video[max].stats_number_of_likes < video[j].stats_number_of_likes){
+                max = j;
+            }
+        }
+        temps = video[i];
+        video[i] = video[max];
+        video[max] = temps;
+    }
+    affiche(video,page);
+}
+
+//Classement par date
+function recente(video){
+    var temp;
+    for(i = 0; i < video.length-1; i++){
+        var max = i;
+        for(j = i+1; j < video.length; j++){
+            if(video[max].upload_date < video[j].upload_date){
+                max = j;
+            }
+        }
+        temps = video[i];
+        video[i] = video[max];
+        video[max] = temps;
+    }
+    affiche(video,page);
+}
+
+//Konami Code

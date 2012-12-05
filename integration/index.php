@@ -48,7 +48,7 @@
 					<li>Votants : </li>
 				</ul>
 				<ul class="info-valeurs yellow">
-					<li>53h 43min 32sec</li>
+					<li data-timeUntil="Sat, 8 Dec 2012 20:00:00 GMT">c</li>
 					<li>32</li>
 					<li>145</li>
 				</ul>

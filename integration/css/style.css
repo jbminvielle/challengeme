@@ -83,12 +83,49 @@ padding:10px 0;position:relative;}
 
 /* EN-TETE
 -------------------------------------------------- */
-#global>header {margin:0 auto;position:relative;z-index:30;background: #7b06a6 ;width:100%;height:200px;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;}
-#logo {background: url(../img/logo.png) no-repeat 50%;height:100%;}
-#logo a {font:68px 'Noteworthy';line-height:160px;text-shadow: 0px 5px 5px #d09523;filter: dropshadow(color=#d09523, offx=0, offy=5);}
-#userplace {position:absolute;top:0;right:100px;}
-#facebookConnect {width:120px;height:25px;}
-.separator {background:#7b06a6;height:10px;display:block;width:100%}
+#global>header {margin:0 auto;position:relative;z-index:30;background: #7b06a6 ;width:100%;height:150px;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;}
+#global>header>#wrapper {width:960px; position:relative; margin: auto;}
+#logo {background: url(../img/logo.png) no-repeat 48% 50%;height:100%;}
+#logo a {font:68px 'Noteworthy';line-height:160px;/*text-shadow: 0px 5px 5px #d09523;*/filter: dropshadow(color=#d09523, offx=0, offy=5);color:transparent;}
+#userPlace p{color:#fff;margin: 50px 5px 5px 0;}
+#userPlace { position:absolute;top:0;right:50px; width:140px;height: 155px;background-color: #FFB62A;
+-webkit-box-shadow: -1px -2px 10px 2px #550473;box-shadow: -1px -2px 10px 2px #550473;}
+#facebookConnect {display: block;margin:0 0 0 15px;}
+#facebookConnect:hover {background:#4b67a1;}
+#facebookConnect span {overflow:hidden;width:25px;height:25px;display:block;position:absolute;top:0;left:-1px;border:1px solid #b2b2b2;border-top:none;}
+
+#facebookAuth {
+	text-align:center;
+}
+
+#userInfos {
+	text-align:left;
+	font-family: inherit;
+	color: #f5f5f5;
+	font-size: 23px;
+}
+#userPicture {
+	border: solid 1px #7b06a6;
+	width: 23px;
+	height: 23px;
+	float: left;
+	margin: 7px;
+}
+#userName {
+	font-size: 15px;
+}
+#userMenu {
+	font-family: inherit;
+	font-size: 15px;
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	color: #2a2a2a;
+}
+
+#userMenu a {
+	color: inherit;
+} 
 
 /* MENU
 -------------------------------------------------- */
@@ -123,7 +160,11 @@ a.disabled{opacity: 0; cursor:default;}
 /* DEFI SEMAINE ACCUEIL
 -------------------------------------------------- */
 #defi-semaine {float:left;border-right:1px solid #7b06a6;padding:0 20px 5px 0;}
+<<<<<<< HEAD
 #defi-semaine-head {font-style:italic;font-size:28px;padding:5px 45px;float:left;}
+=======
+#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:28px;padding:5px 45px;float:left;box-shadow:none;}
+>>>>>>> 7aacef9dc2632cb7655be09467a9389d4c2cadde
 #defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:36px;}
 #defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:38px;width:180px;height:85px;padding:8px 18px;margin:15px 0 0 0; float:right;text-align:center;}
 #defi-semaine img {border:5px solid #7b06a6;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #a8a8a8;box-shadow: 2px 2px 18px 0px #a8a8a8;
