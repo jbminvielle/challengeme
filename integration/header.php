@@ -46,7 +46,7 @@
 		<div id="container">
 			<nav>
 				<ul>
-					<li class="current"><a href="#">Accueil</a></li>
+					<li class="current"><a href="index.php">Accueil</a></li>
 					<li><a href="liste_challenge.php">Défis</a></li>
 					<li><a href="liste_video.php">Videos</a></li>
 					<li><a href="classement.php">Classement</a></li>
