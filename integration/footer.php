@@ -1,3 +1,5 @@
+	</div> <!-- #livecontent -->
+
 	<footer class="clearfix">
 		<div id="reseaux" class="foot-colonne">
 			<p class="titre-foot">Retrouvez ChallengeMe</p>
