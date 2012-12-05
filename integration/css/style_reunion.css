@@ -1,0 +1,307 @@
+/*
+* Challenge Me Stylesheet
+* Copyright 2012, Koune, Laumond, Minvielle, Schmitt, Souville
+* HETIC H3 P2015
+*/
+
+
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline; }
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block; }
+	body {
+		line-height: 1;		}
+	ol, ul {
+		list-style: none; }
+	blockquote, q {
+		quotes: none; }
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none; }
+	table {
+		border-collapse: collapse;
+		border-spacing: 0; }
+	* {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+		
+/* #Clearing */
+    /* Self Clearing Goodness */
+    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns, or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after {content: '\0020';display: block;overflow: hidden;visibility: hidden;width: 0;height: 0; }
+    .clearfix:after {clear: both; }
+    .clearfix {zoom: 1; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0;}
+
+@font-face {
+    font-family: 'Noteworthy';
+	src: url('../fonts/noteworthy.eot');
+	src: local('☺'), url('../fonts/noteworthy.woff') format('woff'), url('../fonts/noteworthy.otf') format('opentype'), url('../fonts/noteworthy.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'Benchnine';
+	src: url('../fonts/benchnine-bold.eot');
+	src: local('☺'), url('../fonts/benchnine-bold.woff') format('woff'), url('../fonts/benchnine-bold.ttf') format('truetype'), url('../fonts/benchnine-bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+	
+/* STYLE DE BASE 
+-------------------------------------------------- */
+body {background:#e2e2e2;font:18px 'Benchnine';font-weight:bold;color:#2a2a2a;}
+a {text-decoration:none;color:#fff;}
+strong {font-weight:bold;}
+.last {border:none !important;}
+#global {}
+#container {width:960px;margin:0 auto;border:2px solid #dadada;border-top:none;
+background: #f3f3f3;
+/*background: -moz-linear-gradient(top, #fff 0%, #d6d6d6 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#d6d6d6));
+background: -webkit-linear-gradient(top, #fff 0%,#d6d6d6 100%);
+background: -o-linear-gradient(top, #fff 0%,#d6d6d6 100%);
+background: -ms-linear-gradient(top, #fff 0%,#d6d6d6 100%);
+background: linear-gradient(to bottom, #fff 0%,#d6d6d6 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d6d6d6',GradientType=0 );*/
+padding:10px 0;position:relative;}
+
+/* EN-TETE
+-------------------------------------------------- */
+#global>header {margin:0 auto;position:relative;z-index:30;background: #7b06a6 ;width:100%;height:150px;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;}
+#logo {background: url(../img/logo.png) no-repeat 48% 50%;height:100%;}
+#logo a {font:68px 'Noteworthy';line-height:160px;/*text-shadow: 0px 5px 5px #d09523;*/filter: dropshadow(color=#d09523, offx=0, offy=5);color:transparent;}
+#userplace p{color:#fff;margin: 50px 0 5px 0;}
+#userplace { position:absolute;top:0;right:210px; width:140px;height: 155px;background-color: #FFB62A;
+-webkit-box-shadow: -1px -2px 10px 2px #550473;box-shadow: -1px -2px 10px 2px #550473;}
+#facebookConnect {display: block;margin:0 0 0 15px;}
+#facebookConnect:hover {background:#4b67a1;}
+#facebookConnect span {overflow:hidden;width:25px;height:25px;display:block;position:absolute;top:0;left:-1px;border:1px solid #b2b2b2;border-top:none;}
+.separator {background:#7b06a6;height:10px;display:block;width:100%}
+
+/* MENU
+-------------------------------------------------- */
+nav {text-transform:uppercase;font-size:36px; line-height:1em;}
+nav li {display:inline; margin:0 63px;}
+nav a {color:#c1c1c1;}
+nav a:hover {color:#ffb62a;}
+.current a {color:#ffb62a;}
+
+
+
+/* SLIDER ACCUEIL
+-------------------------------------------------- */
+#main-slider {width:956px;height:335px;position:relative;overflow:hidden;}
+#main-slider li, #main-slider img {float:left;}
+#main-slider  p {position:absolute;bottom:25px;margin:0 30px;z-index:10;display:block;}
+#main-slider  span {color:#fff;display:inline;}
+#list-slider {list-style-type:none;}
+.titre-slide {font-size:34px;}
+.sous-titre-slide {font-size:22px;margin-left:40px;}
+.prev-slide, .next-slide {background:url(../img/sprite.png) no-repeat; position:absolute;z-index:30;top:110px;width:35px;height:98px;}
+.prev-slide:hover, .next-slide:hover {top:110px;width:40px;height:98px;}
+.prev-slide {background-position: 2px -113px;left:15px;}
+.next-slide {background-position: -42px -113px;right:18px;}
+.prev-slide:hover {background-position: -83px -113px;}
+.next-slide:hover {background-position: -125px -113px;}
+a.disabled{opacity: 0; cursor:default;}
+
+
+#bloc-defis {margin:30px 0;}
+
+/* DEFI SEMAINE ACCUEIL
+-------------------------------------------------- */
+#defi-semaine {float:left;border-right:1px solid #7b06a6;padding:0 20px 5px 0;}
+#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:28px;padding:5px 45px;float:left;box-shadow:none;}
+#defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:36px;}
+#defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:38px;width:180px;height:85px;margin:15px 0 0 0; float:right;text-align:center;}
+#defi-semaine-participer a{display: inline-block;width: 180px;height: 60px;padding: 7px 0 0 0;}
+#defi-semaine img {border:5px solid #7b06a6;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #a8a8a8;box-shadow: 2px 2px 18px 0px #a8a8a8;
+-moz-transform: rotate(3deg);-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);-ms-transform: rotate(3deg);transform: rotate(3deg);float:right;margin:10px 80px 0 0;}
+#defi-semaine-infos {float:left;clear:both;margin:4% 4% 0;}
+#defi-semaine-infos div {display:inline-block;margin:0 5px;}
+#defi-semaine-infos div:last-child {color:#ffa801;}
+
+/* CLASSEMENT ACCUEIL
+-------------------------------------------------- */
+#classement {float:left;padding-left:20px;}
+#classement p {color:#7b06a6;font-size:24px;}
+#classement a {color:#2a2a2a;display:inline-block;min-width:30%;}
+#classement ul li {font-size:20px;margin:5px 0;}
+#classement ul li:first-child a{color:#ffa801;font-size:24px;}
+#classement ul li span:first-child {color:#7b06a6;display:inline-block;min-width:40%;}
+#classement ul li span:last-child {width:0;height:0;border-bottom:10px solid transparent;border-left:10px solid #ffa801;border-right:10px solid transparent;border-top:10px solid transparent;position:absolute;margin:5px 20px;}
+#classement ul li:first-child span:last-child{border-left:10px solid #7b06a6;}
+
+#bandeau-participer {background: url(../img/sprite.png) no-repeat 0 -230px;height:90px;}
+#bandeau-participer a {line-height:90px;display:block;font-size:42px;width:50%;}
+#bandeau-participer a:first-child {float:left;text-align:center;}
+#bandeau-participer a:last-child {float:right;font-size:20px;padding-left:30px}
+
+/* MAP ACCUEIL
+-------------------------------------------------- */
+#map p {color:#7b06a6;font-size:36px;clear:both;margin: 20px 0 20px 32px;}
+#map > div {width:890px;height:515px;border:1px solid #5d5d5d;margin:0 auto;}
+
+/* PROFIL
+-------------------------------------------------- */
+#monprofil .bandeau-titre {font-size:2.8em;line-height:1.7em;padding:0 0.8em;}
+#monprofil img {width:150px;height:180px;border:1px solid black;}
+#nom-utilisateur {font-size:1.4em;}
+.partage-profil {font-size:1.1em;color:#b1b1b1;}
+.partage-profil span {width:20px;height:22px;background:url(../img/sprite.png) no-repeat -900px 0;display:inline-block;margin:0 5px -3px;}
+
+#num-classement {font-size:4.5em;line-height:1.5em;text-align:center;background:url(../img/sprite.png) no-repeat -741px 0;display:inline-block;width:120px;height:120px;}
+#classement-profil p {font-size:1.7em;display:inline-block;padding:0 0.2em;}
+#classement-profil p span {font-size:1.4em;line-height:0.6em;display:block;}
+
+#actions-profil a {background:#ffb62a;font-size:1.2em;border:1px solid #7B06A6;-webkit-box-shadow: inset 0px 0px 4px 1px #ce9424;
+box-shadow: inset 0px 0px 4px 1px #ce9424;width:140px;text-align:center;display:block;}
+
+#mesbadges p {font-size:1.5em;background:#f3f3f3;display:inline;padding:0 0.5em;}
+
+
+/* UTILITIES
+-------------------------------------------------- */
+
+.hidden {display: none!important;}
+
+/* FOOTER
+-------------------------------------------------- */
+footer {background:#2a2a2a;color:#fff;margin-top:40px;font-size:16px;padding:0 10px;}
+.foot-colonne {width:33.333%;float:left;margin:10px 0;padding:0 10px;border-right:1px solid #3b3b3b;}
+.titre-foot {font-size:22px;margin:0 0 5px;}
+#reseaux a {width:65px;height:65px;}
+#reseaux-facebook, #reseaux-twitter, #reseaux-vimeo {background: url(../img/sprite.png) no-repeat ;display:inline-block;margin:15px 0;}
+#reseaux-facebook {background-position: -525px 0;}
+#reseaux-facebook:hover {background-position: -525px -67px;}
+#reseaux-twitter {background-position: -598px 0;}
+#reseaux-twitter:hover {background-position: -598px -67px;}
+#reseaux-vimeo {background-position: -672px 0;}
+#reseaux-vimeo:hover {background-position: -672px -67px;}
+#reseaux #hetic {background:url(../img/hetic.png) no-repeat;display:block;width:150px;height:50px;display:block;margin:5px 0 0;}
+#plan-copyright {clear:both;font-size:14px;padding:0 0 5px;}
+#plan-copyright a, #plan-copyright p {color:#6a6a6a;display:inline;}
+#plan-copyright a:hover {color:#acacac;}
+#plan-copyright a:after {content:' -';}
+
+/* --------------------------------- liste_challenge.php --------------------------------- */
+/* ----------------- Défi de la semaine ----------------- */
+#defi_de_la_semaine{margin: 40px 0 0 0;height: 27em;}
+#defi-semaine-head{position: relative;box-shadow: none;}
+#defi-semaine-head h1{font-size: 1.9em;margin: 0.19em 0 0 0;}
+#absolute{position: absolute;top:210px;left:33px;width: 884px;margin: 0 auto;}
+#absolute img{border: 5px solid #FFA801;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;box-shadow: 2px 2px 18px 0px #A8A8A8;float: left;margin:0 50px 0 0;}
+#absolute h2{color:#7b06a6;font-size: 1.6em;margin: 0 0 0.65em 0;}
+#absolute span{font-size: 1.1em;font-weight: bold;}
+#absolute p{color:#2a2a2a;font-size: 1em;	margin:0 0 0.5em 0;}
+.call_action{font-size: 1.8em;color:#f5f5f5;padding: 0.28em;display: inline-block;background-color: #ffb62a;margin:0 1.2em;-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;box-shadow: 2px 2px 18px 0px #A8A8A8;}
+#information_defi ul{width:14em;margin: 1em 0 0 0;color: #2a2a2a;}
+#information_defi{margin:0.3em 0 0 0;}
+li{display: inline-block;width: 6em;color: #2a2a2a;}
+.orange{color:#ffb62a;}
+#podium{position: absolute;right: 0px;bottom:-1.4em;}
+#podium ul{width:310px;}
+#podium li{width: 100px;}
+#podium #titre{width: 10em;font-size: 1.5em;}
+.nom a{color: #ffb62a;font-size: 1.03em;text-decoration: none;}
+.likes{font-size: 0.87em;}
+
+/* ----------------- Bandeau de participation ----------------- */
+.autre_defi h1{color:#7b06a6;font-size: 1.2em;margin:0 0 24px 33px;position: relative;background-color: #F3F3F3;z-index: 20;display: inline;padding: 0 10px;}
+.autre_defi{position: relative;margin-bottom: 20px;}
+#ligne_orange{background-color: #ffb62a;height:10px;width: 956px;position: absolute;top: 0px;left: 0px;margin:10px 0 0 0;z-index: 2;}
+.autre_defi #bandeau-participer{margin-top: 20px;}
+.autre_defi #bandeau-participer a{line-height:90px;display:block;font-size:42px;width:50%;}
+
+/* -----------------Liste des défis ----------------- */
+#liste_des_defis{width: 884px;margin: 30px 33px 40px 33px;position: relative;}
+.defis_description img{border: 5px solid #FFA801;-webkit-border-radius: 8px;border-radius: 5px;-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;box-shadow: 2px 2px 18px 0px #A8A8A8;float: left;margin:0 30px 0 0;}
+#liste_des_defis h2{color: #7B06A6;font-size: 1em;margin: 0 0 0.1em 0;}
+.defis_description p{color: #2A2A2A;font-size: 1em;margin: 0 0 0.5em 0;width: 280px;display: inline-block;}
+.defis_description a{color: #f5f5f5;font-size: 25px;background: url(../img/bouton.png) no-repeat;padding: 0 0 0 6px;width: 109px;height: 31px;margin: 0 0 0 390px;display: block;}
+.top_video{display: inline-block;position: absolute;top: 0px;right: 0px;}
+.top_video div{display: inline-block;}
+.top_video p{font-size: 20px;color: #FFB62A;width: 104px;text-align: center;}
+
+/* --------------------------------- liste_video.php --------------------------------- */
+#videos{margin: 40px 0 0 0;height: 127em;}
+#absolute2{position: absolute;top:210px;left:0px;width: 100%;}
+#trier{margin:0 0 0 750px;display: inline-block;}
+#trier_par nav{display: inline-block;}
+.video{width:960px;}
+.video img{float: left;margin: 20px 20px 20px 40px;border: 5px solid #FFB62A;-webkit-border-radius: 8px;}
+.video h3{font-size: 27px;color:#ffb62a;padding:20px 0 0 0;}
+.video p{display: inline-block;font-size: 17px;color: #2a2a2a;margin: 0 6px 0 0;}
+.auteur a{color: #7b06a6;font-size: 17px;margin:0 0 0 6px;}
+.video .auteur{display: block;}
+.description{font-size: 15px;}
+
+/* ---------------------------- Envoie video ---------------------------- */
+#envoi {margin: 40px 0 0 0; height: 38em; }
+#envoi h2{font-size: 30px;}
+
+/* ----------------- Formulaire ----------------- */
+#addvideo label{font-size: 23px;position: relative;margin: 6px 0;display: inline-block; width:210px;}
+#addvideo span{font-size: 20px;}
+#addvideo p{font-size:20px; margin:0 10px 0 20px; display: inline-block;}
+#addvideo a{font-size:20px; margin:0 10px; color: #FFB62A;}
+#carte{width:500px; height:250px; background-color: pink;}
+#localisation{margin:-250px 0 0 500px;height:250px;}
+#addvideo ul{display:block;}
+#addvideo ul li{display: block;margin:0 0 0 20px;}
+#check{margin:30px 0 0 0;}
+input[type="submit"]{background-color: #FFB62A;width: 200px;height: 50px;margin: 20px 0 0 0;border: none;font:30px 'Myriad Pro Condensed'; color:#fff;}
+#addvideo .non{background:url(../img/input.png) no-repeat 0 0;width:25px;height:20px;margin:0;}
+#addvideo .oui{background:url(../img/input.png) no-repeat 0 -25px;width:25px;height:20px;margin: 0;}
+
+/* ---------------------------- Fin Envoie video ---------------------------- */
+
+/* ---------------------------- Page challenge.php ---------------------------- */
+#defi {margin: 40px 0 0 0; height: 20em; }
+#gmap{width: 890px;height: 300px;border: 1px solid #5D5D5D;background-color: pink;margin: 0 auto;margin-top: 20px;}
+#gallery ul{padding-top: 20px;margin:0 auto;width:890px;}
+#gallery ul li{width:220px;height:230px;display: inline-block;}
+#gallery ul li:hover{background-color: #dcdcdc;}
+#gallery ul li img{margin:10px 10px 0 10px;cursor: pointer;}
+#gallery ul li p{color:#FFB62A;font-size: 18px;margin: 0 5px 0 10px;}
+#gallery ul li a{color: #7B06A6; font-size: 20px;}
+.auteurClass{margin:0 4px;}
+
+/* ------------------------------- PopIn ------------------------------- */
+#laVideo{display: none;opacity: 1;height: 405px;width: 700px;position: absolute;z-index: 100;padding:20px 40px 30px 40px;background-color: #FFB62A;margin: 0 0 0 127px;border-radius: 10px;}
+#close{text-align: right;font-size: 0.8em; margin: -12px 0 2px 0;display: block;}
+nav .classement{color:#2A2A2A; font-size: 18px;text-transform: lowercase;}
+nav p{color:#2A2A2A; font-size: 18px;text-transform: lowercase;display: inline-block;}
+nav .active{color: #FFB62A;font-size: 18px;text-transform: lowercase;}
+.autre_defi nav{display: inline-block;}
+
+/* ---------------------------- Page classement.php ---------------------------- */
+#rank {margin: 40px 0 0 0; height: 52em; }
+.semaine_defi{position: relative;margin-top:0px;z-index: 20;}
+.semaine_defi img{display: block;position: absolute;top:-20px; left:570px;border: 5px solid #FFB62A;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #A8A8A8;box-shadow: 2px 2px 18px 0px #A8A8A8;z-index: 10;}
+.semaine_defi h2{position: absolute;top: 95px;left: 570px;color: #000;font-size:22px;}
+.join{position: absolute;top: 30px;left: 785px;display: inline-block;background-color: #FFB62A; width: 143px;height: 50px;-webkit-border-radius: 4px;border-radius: 4px;font-size: 35px;padding:3px 0 0 15px;}
+.semaine_defi ul{margin:25px 20px 0 20px;}
+.semaine_defi ul li{display: inline-block;width: 495px;}
+.semaine_defi ul li p,.semaine_defi ul li p a{font-size: 36px; color:#7b06a6;margin:0 20px;display:inline-block;}
+.semaine_defi .small li p,.semaine_defi .small li p a{font-size: 20px;margin:0 10px;}
+.semaine_defi .small li .nbr_like{color: #2a2a2a}
+.semaine_defi ul li:first-child{background: url(../img/bckg_class.png) no-repeat 7px 0;}
+.semaine_defi .small li:first-child{background: none;}
+.semaine_defi .small{margin: -163px 0 0 565px;}
+.semaine_defi .nbr_like{color: #c1c1c1;}
+.semaine_defi .nbr_like span{color: #ffb62a;}
+.semaine_defi .fb_voter a{background: url(../img/voter.png) no-repeat 7px 0;width: 70px;height: 24px;margin:0;}
