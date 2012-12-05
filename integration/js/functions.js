@@ -326,6 +326,7 @@ window.fbAsyncInit = function() {
 window.FBAPI = {
 	showProfile: function(access_token) {
 		console.log('show profile');
+		$('#facebookConnect').addClass('hidden');
 		$('#facebookAuth').addClass('hidden');
 		$('#userInfos').removeClass('hidden');
 		$('#userMenu').removeClass('hidden');
@@ -339,7 +340,7 @@ window.FBAPI = {
 
 	showFacebookButton: function() {
 		console.log('show facebook button');
-
+		$('#facebookConnect').removeClass('hidden');
 		$('#facebookAuth').removeClass('hidden');
 		$('#userInfos').addClass('hidden');
 		$('#userMenu').addClass('hidden');

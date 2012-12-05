@@ -12,6 +12,7 @@
 	<?php require('templates/index.tpl'); ?>
 	
 	<?php require('footer.php'); ?>
+
 	</div>
 	
 </body>

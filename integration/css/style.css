@@ -62,10 +62,12 @@
 	
 /* STYLE DE BASE 
 -------------------------------------------------- */
-body {background:#e2e2e2;font:18px 'Benchnine';font-weight:bold;color:#2a2a2a;}
+body {background:#e2e2e2;font:1.2em 'Benchnine';font-weight:bold;color:#2a2a2a;}
 a {text-decoration:none;color:#fff;}
 strong {font-weight:bold;}
 .last {border:none !important;}
+.yellow {color:#ffa801;}
+.violet {color:#7B06A6;}
 #global {}
 #container {width:960px;margin:0 auto;border:2px solid #dadada;border-top:none;
 background: #f3f3f3;
@@ -77,20 +79,20 @@ background: -ms-linear-gradient(top, #fff 0%,#d6d6d6 100%);
 background: linear-gradient(to bottom, #fff 0%,#d6d6d6 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d6d6d6',GradientType=0 );*/
 padding:10px 0;position:relative;}
+.bandeau-titre {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;}
 
 /* EN-TETE
 -------------------------------------------------- */
 #global>header {margin:0 auto;position:relative;z-index:30;background: #7b06a6 ;width:100%;height:150px;text-align:center;-webkit-box-shadow: 0px 5px 5px 0px #b4b4b4;box-shadow: 0px 5px 5px 0px #b4b4b4;}
 #global>header>#wrapper {width:960px; position:relative; margin: auto;}
 #logo {background: url(../img/logo.png) no-repeat 48% 50%;height:100%;}
-#logo a {font:68px 'Noteworthy';line-height:160px;/*text-shadow: 0px 5px 5px #d09523;*/filter: dropshadow(color=#d09523, offx=0, offy=5);color:transparent;}
+#logo a {font:68px 'Noteworthy';line-height:160px;/*text-shadow: 0px 5px 5px #d09523;*/filter: dropshadow(color=#d09523, offx=0, offy=5);/*color:transparent;*/}
 #userPlace p{color:#fff;margin: 50px 5px 5px 0;}
 #userPlace { position:absolute;top:0;right:50px; width:140px;height: 155px;background-color: #FFB62A;
 -webkit-box-shadow: -1px -2px 10px 2px #550473;box-shadow: -1px -2px 10px 2px #550473;}
 #facebookConnect {display: block;margin:0 0 0 15px;}
 #facebookConnect:hover {background:#4b67a1;}
 #facebookConnect span {overflow:hidden;width:25px;height:25px;display:block;position:absolute;top:0;left:-1px;border:1px solid #b2b2b2;border-top:none;}
-.separator {background:#7b06a6;height:10px;display:block;width:100%}
 
 #facebookAuth {
 	text-align:center;
@@ -127,7 +129,7 @@ padding:10px 0;position:relative;}
 
 /* MENU
 -------------------------------------------------- */
-nav {text-transform:uppercase;font-size:36px; line-height:1em;}
+nav {text-transform:uppercase;font-size:36px; line-height:1em;border-bottom:10px solid #7B06A6;}
 nav li {display:inline; margin:0 63px;}
 nav a {color:#c1c1c1;}
 nav a:hover {color:#ffb62a;}
@@ -158,30 +160,33 @@ a.disabled{opacity: 0; cursor:default;}
 /* DEFI SEMAINE ACCUEIL
 -------------------------------------------------- */
 #defi-semaine {float:left;border-right:1px solid #7b06a6;padding:0 20px 5px 0;}
-#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:28px;padding:5px 45px;float:left;box-shadow:none;}
+#defi-semaine-head {font-style:italic;font-size:28px;padding:5px 45px;float:left;}
+/*
+#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:28px;padding:5px 45px;float:left;box-shadow:none;}*/
 #defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:36px;}
 #defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:38px;width:180px;height:85px;padding:8px 18px;margin:15px 0 0 0; float:right;text-align:center;}
 #defi-semaine img {border:5px solid #7b06a6;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #a8a8a8;box-shadow: 2px 2px 18px 0px #a8a8a8;
 -moz-transform: rotate(3deg);-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);-ms-transform: rotate(3deg);transform: rotate(3deg);float:right;margin:10px 80px 0 0;}
 #defi-semaine-infos {float:left;clear:both;margin:4% 4% 0;}
-#defi-semaine-infos div {display:inline-block;margin:0 5px;}
-#defi-semaine-infos div:last-child {color:#ffa801;}
+#defi-semaine-infos ul {display:inline-block;margin:0 5px;}
 
 /* CLASSEMENT ACCUEIL
 -------------------------------------------------- */
 #classement {float:left;padding-left:20px;}
 #classement p {color:#7b06a6;font-size:24px;}
 #classement a {color:#2a2a2a;display:inline-block;min-width:30%;}
-#classement ul li {font-size:20px;margin:5px 0;}
+#classement a:hover {color:#c1c1c1;}
+#classement ul li {font-size:20px;margin:5px 0;position:relative;}
 #classement ul li:first-child a{color:#ffa801;font-size:24px;}
 #classement ul li span:first-child {color:#7b06a6;display:inline-block;min-width:40%;}
-#classement ul li span:last-child {width:0;height:0;border-bottom:10px solid transparent;border-left:10px solid #ffa801;border-right:10px solid transparent;border-top:10px solid transparent;position:absolute;margin:5px 20px;}
-#classement ul li:first-child span:last-child{border-left:10px solid #7b06a6;}
+#classement ul li .fleche {width:0;height:0;border-bottom:10px solid transparent;border-left:10px solid #ffa801;border-right:10px solid transparent;border-top:10px solid transparent;position:absolute;margin:5px 20px;left:70%;}
+#classement ul li:first-child .fleche{border-left:10px solid #7b06a6;}
 
-#bandeau-participer {background: url(../img/sprite.png) no-repeat 0 -230px;height:90px;}
-#bandeau-participer a {line-height:90px;display:block;font-size:42px;width:50%;}
-#bandeau-participer a:first-child {float:left;text-align:center;}
-#bandeau-participer a:last-child {float:right;font-size:20px;padding-left:30px}
+#bandeau-participer {background: url(../img/sprite.png) no-repeat 0 -230px;height:90px;white-space:nowrap;}
+#bandeau-participer a {line-height:90px;font-size:30px;width:50%;display:inline-block;vertical-align:top;padding:0 10px;}
+#bandeau-participer a:first-child {font-size:42px;text-align:center;}
+#bandeau-participer a:last-child {padding:0 0 0 20px;}
+#bandeau-participer span {font-size:34px;padding:0 0 0 30px;}
 
 /* MAP ACCUEIL
 -------------------------------------------------- */
@@ -189,6 +194,22 @@ a.disabled{opacity: 0; cursor:default;}
 #map > div {width:890px;height:515px;border:1px solid #5d5d5d;margin:0 auto;}
 
 
+/* PROFIL
+-------------------------------------------------- */
+#monprofil .bandeau-titre {font-size:2.8em;line-height:1.7em;padding:0 0.8em;}
+#monprofil img {width:150px;height:180px;border:1px solid black;}
+#nom-utilisateur {font-size:1.4em;}
+.partage-profil {font-size:1.1em;color:#b1b1b1;}
+.partage-profil span {width:20px;height:22px;background:url(../img/sprite.png) no-repeat -900px 0;display:inline-block;margin:0 5px -3px;}
+
+#num-classement {font-size:4.5em;line-height:1.5em;text-align:center;background:url(../img/sprite.png) no-repeat -741px 0;display:inline-block;width:120px;height:120px;}
+#classement-profil p {font-size:1.7em;display:inline-block;padding:0 0.2em;}
+#classement-profil p span {font-size:1.4em;line-height:0.6em;display:block;}
+
+#actions-profil a {background:#ffb62a;font-size:1.2em;border:1px solid #7B06A6;-webkit-box-shadow: inset 0px 0px 4px 1px #ce9424;
+box-shadow: inset 0px 0px 4px 1px #ce9424;width:140px;text-align:center;display:block;}
+
+#mesbadges p {font-size:1.5em;background:#f3f3f3;display:inline;padding:0 0.5em;}
 
 
 /* UTILITIES
@@ -199,7 +220,7 @@ a.disabled{opacity: 0; cursor:default;}
 /* FOOTER
 -------------------------------------------------- */
 footer {background:#2a2a2a;color:#fff;margin-top:40px;font-size:16px;padding:0 10px;}
-.foot-colonne {width:33.333%;float:left;margin:10px 0;padding:0 10px;border-right:1px solid #3b3b3b;}
+.foot-colonne {width:33.333%;height:260px;float:left;margin:10px 0;padding:0 10px;border-right:1px solid #3b3b3b;}
 .titre-foot {font-size:22px;margin:0 0 5px;}
 #reseaux a {width:65px;height:65px;}
 #reseaux-facebook, #reseaux-twitter, #reseaux-vimeo {background: url(../img/sprite.png) no-repeat ;display:inline-block;margin:15px 0;}

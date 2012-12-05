@@ -38,7 +38,7 @@
 			</div>
 
 			<div id="logo">
-				<a href="#"><strong>Challenge Me !</strong></a>
+				<a href="index.php"><strong>Challenge Me !</strong></a>
 			</div>
 		</header>
 
@@ -55,3 +55,4 @@
 			<span class="separator">&nbsp;</span>
 
 			<div id="liveContent">
+

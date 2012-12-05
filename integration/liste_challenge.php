@@ -9,9 +9,8 @@
 
 	<link rel="stylesheet" href="css/style_temp.css">
 	<?php require('header.php'); ?>
-	<span class="separator">&nbsp;</span>
 	<section id="defi_de_la_semaine">
-		<header id="defi-semaine-head">
+		<header id="defi-semaine-head" class="bandeau-titre">
 			<h1>Le défi de la semaine</h1>
 		</header>
 		<div id="absolute">
