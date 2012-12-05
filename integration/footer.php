@@ -1,4 +1,4 @@
-	</div> <!-- #livecontent -->
+	</div> <!-- end of #livecontent -->
 
 	<footer class="clearfix">
 		<div id="reseaux" class="foot-colonne">

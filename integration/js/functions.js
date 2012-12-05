@@ -1,4 +1,36 @@
-﻿$(document).ready(function(){
+﻿// on click on a link non absolute : try to load template for this link :
+// if no result go to the .php
+
+$('a').click(function(ev) {
+	var $this = $(this);
+	var link = $this.attr('href');
+	//check if the link is a absolute one
+	if(link.substr(0, 7) == 'http://')
+		return true;
+
+	var returningTrue = false;
+
+	//else try to load page in ajax
+	var tpl = link.substr(0, link.length-4); //no .PHP 
+	$.ajax({
+		url: "templates/"+tpl+'.tpl',
+		async: false,
+		success: function(obj) {
+			$('#liveContent').html(obj);
+		},
+		error: function(obj) {
+			if(obj.status == 404)
+				//load normally
+				returningTrue = true;
+		}
+	});
+	if(returningTrue) return true;
+	ev.preventDefault();
+	return false;
+});
+
+
+$(document).ready(function(){
 	$('#list-slider').carouFredSel({
 		circular: false,
 		infinite: false,
@@ -51,6 +83,10 @@ window.CHALLENGEME = {
 
 		console.log(renderObj);
 		return renderObj;
+	},
+
+	openPage: function( pageName) {
+
 	}
 };
 
