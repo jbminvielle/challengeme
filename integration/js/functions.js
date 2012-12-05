@@ -158,7 +158,19 @@ window.MAP =
 		  position: pos
 		});
 		oMarker.setDraggable(true);//Permet de déplacer le marker sur la map
-		
+		//Va permettre de récupérer notre lieu à partir de nos coordonnées lat et long
+		var lieu = new google.maps.Geocoder();
+		var GeoReverse=lieu.geocode({'latLng': pos}, function(results, status) 
+		{
+			if (status == google.maps.GeocoderStatus.OK) 
+			{
+				if (results[1]) 
+				{
+				  console.log(results[1].formatted_address);
+				  console.log(results[1]);
+				}
+			}
+		});
 		var geocoder = document.getElementById("addvideo");
 		MAP.geoCoding(oMarker, geocoder);//déplacer le curseur directement à l'endroit saisi
 		google.maps.event.addListener( oMarker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
@@ -180,6 +192,12 @@ window.MAP =
 				{
 					marker.setMap(null);
 					MAP.map.setCenter(data[0].geometry.location);
+					// Va permettre de récupérer toutes les villes de même nom et leurs coordonnées
+					for(i=0;i<data.length;i++)
+					{
+						data[i];
+						console.log(data[i]);
+					}
 					marker = new google.maps.Marker({icon:'img/icone.png',position: data[0].geometry.location,map:MAP.map});
 					marker.setDraggable(true);
 					google.maps.event.addListener( marker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
