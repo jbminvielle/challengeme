@@ -158,7 +158,19 @@ window.MAP =
 		  position: pos
 		});
 		oMarker.setDraggable(true);//Permet de déplacer le marker sur la map
-		
+		//Va permettre de récupérer notre lieu à partir de nos coordonnées lat et long
+		var lieu = new google.maps.Geocoder();
+		var GeoReverse=lieu.geocode({'latLng': pos}, function(results, status) 
+		{
+			if (status == google.maps.GeocoderStatus.OK) 
+			{
+				if (results[1]) 
+				{
+				  console.log(results[1].formatted_address);
+				  console.log(results[1]);
+				}
+			}
+		});
 		var geocoder = document.getElementById("addvideo");
 		MAP.geoCoding(oMarker, geocoder);//déplacer le curseur directement à l'endroit saisi
 		google.maps.event.addListener( oMarker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
@@ -180,6 +192,12 @@ window.MAP =
 				{
 					marker.setMap(null);
 					MAP.map.setCenter(data[0].geometry.location);
+					// Va permettre de récupérer toutes les villes de même nom et leurs coordonnées
+					for(i=0;i<data.length;i++)
+					{
+						data[i];
+						console.log(data[i]);
+					}
 					marker = new google.maps.Marker({icon:'img/icone.png',position: data[0].geometry.location,map:MAP.map});
 					marker.setDraggable(true);
 					google.maps.event.addListener( marker, 'mouseover', MAP.MouseOver);//changer l'icone du marker au passage de la souris
@@ -272,23 +290,34 @@ window.fbAsyncInit = function() {
 window.FBAPI = {
 	showProfile: function(access_token) {
 		console.log('show profile');
-		$('#facebookAuth').addClass('hidden');
+		$('#facebookConnect').addClass('hidden');
 		$('#userInfos').removeClass('hidden');
 
-		FB.api('/me', function(data) {
-			$('#userName').text(data.name);
-			$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
+		$.ajax({
+			url: 'https://graph.facebook.com/me',
+			method: 'GET',
+			async: false,
+			data: {
+				access_token: access_token,
+				fields: 'id,name'
+			},
+			complete: function(response) {
+				if(response.status!=200) return false;
+				var data = JSON.parse(response.responseText);
+				console.log(data);
+				$('#userName').text(data.name);
+				$('#userPicture').attr('src', 'http://graph.facebook.com/'+data.id+'/picture');
+			}
 		});
+
 	},
 
 	showFacebookButton: function() {
 		console.log('show facebook button');
 
-		$('#facebookAuth').removeClass('hidden');
+		$('#facebookConnect').removeClass('hidden');
 		$('#userInfos').addClass('hidden');
 	}
-
-
 }
 
 //Send_video.php
@@ -340,7 +369,7 @@ var defi = {};//Initialisation d'un objet contenant tous les défis
 defi.flamby = new Array();//Tableau contenant les videos du défi "Gobage de Flamby"
 defi.gangnam = new Array();//Tableau contenant les videos du défi "Dansez le gangnam style"
 var url_page = window.location.pathname;
-var page = 2;
+var page = 1;
 
 $(document).ready(function(){
     var js = document.createElement('script');
@@ -372,8 +401,7 @@ function showGallery(video) {
 		page = 0;
 		affiche(defi.gangnam,page);
 	}
-	else if(url_page.indexOf('video') != -1 ){
-		page = 1;
+	else{
 		affiche(video,page);
 	}
 }
@@ -578,3 +606,5 @@ function recente(video){
     }
     affiche(video,page);
 }
+
+//Konami Code
