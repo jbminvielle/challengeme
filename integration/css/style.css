@@ -160,11 +160,9 @@ a.disabled{opacity: 0; cursor:default;}
 /* DEFI SEMAINE ACCUEIL
 -------------------------------------------------- */
 #defi-semaine {float:left;border-right:1px solid #7b06a6;padding:0 20px 5px 0;}
-<<<<<<< HEAD
 #defi-semaine-head {font-style:italic;font-size:28px;padding:5px 45px;float:left;}
-=======
-#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:28px;padding:5px 45px;float:left;box-shadow:none;}
->>>>>>> 7aacef9dc2632cb7655be09467a9389d4c2cadde
+/*
+#defi-semaine-head {background: url(../img/sprite.png) no-repeat 0 0; height:110px;width:480px;position:relative;left:-18px;color:#fff;font-style:italic;font-size:28px;padding:5px 45px;float:left;box-shadow:none;}*/
 #defi-semaine-head p:first-child {color:#7b06a6;font-style:normal;font-size:36px;}
 #defi-semaine-participer {background: url(../img/sprite.png) no-repeat -175px -115px;font-size:38px;width:180px;height:85px;padding:8px 18px;margin:15px 0 0 0; float:right;text-align:center;}
 #defi-semaine img {border:5px solid #7b06a6;-webkit-border-radius: 8px;border-radius: 8px;-webkit-box-shadow: 2px 2px 18px 0px #a8a8a8;box-shadow: 2px 2px 18px 0px #a8a8a8;
