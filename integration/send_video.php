@@ -34,7 +34,7 @@
 		      	<section id="localisation">
 			      	<p>Votre position : </p>
 			      	<p>
-			      		Montreuil
+			      		<div id="answer"></div>
 			      		<a href="#" class="choix">Choisir</a>
 			      	</p><br />
 			      	<p>Choisir un autre lieu</p>
